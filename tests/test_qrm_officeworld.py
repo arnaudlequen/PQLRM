@@ -16,14 +16,9 @@ Propositions emitted by OfficeWorldRM._get_true_props
 "wall", "decoration", "coffee", "office", "mail", "A", "B", "C", "D"
 (or their negations "!wall", "!coffee", etc.)
 """
-
-import numpy as np
-
 from environments.office_world_rm import OfficeWorldRM
-from reward_machines.reward_machine import RewardMachine
-from reward_machines.reward_functions import ConstantRewardFunction
-from rl_agents.qrm import QRMAgent, MultiTaskQRMTrainer
-from run_experiments_pqlrm_office_world import rm_get_mail, rm_get_coffee, rm_patrol, rm_no_hit_deco
+from baselines.qrm import QRMAgent, MultiTaskQRMTrainer
+from test_baselines_pqlrm_office_world import rm_get_mail, rm_get_coffee, rm_patrol, rm_no_hit_deco
 
 
 

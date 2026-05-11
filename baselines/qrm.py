@@ -21,12 +21,9 @@ from __future__ import annotations
 
 import random
 import numpy as np
-from collections import defaultdict
-from typing import Any, Iterable
 
 from reward_machines.reward_machine import RewardMachine
 from reward_machines.reward_functions import RewardFunction, ConstantRewardFunction, SumRewardFunction
-from reward_machines.reward_machine_utils import evaluate_dnf, value_iteration
 
 # ---------------------------------------------------------------------------
 # QRMAgent  —  single-task learner (one Q-table per RM state)

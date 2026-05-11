@@ -1,10 +1,6 @@
-import numpy as np
-
 from environments.pressurizedBountifulSeaTreasure import PBSTEnv, DiscreteObservationWrapper
-from reward_machines.reward_machine import RewardMachine
-from reward_machines.reward_functions import ConstantRewardFunction
-from rl_agents.qrm import QRMAgent, MultiTaskQRMTrainer
-from tests.test_pbst_rm import build_pbst_rm_time, build_pbst_rm_treasure, build_pbst_rm_pressure
+from baselines.qrm import QRMAgent, MultiTaskQRMTrainer
+from tests.test_rm_pbst import build_pbst_rm_time, build_pbst_rm_treasure, build_pbst_rm_pressure
 
 def test_qrm_pbst():
 

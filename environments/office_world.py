@@ -12,11 +12,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from reward_machines.reward_machine import RewardMachine
 import numpy as np
-
-import gymnasium as gym
-from gymnasium import Env, spaces, utils
-from gymnasium.envs.toy_text.utils import categorical_sample
-from gymnasium.error import DependencyNotInstalled
+from gymnasium import Env, spaces
 
 # Import shared map constants
 from environments.office_world_maps import UP, RIGHT, DOWN, LEFT, POSITION_MAPPING, MAPS

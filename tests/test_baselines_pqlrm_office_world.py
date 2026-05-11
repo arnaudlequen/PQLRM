@@ -1,8 +1,8 @@
 import numpy as np
 import os
 
-from morl_agents.pareto_q_learning.pql_rm import PQLRM
-from morl_agents.pareto_q_learning.pql import PQL
+from baselines.pql_rm import PQLRM
+from baselines.pql import PQL
 
 from reward_machines.reward_machine import RewardMachine,ConstantRewardFunction
 from environments.office_world import OfficeWorld, time_penalty, go_to_office

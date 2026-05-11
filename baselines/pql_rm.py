@@ -2,20 +2,16 @@
 
 import numbers
 from typing import Callable, List, Optional
-import time
 import copy
 import gymnasium as gym
 import numpy as np
 from itertools import product
 import rich
 
-from morl_agents.common.evaluation import log_all_multi_policy_metrics
-from morl_agents.common.morl_algorithm import MOAgent
-from morl_agents.common.pareto import get_non_dominated
-from morl_agents.common.performance_indicators import hypervolume
-from morl_agents.common.utils import linearly_decaying_value
-from reward_machines.reward_machine import RewardMachine
-from environments.cliffwalking import CliffWalkingEnv
+from common.morl_algorithm import MOAgent
+from common.pareto import get_non_dominated
+from common.performance_indicators import hypervolume
+from common.utils import linearly_decaying_value
 
 
 class PQLRM(MOAgent):

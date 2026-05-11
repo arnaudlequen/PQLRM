@@ -2,10 +2,10 @@ import numpy as np
 import os
 
 from environments.pressurizedBountifulSeaTreasure import PBSTEnv, DiscreteObservationWrapper
-from tests.test_pbst_rm import build_pbst_rm_time, build_pbst_rm_treasure, build_pbst_rm_pressure
+from tests.test_rm_pbst import build_pbst_rm_time, build_pbst_rm_treasure, build_pbst_rm_pressure
 
-from morl_agents.pareto_q_learning.pql_rm import PQLRM
-from morl_agents.pareto_q_learning.pql import PQL
+from baselines.pql_rm import PQLRM
+from baselines.pql import PQL
 
 def main():
     # -- Build RMs --
