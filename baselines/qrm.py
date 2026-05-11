@@ -174,7 +174,7 @@ class MultiTaskQRMTrainer:
 
             new_s, reward, terminated, truncated, info = env.step(a)
             props = info.get("props", [])      # always a list now
-            env_done = info.get("env_done", False)
+            env_done = info.get("env_done", terminated)
 
             episode_reward += float(np.asarray(reward).flat[0])
 
