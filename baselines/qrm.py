@@ -22,8 +22,8 @@ from __future__ import annotations
 import random
 import numpy as np
 
-from reward_machines.reward_machine import RewardMachine
-from reward_machines.reward_functions import RewardFunction, ConstantRewardFunction, SumRewardFunction
+from environments.reward_machines.reward_machine import RewardMachine
+from environments.reward_machines.reward_functions import RewardFunction, ConstantRewardFunction, SumRewardFunction
 
 # ---------------------------------------------------------------------------
 # QRMAgent  —  single-task learner (one Q-table per RM state)

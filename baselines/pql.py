@@ -6,10 +6,10 @@ from typing import Callable, List, Optional
 import gymnasium as gym
 import numpy as np
 
-from common.morl_algorithm import MOAgent
-from common.pareto import get_non_dominated
-from common.performance_indicators import hypervolume
-from common.utils import linearly_decaying_value
+from baselines.common.morl_algorithm import MOAgent
+from baselines.common.pareto import get_non_dominated
+from baselines.common.performance_indicators import hypervolume
+from baselines.common.utils import linearly_decaying_value
 import rich
 
 class PQL(MOAgent):

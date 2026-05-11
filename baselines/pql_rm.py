@@ -8,10 +8,10 @@ import numpy as np
 from itertools import product
 import rich
 
-from common.morl_algorithm import MOAgent
-from common.pareto import get_non_dominated
-from common.performance_indicators import hypervolume
-from common.utils import linearly_decaying_value
+from baselines.common.morl_algorithm import MOAgent
+from baselines.common.pareto import get_non_dominated
+from baselines.common.performance_indicators import hypervolume
+from baselines.common.utils import linearly_decaying_value
 
 
 class PQLRM(MOAgent):
