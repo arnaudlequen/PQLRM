@@ -6,11 +6,10 @@ from typing import Callable, List, Optional
 import gymnasium as gym
 import numpy as np
 
-from morl_agents.common.evaluation import log_all_multi_policy_metrics
-from morl_agents.common.morl_algorithm import MOAgent
-from morl_agents.common.pareto import get_non_dominated
-from morl_agents.common.performance_indicators import hypervolume
-from morl_agents.common.utils import linearly_decaying_value
+from baselines.common.morl_algorithm import MOAgent
+from baselines.common.pareto import get_non_dominated
+from baselines.common.performance_indicators import hypervolume
+from baselines.common.utils import linearly_decaying_value
 import rich
 
 class PQL(MOAgent):

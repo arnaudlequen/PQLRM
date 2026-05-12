@@ -9,15 +9,15 @@ import torch as th
 import wandb
 from pymoo.util.ref_dirs import get_reference_directions
 
-from morl_agents.common.pareto import filter_pareto_dominated
-from morl_agents.common.performance_indicators import (
+from baselines.common.pareto import filter_pareto_dominated
+from baselines.common.performance_indicators import (
     cardinality,
     expected_utility,
     hypervolume,
     igd,
     maximum_utility_loss,
 )
-from morl_agents.common.weights import equally_spaced_weights
+from baselines.common.weights import equally_spaced_weights
 
 
 def eval_mo(
