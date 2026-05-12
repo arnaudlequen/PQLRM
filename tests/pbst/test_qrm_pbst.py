@@ -1,6 +1,6 @@
 from environments.pressurizedBountifulSeaTreasure import PBSTEnv, DiscreteObservationWrapper
 from baselines.qrm import QRMAgent, MultiTaskQRMTrainer
-from tests.test_rm_pbst import build_pbst_rm_time, build_pbst_rm_treasure, build_pbst_rm_pressure
+from tests.pbst.test_rm_pbst import build_pbst_rm_time, build_pbst_rm_treasure, build_pbst_rm_pressure
 
 def test_qrm_pbst():
 

@@ -18,7 +18,7 @@ Propositions emitted by OfficeWorldRM._get_true_props
 """
 from environments.office_world_rm import OfficeWorldRM
 from baselines.qrm import QRMAgent, MultiTaskQRMTrainer
-from test_baselines_pqlrm_office_world import rm_get_mail, rm_get_coffee, rm_patrol, rm_no_hit_deco
+from tests.office_world.test_baselines_pqlrm_office_world import rm_get_mail, rm_get_coffee, rm_patrol, rm_no_hit_deco
 
 
 

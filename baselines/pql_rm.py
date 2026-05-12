@@ -2,16 +2,19 @@
 
 import numbers
 from typing import Callable, List, Optional
+import time
 import copy
 import gymnasium as gym
 import numpy as np
 from itertools import product
 import rich
 
-from common.morl_algorithm import MOAgent
-from common.pareto import get_non_dominated
-from common.performance_indicators import hypervolume
-from common.utils import linearly_decaying_value
+from baselines.common.evaluation import log_all_multi_policy_metrics
+from baselines.common.morl_algorithm import MOAgent
+from baselines.common.pareto import get_non_dominated
+from baselines.common.performance_indicators import hypervolume
+from baselines.common.utils import linearly_decaying_value
+from environments.reward_machines.reward_machine import RewardMachine
 
 
 class PQLRM(MOAgent):
@@ -85,11 +88,12 @@ class PQLRM(MOAgent):
 
         self.num_states = np.prod(self.env_shape)
         self.num_objectives = len(self.env.get_reward_sources())
-        # get all possible configurations from reward machines /
-        # TODO : modify to consider that reward sources may not be reward machines (value None)
+        
         states = [src.get_states() + [-1] for src in self.env.get_reward_sources() if hasattr(src, "step")]
+        self.terminal_states = []
         self.num_rms = len(states)
         configurations = product(*states)
+        # get all possible configurations from reward machines
         self.rm_configurations = []
         for s in configurations:
             self.rm_configurations.append(s)
@@ -98,9 +102,12 @@ class PQLRM(MOAgent):
         self.counts_rmd = np.zeros((len(self.rm_configurations), self.num_states, self.num_actions))
         self.non_dominated = {
              c:[
-                [{tuple(np.zeros(self.num_objectives))} for _ in range(self.num_actions)] for _ in range(self.num_states)
+                [{} for _ in range(self.num_actions)] for _ in range(self.num_states)
             ] for c in self.rm_configurations
         }
+
+
+
         self.avg_reward = {c:np.zeros((self.num_states, self.num_actions, self.num_objectives)) for c in self.rm_configurations}
 
         # Logging
@@ -139,7 +146,10 @@ class PQLRM(MOAgent):
         """
         q_sets = [self.get_q_set(rm_configuration, state, action) for action in range(self.num_actions)]
         candidates = set().union(*q_sets)
-        non_dominated = get_non_dominated(candidates)
+        if len(candidates) == 0:
+            non_dominated = {}
+        else:
+            non_dominated = get_non_dominated(candidates)
         scores = np.zeros(self.num_actions)
 
         for vec in non_dominated:
@@ -175,11 +185,15 @@ class PQLRM(MOAgent):
             A set of Q vectors.
         """
         nd_array = np.array(list(self.non_dominated[rm_configuration][state][action]))
-        q_array = self.avg_reward[rm_configuration][state, action] + self.gamma * nd_array
-        #if state in [39,54,69] and action == 2:
-        #    print("\t--- Q-sets ---")
-        #    print(f"\t{state = } ; {action = } ; {nd_array = } ; {q_array = }")
-        return {tuple(vec) for vec in q_array}
+
+        reward = self.avg_reward[rm_configuration][state, action]
+        if len(nd_array) == 0 and (np.zeros(self.num_objectives)-reward == 0).all() and not state in self.terminal_states:
+            return {}
+        elif len(nd_array) == 0:
+            return {tuple(reward)}
+        else:
+            q_array = reward + self.gamma * nd_array
+            return {tuple(vec) for vec in q_array}
 
     def select_action(self, rm_configuration : tuple, state: int, score_func: Callable):
         """Select an action in the current state.
@@ -194,12 +208,10 @@ class PQLRM(MOAgent):
         """
         if self.np_random.uniform(0, 1) < self.epsilon:
             action = self.np_random.integers(self.num_actions)
-            #print("random action", action)
             return action
         else:
             action_scores = score_func(state, rm_configuration)
             action = self.np_random.choice(np.argwhere(action_scores == np.max(action_scores)).flatten())
-            #print("greedy action", action_scores, action)
             return action
 
     def calc_non_dominated(self, rm_configuration: tuple, state: int):
@@ -214,10 +226,11 @@ class PQLRM(MOAgent):
         """
         candidates = set().union(*[self.get_q_set(rm_configuration, state, action) for action in range(self.num_actions)])
         
-        #print(f"Nb of vectors : {len(candidates)}, state : {state}, config : {rm_configuration}")
-        #print(candidates)
-        non_dominated = get_non_dominated(candidates)
-        return non_dominated
+        if len(candidates) == 0:
+            return {}
+        else:
+            non_dominated = get_non_dominated(candidates)
+            return non_dominated
 
     def train(
         self,
@@ -264,9 +277,6 @@ class PQLRM(MOAgent):
             # Use an isolated copy to avoid mutating the live training episode.
             callback_env = copy.deepcopy(self.env)
 
-
-        #print(f"Nb of configurations : {len(self.non_dominated)}")
-        #print(f"Dict (non-dominated) : {self.non_dominated.keys()}")
         episode_idx = 0
         while self.global_step < total_timesteps:
             episode_idx += 1
@@ -280,13 +290,13 @@ class PQLRM(MOAgent):
             # initialize the state vector of RMs
             initial_configuration = tuple(src.reset() for src in self.env.get_reward_sources() if hasattr(src, "step"))
             rm_configuration = initial_configuration
-            #print(f"Initial configuration : {rm_configuration}")
 
             terminated = False
             truncated = False
             last_state = None
             last_action = None
-            rich.print(f"Episode : {self.global_step}, Policies : {len(self.get_local_pcs(rm_configuration=initial_configuration, state=self.env.start_state_index))}")
+            rich.print(f"Episode : {self.global_step}, Policies : {self.get_local_pcs(rm_configuration=initial_configuration, state=self.env.start_state_index)}")
+            #rich.print(f"Episode : {self.global_step}, Policies : {len(self.get_local_pcs(rm_configuration=initial_configuration, state=self.env.start_state_index))}")
             # clean_policy = list(map(lambda x: (x[0], x[1]), self.get_local_pcs(rm_configuration=initial_configuration, state=self.env.start_state_index)))
             # print(f"Episode : {self.global_step}, Policies : {' -> '.join(clean_policy)}")
             while not (terminated or truncated) and self.global_step < total_timesteps and local_step < max_local_steps:
@@ -295,15 +305,9 @@ class PQLRM(MOAgent):
                 # choose action from state and current rm_state
                 action = self.select_action(state, rm_configuration, score_func)
 
-                # on n'utilise pas la reward obtenue ?
                 next_state, reward, terminated, truncated, info = self.env.step(action)
                 
                 next_rm_configuration = tuple(s for s in self.env.get_rm_states() if s is not None)
-                #print(next_rm_configuration)
-                
-                #print(f"local step : {local_step}; SA : {state, action}; Next State : {next_state}; Next_config : {next_rm_configuration}")
-                
-                #next_state = int(np.ravel_multi_index(next_state, self.env_shape))
 
                 self.counts[state, action] += 1
 
@@ -316,16 +320,7 @@ class PQLRM(MOAgent):
                             
                             # self.counts is not modified from pql since all counts are updated for all possible configuration of rms
                             
-                            #if rewards[1] < 0:  
-                            #    print(f"Configuration : {configuration}, State : {state}, Action : {action}, REWARD : {rewards} --> Next Config : {next_configuration}, Next state : {next_state}")
-                            #print(f"Current : {self.non_dominated[configuration][state][action]}, Non-dominated : {self.calc_non_dominated(next_configuration, next_state)}")
-                            
                             self.non_dominated[configuration][state][action] = self.calc_non_dominated(next_configuration, next_state)
-
-                            # Add "last" transition rewards at episode end
-                            # if terminated or truncated or local_step >= max_local_steps:
-                            #     last_rewards = self.episode_end(configuration)
-                            #     rewards += last_rewards
                             self.avg_reward[configuration][state, action] += (rewards - self.avg_reward[configuration][state, action]) / self.counts[state, action]
 
                 elif optimization == "Qsets":
@@ -340,10 +335,7 @@ class PQLRM(MOAgent):
 
                     # Counts are now dependent on the RM states
                     self.counts_rmd[rm_configuration, state, action] += 1
-                    # Add "last" transition rewards at episode end
-                    # if terminated or truncated or local_step >= max_local_steps:
-                    #     last_rewards = self.episode_end(rm_configuration)
-                    #     reward += last_rewards
+
                     self.avg_reward[rm_configuration][state, action] += (reward - self.avg_reward[rm_configuration][state, action]) / self.counts_rmd[rm_configuration, state, action]
                 elif optimization == "RI":
                     self.non_dominated[rm_configuration][state][action] = self.calc_non_dominated(next_rm_configuration, next_state)
@@ -352,23 +344,20 @@ class PQLRM(MOAgent):
                         if -1 not in configuration:
                             rewards, next_configuration = self.env.get_successor_rewards(configuration, state, action,
                                                                                          info)
-                            # Add "last" transition rewards at episode end
-                            # if terminated or truncated or local_step >= max_local_steps:
-                            #     last_rewards = self.episode_end(configuration)
-                            #     rewards += last_rewards
                             self.avg_reward[configuration][state, action] += (rewards - self.avg_reward[configuration][state, action]) / self.counts[state, action]
 
                 else:
                     self.non_dominated[rm_configuration][state][action] = self.calc_non_dominated(next_rm_configuration, next_state)
-
-                    # Add "last" transition rewards at episode end
-                    # if terminated or truncated or local_step >= max_local_steps:
-                    #     last_rewards = self.episode_end(rm_configuration)
-                    #     reward += last_rewards
                     self.avg_reward[rm_configuration][state, action] += (reward - self.avg_reward[rm_configuration][state, action]) / self.counts[state, action]
                             
                 rm_configuration = next_rm_configuration
                 state = next_state
+
+                if terminated and not next_state in self.terminal_states:
+                    self.terminal_states.append(next_state)
+                    for a in range(self.num_actions):
+                        for configuration in self.rm_configurations:
+                            self.non_dominated[configuration][next_state][a] = {tuple(np.zeros(self.num_objectives))}
 
                 if convergence_callback is not None and self.global_step % log_every == 0:
                     convergence_callback(
@@ -378,22 +367,6 @@ class PQLRM(MOAgent):
                         step=self.global_step,
                         episode=episode_idx,
                     )
-
-                #if terminated:
-                    #print(f"EPISODE TERMINATED -- {rm_configuration, state}")
-
-                # Note: if segfault, then this probably comes from here. This was last witnessed when we have a one-dimension objective
-                # if self.log and self.global_step % log_every == 0:
-                #     current_pf = list(self.get_local_pcs(rm_configuration=initial_configuration, state=self.env.start_state_index))
-                #     #self.performances["global_step"].append(self.global_step)
-                #     hv = hypervolume(ref_point, current_pf)
-                #     #self.performances["hv"].append(hypervolume(ref_point, current_pf))
-                #     #self.performances["cardinality"].append(len(current_pf))
-                #     cardinality = len(current_pf)
-                #
-                #     with open(self.output_file, "a") as of:
-                #         line = f"{self.experiment_name};{self.seed};{self.global_step};{round(hv, 4)};{cardinality}\n"
-                #         of.write(line)
 
             self.epsilon = linearly_decaying_value(
                 self.initial_epsilon,
@@ -434,17 +407,10 @@ class PQLRM(MOAgent):
         total_rew = np.zeros(self.num_objectives)
         current_gamma = 1.0
 
-        #print("-------------------")
-        #print(f"TARGET : {target} ")
         policy_steps = 0
-        #or np.all(np.round(target, decimals=2) == np.zeros(self.num_objectives)) or np.all(np.round(total_rew, decimals=2) == np.round(vec, decimals=2))
         while not (terminated or truncated)\
                 and policy_steps < max_steps:
             policy_steps += 1
-            #print(f"{state = } ; {rm_configuration = }")
-            #state = np.ravel_multi_index(state, self.env_shape)
-            #print(f"INITIAL : {vec}; TARGET : {target} ; CURRENT : {total_rew} ")
-            #time.sleep(0.5)
             closest_dist = np.inf
             closest_action = 0
             found_action = False
@@ -459,7 +425,7 @@ class PQLRM(MOAgent):
                 for q in non_dominated_set:
                     q = np.array(q)
                     dist = np.sum(np.abs(self.gamma * q + im_rew - target))
-                    #print(f"ACTION : {action}, REWARD : {im_rew}, NON-DOMINATED : {q}, DISTANCE : {dist}")
+
                     if dist < closest_dist:
                         closest_dist = dist
                         closest_action = action
@@ -467,7 +433,6 @@ class PQLRM(MOAgent):
                         candidate_vector = self.gamma * q + im_rew
                         selected_im_rew = im_rew
 
-                        # Comment below to compute the distance for all vectors
                         if dist < tol:
                             found_action = True
                             break
@@ -480,7 +445,7 @@ class PQLRM(MOAgent):
             state, reward, terminated, truncated, _ = env.step(closest_action)
             # To follow actions
             #env.render()
-            rm_configuration = tuple(s for s in env.get_rm_states() if s is not None) # should be adapted
+            rm_configuration = tuple(s for s in env.get_rm_states() if s is not None)
             
             total_rew += current_gamma * reward
             current_gamma *= self.gamma
@@ -500,7 +465,10 @@ class PQLRM(MOAgent):
         """
         q_sets = [self.get_q_set(rm_configuration, state, action) for action in range(self.num_actions)]
         candidates = set().union(*q_sets)
-        return get_non_dominated(candidates)
+        if len(candidates) == 0:
+            return {}
+        else:
+            return get_non_dominated(candidates)
 
     def episode_end(self, rm_configuration: tuple) -> np.ndarray:
         """Compute the rewards that RMs would grant for a "last" transition.

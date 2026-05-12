@@ -2,7 +2,7 @@ import numpy as np
 import os
 
 from environments.pressurizedBountifulSeaTreasure import PBSTEnv, DiscreteObservationWrapper
-from tests.test_rm_pbst import build_pbst_rm_time, build_pbst_rm_treasure, build_pbst_rm_pressure
+from tests.pbst.test_rm_pbst import build_pbst_rm_time, build_pbst_rm_treasure, build_pbst_rm_pressure
 
 from baselines.pql_rm import PQLRM
 from baselines.pql import PQL

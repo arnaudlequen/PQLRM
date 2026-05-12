@@ -6,10 +6,11 @@ from typing import Callable, List, Optional
 import gymnasium as gym
 import numpy as np
 
-from common.morl_algorithm import MOAgent
-from common.pareto import get_non_dominated
-from common.performance_indicators import hypervolume
-from common.utils import linearly_decaying_value
+from morl_agents.common.evaluation import log_all_multi_policy_metrics
+from morl_agents.common.morl_algorithm import MOAgent
+from morl_agents.common.pareto import get_non_dominated
+from morl_agents.common.performance_indicators import hypervolume
+from morl_agents.common.utils import linearly_decaying_value
 import rich
 
 class PQL(MOAgent):
@@ -55,6 +56,7 @@ class PQL(MOAgent):
         self.initial_epsilon = initial_epsilon
         self.epsilon_decay_steps = epsilon_decay_steps
         self.final_epsilon = final_epsilon
+        self.terminal_states = []
 
         # Algorithm setup
         self.ref_point = ref_point
@@ -84,9 +86,11 @@ class PQL(MOAgent):
         self.num_states = np.prod(self.env_shape)
         self.num_objectives = len(self.env.get_reward_sources())
         self.counts = np.zeros((self.num_states, self.num_actions))
-        self.non_dominated = [
-            [{tuple(np.zeros(self.num_objectives))} for _ in range(self.num_actions)] for _ in range(self.num_states)
-        ]
+        #self.non_dominated = [
+        #    [{tuple(np.zeros(self.num_objectives))} for _ in range(self.num_actions)] for _ in range(self.num_states)
+        #]
+        self.non_dominated = [[{} for _ in range(self.num_actions)] for _ in range(self.num_states)]
+        
         self.avg_reward = np.zeros((self.num_states, self.num_actions, self.num_objectives))
 
         # Logging
@@ -123,7 +127,10 @@ class PQL(MOAgent):
         """
         q_sets = [self.get_q_set(state, action) for action in range(self.num_actions)]
         candidates = set().union(*q_sets)
-        non_dominated = get_non_dominated(candidates)
+        if len(candidates) == 0:
+            non_dominated = {}
+        else:
+            non_dominated = get_non_dominated(candidates)
         scores = np.zeros(self.num_actions)
 
         for vec in non_dominated:
@@ -157,8 +164,14 @@ class PQL(MOAgent):
             A set of Q vectors.
         """
         nd_array = np.array(list(self.non_dominated[state][action]))
-        q_array = self.avg_reward[state, action] + self.gamma * nd_array
-        return {tuple(vec) for vec in q_array}
+        reward = self.avg_reward[state, action]
+        if len(nd_array) == 0 and (np.zeros(self.num_objectives)-reward == 0).all() and not state in self.terminal_states:
+            return {}
+        elif len(nd_array) == 0:
+            return {tuple(reward)}
+        else:
+            q_array = reward + self.gamma * nd_array
+            return {tuple(vec) for vec in q_array}
 
     def select_action(self, state: int, score_func: Callable):
         """Select an action in the current state.
@@ -187,13 +200,20 @@ class PQL(MOAgent):
         """
         candidates = set().union(*[self.get_q_set(state, action) for action in range(self.num_actions)])
         #print(f"Nb of vectors : {len(candidates)}, state : {state}")
-        non_dominated = get_non_dominated(candidates)
-        return non_dominated
+        #print(f"state : {state}, candidates : {candidates}")
+        if len(candidates) == 0:
+            return {}
+        else:
+            non_dominated = get_non_dominated(candidates)
+            if (tuple(np.zeros(3)) in non_dominated):
+                print("Zeros detected", state)
+            return non_dominated
 
     def train(
         self,
         total_timesteps: int,
         eval_env: gym.Env,
+        max_local_steps: Optional[int] = 50,
         ref_point: Optional[np.ndarray] = None,
         known_pareto_front: Optional[List[np.ndarray]] = None,
         num_eval_weights_for_eval: int = 50,
@@ -243,38 +263,26 @@ class PQL(MOAgent):
             #state = int(np.ravel_multi_index(state, self.env_shape))
             terminated = False
             truncated = False
-            #rich.print(f"Episode : {self.global_step}, Policies : {self.get_local_pcs(state=self.env.start_state_index)}")
-            rich.print(f"Episode : {self.global_step}, Policies : {len(self.get_local_pcs(state=self.env.start_state_index))}")
-            while not (terminated or truncated) and self.global_step < total_timesteps:
+            local_step = 0
+            rich.print(f"Episode : {self.global_step}, Policies : {self.get_local_pcs(state=self.env.start_state_index)}")
+            #rich.print(f"Episode : {self.global_step}, Policies : {len(self.get_local_pcs(state=self.env.start_state_index))}")
+            while not (terminated or truncated) and self.global_step < total_timesteps and local_step < max_local_steps:
                 self.global_step += 1
+                local_step += 1
                 action = self.select_action(state, score_func)
                 next_state, reward, terminated, truncated, _ = self.env.step(action)
-                #print(state, action, next_state, reward)
-                #next_state = int(np.ravel_multi_index(next_state, self.env_shape))
 
                 self.counts[state, action] += 1
+                
                 self.non_dominated[state][action] = self.calc_non_dominated(next_state)
+                
                 self.avg_reward[state, action] += (reward - self.avg_reward[state, action]) / self.counts[state, action]
                 
-                #if self.global_step >= 3490:
-                #    path = [(21,1), (22,0), (15,1), (16,1), (17,1), (18,1), (19,1), (20,2)]
-                #    for (s,a) in path:
-                #        print(f"Reward moyenne | état : {s} ; action : {a} --> ", self.avg_reward[s, a])
-                #        print(f"Vecteurs non dominés | état : {s} ; a : {a} --> ", self.non_dominated[s][a])
-                #print("Reward moyenne sur état : 19 ; action : 1 --> ", self.avg_reward[19, 1])
                 state = next_state
-
-                #if self.log and self.global_step % log_every == 0:
-                #    current_pf = list(self.get_local_pcs(state=eval_env.start_state_index))
-                    #self.performances["global_step"].append(self.global_step)
-                #    hv = hypervolume(ref_point, current_pf)
-                    #self.performances["hv"].append(hypervolume(ref_point, current_pf))
-                    #self.performances["cardinality"].append(len(current_pf))
-                #    cardinality = len(current_pf)
-
-                #    with open(self.output_file, "a") as of:
-                #        line = f"{self.experiment_name};{self.seed};{self.global_step};{round(hv, 4)};{cardinality}\n"
-                #        of.write(line)
+                if terminated and not next_state in self.terminal_states:
+                    self.terminal_states.append(next_state)
+                    for a in range(self.num_actions):
+                        self.non_dominated[next_state][a] = {tuple(np.zeros(self.num_objectives))}
                 
             self.epsilon = linearly_decaying_value(
                 self.initial_epsilon,
@@ -362,4 +370,7 @@ class PQL(MOAgent):
         """
         q_sets = [self.get_q_set(state, action) for action in range(self.num_actions)]
         candidates = set().union(*q_sets)
-        return get_non_dominated(candidates)
+        if len(candidates) == 0:
+            return {}
+        else:
+            return get_non_dominated(candidates)
