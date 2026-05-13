@@ -16,7 +16,7 @@ Propositions emitted by OfficeWorldRM._get_true_props
 "wall", "decoration", "coffee", "office", "mail", "A", "B", "C", "D"
 (or their negations "!wall", "!coffee", etc.)
 """
-from environments.office_world_rm import OfficeWorldRM
+from environments.office_world.office_world_rm import OfficeWorldRM
 from baselines.qrm import QRMAgent, MultiTaskQRMTrainer, SharedEnvTrainer
 from tests.office_world.test_baselines_pqlrm_office_world import rm_get_mail, rm_get_coffee, rm_patrol, rm_no_hit_deco
 
@@ -67,21 +67,21 @@ def test_qrm_office_shared(map_name: str = "default_office") -> None:
     # 3. One QRMAgent per task — all with the same N_states
     # ------------------------------------------------------------------
     agents = [
-        QRMAgent(rm_mail,        N_states, N_actions, alpha=0.1, gamma=0.9,  epsilon=0.3),
-        QRMAgent(rm_coffee,      N_states, N_actions, alpha=0.1, gamma=0.99, epsilon=0.3),
-        QRMAgent(rm_ptrl,        N_states, N_actions, alpha=0.1, gamma=0.99, epsilon=0.3),
-        QRMAgent(rm_no_deco, N_states, N_actions, alpha=0.1, gamma=0.99, epsilon=0.3),
+        QRMAgent(rm_mail,        N_states, N_actions, alpha=0.1, gamma=0.99,  epsilon=0.6),
+        QRMAgent(rm_coffee,      N_states, N_actions, alpha=0.1, gamma=0.99, epsilon=0.6),
+        QRMAgent(rm_ptrl,        N_states, N_actions, alpha=0.1, gamma=0.99, epsilon=0.6),
+        QRMAgent(rm_no_deco, N_states, N_actions, alpha=0.1, gamma=0.99, epsilon=0.6),
     ]
 
     # ------------------------------------------------------------------
     # 4. Trainer — override run_episode to use shared env correctly
     # ------------------------------------------------------------------
-    trainer = SharedEnvTrainer(agents, make_shared_env, max_steps_per_episode=100)
+    trainer = SharedEnvTrainer(agents, make_shared_env, max_steps_per_episode=250)
 
     # ------------------------------------------------------------------
     # 5. Training
     # ------------------------------------------------------------------
-    N_EPISODES  = 5_000
+    N_EPISODES  = 100_000
     PRINT_EVERY = 5_000
 
     print(f"\n── Training ({N_EPISODES} eps, round-robin across {len(agents)} tasks) ──")
