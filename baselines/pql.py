@@ -204,8 +204,6 @@ class PQL(MOAgent):
             return {}
         else:
             non_dominated = get_non_dominated(candidates)
-            if (tuple(np.zeros(3)) in non_dominated):
-                print("Zeros detected", state)
             return non_dominated
 
     def train(

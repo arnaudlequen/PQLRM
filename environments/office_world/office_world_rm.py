@@ -11,7 +11,7 @@ import numpy as np
 from gymnasium import Env, spaces
 
 # Import shared map constants
-from environments.office_world_maps import UP, RIGHT, DOWN, LEFT, POSITION_MAPPING, MAPS
+from environments.office_world.office_world_maps import UP, RIGHT, DOWN, LEFT, POSITION_MAPPING, MAPS
 
 def read_decorators(map, shape, decorator: str):
     loc = np.zeros(shape, dtype=bool)

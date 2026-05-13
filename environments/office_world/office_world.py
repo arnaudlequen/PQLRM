@@ -15,7 +15,7 @@ import numpy as np
 from gymnasium import Env, spaces
 
 # Import shared map constants
-from environments.office_world_maps import UP, RIGHT, DOWN, LEFT, POSITION_MAPPING, MAPS
+from environments.office_world.office_world_maps import UP, RIGHT, DOWN, LEFT, POSITION_MAPPING, MAPS
 
 def read_decorators(map, shape, decorator: str):
     loc = np.zeros(shape, dtype=bool)
@@ -73,11 +73,29 @@ class OfficeWorld(Env):
         # Decoration location
         self._decoration = read_decorators(map, self.shape, "X")
         self.hit_decoration = False
+        
 
         # Coffee location
         self._coffee = read_decorators(map, self.shape, "c")
 
         # All other decorators appear only a single time on the map
+
+        #self.local_props = np.empty(self.shape, dtype=object)
+        #allchecks = [self.is_wall, self.is_decoration, self.is_coffee, 
+        #             self.is_office, self.is_mail,
+        #             self.is_A, self.is_B, self.is_C, self.is_D]
+        
+        
+        #for x in range(self.shape[0]):
+        #    props = []
+        #    for y in range(self.shape[1]):
+        #        for f in allchecks:
+        #            p = str(f).split("_")[1].split(" ")[0]
+        #            if f((x,y)):
+        #                props.append(p)
+        #            else:
+        #                props.append("!"+p)
+        #        self.local_props[x][y] = props
 
         self.desc = np.asarray(self.map, dtype="c")
         self.s = self.start_state_index
@@ -111,7 +129,8 @@ class OfficeWorld(Env):
         env_done = self.is_office(new_position) #False #
 
         # ----- 2. Reward machines dynamics -----
-        rewards, new_configuration, rm_done = self._evaluate_rewards(self.s, self._rm_states, a)
+        #print(f"configuration : {self._rm_states} ; state : {current_pos} ; action : {a} ; next_state : {new_position}")
+        rewards, new_configuration, rm_done = self._evaluate_rewards(self.s, self._rm_states, a, show=False)
         self._rm_states = new_configuration.copy()
         #print('env_done:', env_done)
         #print('rm_done:', rm_done)
@@ -225,7 +244,7 @@ class OfficeWorld(Env):
         return self.map[position[0]][position[1]] == "D"
     
 
-    def _get_true_props(self, next_position, current_state, action=None):
+    def _get_true_props(self, next_position, current_state=None, action=None):
         props = []
         policy_props = []
         allchecks = [self.is_wall, self.is_decoration, self.is_coffee, 
@@ -239,6 +258,8 @@ class OfficeWorld(Env):
             else:
                 props.append("!"+p)
 
+        #props = self.local_props[next_position[0]][next_position[1]]
+
         # if an RM is dedicated to the policy previously learnt
         if self.policy is not None:
             agent_action = self.policy.predict(current_state)
@@ -251,7 +272,7 @@ class OfficeWorld(Env):
         #print("props: ", props)
         return props, policy_props
 
-    def _evaluate_rewards(self, current_state: int, current_configuration: list, action = None):
+    def _evaluate_rewards(self, current_state: int, current_configuration: list, action = None, show = False):
         rewards = []
         next_configuration = current_configuration.copy()
         done_flags = []
@@ -274,6 +295,7 @@ class OfficeWorld(Env):
                 u1 = current_configuration[i] #self._rm_states[i]
                 # By convention, the RM related to self.policy is always the first one in reward_sources
                 true_props = policy_props if (self.policy is not None and i == 0) else props
+                
                 u2, r, rm_done = src.step(u1,true_props,
                     s_info={
                         "state": current_pos,
@@ -281,7 +303,8 @@ class OfficeWorld(Env):
                     },
                     env_done="office" in props, #self.is_office(new_position),
                 ) # TODO: s_info for RewardFunction related to an RM state. To be implemented !
-
+                if show:
+                    print(f" \_ i : {i}, props : {true_props}, u1 : {u1}, u2 : {u2}, reward : {r}")
                 #self._rm_states[i] = u2
                 #current_configuration[i] = u2 # !!! check side effect
                 next_configuration[i] = u2

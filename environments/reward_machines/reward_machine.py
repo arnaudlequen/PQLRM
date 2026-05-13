@@ -3,8 +3,8 @@ from __future__ import annotations
 from collections.abc import Iterable
 from typing import Any
 
-from environments.reward_machines.reward_functions import RewardFunction, ConstantRewardFunction, SumRewardFunction
-from environments.reward_machines.reward_machine_utils import evaluate_dnf, simplify_formula_to_dnf, value_iteration
+from reward_machines.reward_functions import RewardFunction, ConstantRewardFunction, SumRewardFunction
+from reward_machines.reward_machine_utils import evaluate_dnf, simplify_formula_to_dnf, value_iteration
 
 from graphviz import Digraph
 
