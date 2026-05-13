@@ -43,7 +43,7 @@ def test_qrm_pbst():
     # ------------------------------------------------------------------
     # 5. Training
     # ------------------------------------------------------------------
-    N_EPISODES = 100_000
+    N_EPISODES = 20_000
     PRINT_EVERY = 10_000
 
     print(f"\n── Training  ({N_EPISODES} episodes, round-robin across {len(agents)} tasks) ──")

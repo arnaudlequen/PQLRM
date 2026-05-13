@@ -182,7 +182,8 @@ class MultiTaskQRMTrainer:
             # Props come from the active env — they are environment propositions,
             # not RM-specific, so they are valid for every agent's RM
             for agent in self.agents:
-                agent.update(s, a, props, new_s, env_done=env_done, s_info=info)
+                if s < agent.n_states and new_s < agent.n_states:
+                    agent.update(s, a, props, new_s, env_done=env_done, s_info=info)
 
             self.total_steps += 1
             s = new_s
@@ -250,6 +251,87 @@ class MultiTaskQRMTrainer:
         agent.epsilon = saved_eps
         return (total / n_eval_episodes), max
 
+
+# ------------------------------------------------------------------
+# Override for run_episode to use shared env correctly
+# ------------------------------------------------------------------
+class SharedEnvTrainer(MultiTaskQRMTrainer):
+    """
+    Variant of MultiTaskQRMTrainer that runs all tasks inside one env.
+
+    Differences from the base class
+    --------------------------------
+    - One shared env is reset at the start of every episode.
+    - Active agent selects action based on rm_states[task_id].
+    - Reward vector is indexed by task_id to get the active scalar reward.
+    - All agents still receive the simultaneous off-policy update.
+    """
+
+    def __init__(self, agents, env_factory, max_steps_per_episode=200):
+        # pass a dummy list of factories of the right length to satisfy
+        # the parent's length check, then override run_episode entirely
+        super().__init__(agents, [env_factory]*len(agents), max_steps_per_episode)
+        self._make_env = env_factory
+
+    def run_episode(self, _=None) -> tuple[int, float]:
+        task_id = (self._current_task + 1) % len(self.agents)
+        self._current_task = task_id
+        active_agent = self.agents[task_id]
+
+        env = self._make_env()
+        s, _ = env.reset()
+        episode_reward = 0.0
+
+        for _ in range(self.max_steps_per_episode):
+            # Action from active task's current RM state
+            u = env.get_rm_states()[task_id]
+            a = active_agent.select_action(s, u)
+
+            new_s, reward, terminated, truncated, info = env.step(a)
+            props    = info.get("props") or []
+            env_done = info.get("env_done", terminated)
+            s_info   = info.get("s_info", None)
+
+            # Active task's scalar reward
+            r_vec = np.asarray(reward).flatten()
+            episode_reward += float(r_vec[task_id]) if len(r_vec) > 1 else float(r_vec[0])
+
+            # Simultaneous update for ALL agents
+            for agent in self.agents:
+                agent.update(s, a, props, new_s, env_done=env_done, s_info=s_info)
+
+            self.total_steps += 1
+            s = new_s
+            if terminated or truncated:
+                break
+
+        self.episode_count += 1
+        self.reward_history[task_id].append((self.episode_count, episode_reward))
+        return task_id, episode_reward
+
+    def eval_agent(self, task_id, env_factory=None, n_eval_episodes=10):
+        agent = self.agents[task_id]
+        saved_eps = agent.epsilon
+        agent.epsilon = 0.0
+
+        total, best = 0.0, -np.inf
+        for _ in range(n_eval_episodes):
+            env = self._make_env()
+            s, _ = env.reset()
+            ep_r = 0.0
+            for _ in range(self.max_steps_per_episode):
+                u = env.get_rm_states()[task_id]
+                a = agent.select_action(s, u)
+                s, reward, terminated, truncated, _ = env.step(a)
+                r_vec = np.asarray(reward).flatten()
+                ep_r += float(r_vec[task_id]) if len(r_vec) > 1 else float(r_vec[0])
+                if terminated or truncated:
+                    break
+            total += ep_r
+            best = max(best, ep_r)
+
+        agent.epsilon = saved_eps
+        return total / n_eval_episodes, best
 
 # ---------------------------------------------------------------------------
 # Example Reward Machines (Office / Grid World)

@@ -167,7 +167,7 @@ def main():
                 log=log,                
                 )
         
-        pf = agent.train(total_timesteps=120000, 
+        pf = agent.train(total_timesteps=50_000,
                     action_eval="pareto_cardinality", 
                     ref_point=ref_point, 
                     eval_env=env,

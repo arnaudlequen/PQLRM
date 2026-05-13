@@ -17,7 +17,7 @@ Propositions emitted by OfficeWorldRM._get_true_props
 (or their negations "!wall", "!coffee", etc.)
 """
 from environments.office_world_rm import OfficeWorldRM
-from baselines.qrm import QRMAgent, MultiTaskQRMTrainer
+from baselines.qrm import QRMAgent, MultiTaskQRMTrainer, SharedEnvTrainer
 from tests.office_world.test_baselines_pqlrm_office_world import rm_get_mail, rm_get_coffee, rm_patrol, rm_no_hit_deco
 
 
@@ -25,6 +25,95 @@ from tests.office_world.test_baselines_pqlrm_office_world import rm_get_mail, rm
 # ============================================================================
 # Test
 # ============================================================================
+
+"""
+test_qrm_office_shared.py — QRM with all 4 RMs in a single OfficeWorld env
+"""
+
+
+def test_qrm_office_shared(map_name: str = "default_office") -> None:
+
+    # ------------------------------------------------------------------
+    # 1. Build reward machines
+    # ------------------------------------------------------------------
+    rm_mail         = rm_get_mail()
+    rm_coffee       = rm_get_coffee()
+    rm_ptrl         = rm_patrol()
+    rm_no_deco  = rm_no_hit_deco()
+
+    rms        = [rm_mail, rm_coffee, rm_ptrl, rm_no_deco]
+    task_names = ["Mail", "Coffee", "Patrol", "No-deco"]
+
+    # ------------------------------------------------------------------
+    # 2. Single shared env with all 4 RMs
+    #    State encoding: base_nS * coffee_flag * mail_flag * prod(rm_states)
+    #    Every agent sees the same nS — no index mismatch possible.
+    # ------------------------------------------------------------------
+    shared_env = OfficeWorldRM(
+        render_mode=None,
+        map=map_name,
+        reward_sources=rms,
+    )
+    N_states  = shared_env.observation_space.n
+    N_actions = shared_env.action_space.n
+    print(f"Shared env  —  states={N_states}  actions={N_actions}")
+
+    # Factory returns the *same* env object (reset is called inside run_episode)
+    # For eval we want isolated episodes so we create a fresh copy each call.
+    def make_shared_env():
+        return OfficeWorldRM(render_mode=None, map=map_name, reward_sources=rms)
+
+    # ------------------------------------------------------------------
+    # 3. One QRMAgent per task — all with the same N_states
+    # ------------------------------------------------------------------
+    agents = [
+        QRMAgent(rm_mail,        N_states, N_actions, alpha=0.1, gamma=0.9,  epsilon=0.3),
+        QRMAgent(rm_coffee,      N_states, N_actions, alpha=0.1, gamma=0.99, epsilon=0.3),
+        QRMAgent(rm_ptrl,        N_states, N_actions, alpha=0.1, gamma=0.99, epsilon=0.3),
+        QRMAgent(rm_no_deco, N_states, N_actions, alpha=0.1, gamma=0.99, epsilon=0.3),
+    ]
+
+    # ------------------------------------------------------------------
+    # 4. Trainer — override run_episode to use shared env correctly
+    # ------------------------------------------------------------------
+    trainer = SharedEnvTrainer(agents, make_shared_env, max_steps_per_episode=100)
+
+    # ------------------------------------------------------------------
+    # 5. Training
+    # ------------------------------------------------------------------
+    N_EPISODES  = 5_000
+    PRINT_EVERY = 5_000
+
+    print(f"\n── Training ({N_EPISODES} eps, round-robin across {len(agents)} tasks) ──")
+    trainer.train(N_EPISODES, print_every=PRINT_EVERY)
+
+    # ------------------------------------------------------------------
+    # 6. Per-task reward curves
+    # ------------------------------------------------------------------
+    print("\n── Per-task reward (last 20 episodes each) ──────────────────")
+    for i, name in enumerate(task_names):
+        history = trainer.reward_history[i]
+        last = [r for _, r in history[-20:]]
+        if last:
+            print(f"  [{name:12s}]  eps={len(history):>5}  "
+                  f"avg={sum(last)/len(last):+.3f}  max={max(last):+.3f}")
+
+    # ------------------------------------------------------------------
+    # 7. Greedy evaluation
+    # ------------------------------------------------------------------
+    print("\n── Greedy evaluation (50 episodes, ε=0) ─────────────────────")
+    for i, name in enumerate(task_names):
+        mean_r, max_r = trainer.eval_agent(i, n_eval_episodes=50)
+        print(f"  [{name:12s}]  mean={mean_r:+.3f}  max={max_r:+.3f}")
+
+    # ------------------------------------------------------------------
+    # 8. Policies
+    # ------------------------------------------------------------------
+    print("\n── Policies (u0, first 30 states) ───────────────────────────")
+    for name, agent in zip(task_names, agents):
+        policy = agent.get_policy()
+        print(f"  [{name:12s}]  {list(policy[agent.rm.u0][:30])}…")
+
 
 def test_qrm_office(map_name: str = "default_office") -> None:
 
@@ -59,23 +148,23 @@ def test_qrm_office(map_name: str = "default_office") -> None:
     N_actions = _probe.action_space.n
     _probe.close() if hasattr(_probe, "close") else None
 
-    print(f"OfficeWorld ({map_name})  —  states={N_states}  actions={N_actions}")
+    print(f"OfficeWorld ({map_name})")
 
     # ------------------------------------------------------------------
     # 3. One QRMAgent per task
     # ------------------------------------------------------------------
-    agents = [
-        QRMAgent(rm_mail,        N_states, N_actions, alpha=0.1, gamma=0.9,  epsilon=0.6),
-        QRMAgent(rm_coffee,      N_states, N_actions, alpha=0.1, gamma=0.9, epsilon=0.6),
-        QRMAgent(rm_ptrl,        N_states, N_actions, alpha=0.1, gamma=0.9, epsilon=0.6),
-        QRMAgent(rm_no_deco, N_states, N_actions, alpha=0.1, gamma=0.9, epsilon=0.6),
-    ]
+    agents = []
+    for i, rm in enumerate(rms):
+        _probe = env_factories[i]()
+        n_s = _probe.observation_space.n
+        n_a = _probe.action_space.n
+        #print(n_s, n_a, rm.__str__())
+        agents.append(QRMAgent(rm, n_s, n_a, alpha=0.1, gamma=0.99, epsilon=0.3))
 
     # ------------------------------------------------------------------
     # 4. Trainer
     # ------------------------------------------------------------------
-    MAX_STEPS = 300   # office world episodes can be long
-    trainer = MultiTaskQRMTrainer(agents, env_factories, max_steps_per_episode=MAX_STEPS)
+    trainer = MultiTaskQRMTrainer(agents, env_factories, max_steps_per_episode=100)
 
     # ------------------------------------------------------------------
     # 5. Training
@@ -119,4 +208,5 @@ def test_qrm_office(map_name: str = "default_office") -> None:
 
 
 if __name__ == "__main__":
-    test_qrm_office()
+    test_qrm_office_shared()
+    #test_qrm_office()

@@ -3,7 +3,7 @@ import numpy as np
 import pygame
 from gymnasium import Env, spaces
 from collections.abc import Callable
-from reward_machines.reward_machine import RewardMachine
+from environments.reward_machines.reward_machine import RewardMachine
 
 # Actions
 UP = 0
@@ -349,7 +349,7 @@ class PBSTEnv(Env):
                 extended_configuration[i] = rm_configuration[current_rm_idx]
                 current_rm_idx += 1
 
-        rewards, new_configuration, _ = self._evaluate_rewards(
+        rewards, new_configuration, _, _ = self._evaluate_rewards(
             s,
             extended_configuration,
             new_state,
