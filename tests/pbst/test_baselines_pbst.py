@@ -19,7 +19,7 @@ def main():
     print(f"[RM_pressure] {rm_pressure}")
 
     env_id = "pressurised-bountiful-sea-treasure"
-    agents_to_test = ["PQL", "PQLRM"]
+    agents_to_test = ["PQL", "PQL"]
     nbofruns = 1
 
     # -- Logs --
@@ -47,7 +47,7 @@ def main():
                 agent = PQL(
                     env,
                     ref_point,
-                    gamma=1.0,
+                    gamma=0.9,
                     initial_epsilon=1.0,
                     epsilon_decay_steps=5000,
                     final_epsilon=0.2,
@@ -63,7 +63,7 @@ def main():
                 agent = PQLRM(
                     env,
                     ref_point,
-                    gamma=1.0,
+                    gamma=0.9,
                     initial_epsilon=1.0,
                     epsilon_decay_steps=5000,
                     final_epsilon=0.2,
@@ -72,7 +72,7 @@ def main():
                     log=log,
                 )
 
-            pf = agent.train(total_timesteps=20_000,
+            pf = agent.train(total_timesteps=2_000,
                              action_eval="pareto_cardinality",
                              ref_point=ref_point,
                              eval_env=env,
@@ -81,7 +81,7 @@ def main():
             print(f'Total of {len(pf)} policies')
             for target in pf:
                 target = np.array(target)
-                policy = agent.track_policy(target, env=env)
+                policy = agent.track_policy(target, env=env, max_steps=250)
                 # assert np.all(tracked == target)
                 print(f"Policy : {policy}")
 
