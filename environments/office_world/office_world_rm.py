@@ -1,7 +1,3 @@
-from contextlib import closing
-from io import StringIO
-from os import path
-from typing import Any, Sequence, Union
 from collections.abc import Callable
 
 import sys
@@ -15,7 +11,7 @@ import numpy as np
 from gymnasium import Env, spaces
 
 # Import shared map constants
-from environments.office_world_maps import UP, RIGHT, DOWN, LEFT, POSITION_MAPPING, MAPS
+from environments.office_world.office_world_maps import UP, RIGHT, DOWN, LEFT, POSITION_MAPPING, MAPS
 
 def read_decorators(map, shape, decorator: str):
     loc = np.zeros(shape, dtype=bool)
@@ -34,7 +30,7 @@ def go_to_office(env: Env, current_state: int, new_state: int, new_position: tup
     else:
         return 0
 
-class OfficeWorld(Env):
+class OfficeWorldRM(Env):
     metadata = {
         "render_modes": ["human", "rgb_array", "ansi"],
         "render_fps": 4,
@@ -46,12 +42,11 @@ class OfficeWorld(Env):
                  policy = None): # TODO replace Callable by RewardFunction
 
         self.shape = (11, 15)
-
-        self.start_state_index = 137 # just out of the office : 50
-
-        self.nS = np.prod(self.shape)
-        self.nA = 4
         self.map = MAPS[map]
+
+        self.start_position_index = 137  # just out of the office : 50
+        self._coffee_found = False
+        self._mail_found = False
 
         # Reward
         if reward_sources is None:
@@ -63,6 +58,18 @@ class OfficeWorld(Env):
         
         # Track RM internal states
         self._rm_states: list[int| None ] = []
+
+        for src in reward_sources:
+            if hasattr(src, "reset"):
+                self._rm_states.append(src.reset())
+            else:
+                self._rm_states.append(None)
+
+        # nb RM states
+        self.totalRMStates = 1
+        for src in reward_sources:
+            if hasattr(src, "step"):
+                self.totalRMStates *= len(src.get_states())
 
         # Already learnt policy
         self.policy = policy
@@ -80,12 +87,42 @@ class OfficeWorld(Env):
         # All other decorators appear only a single time on the map
 
         self.desc = np.asarray(self.map, dtype="c")
-        self.s = self.start_state_index
+        self.base_nS = int(np.prod(self.shape))
+        self.nS = self.base_nS * 2 * 2 * self.totalRMStates # for coffee and mail and RMs states
+        self.nA = 4
+        
+
         self.observation_space = spaces.Discrete(self.nS)
         self.action_space = spaces.Discrete(self.nA)
         self.render_mode = render_mode
 
+        self.start_state_index = self.encode_state(self.start_position_index,
+                                                   coffee_found=False,
+                                                   mail_found=False)
+        self.s = self.start_state_index
+
         # pygame utils -> TODO
+
+    def encode_state(self, position_state: int, coffee_found: bool, mail_found: bool) -> int:
+        index_state = position_state + self.base_nS * int(coffee_found) + self.base_nS * 2 * int(mail_found)
+        c = self.base_nS * 2 * 2
+        for i in range(len(self.reward_sources)):
+            if self._rm_states[i] != None:
+                index_state += c * self._rm_states[i]
+                c *= len(self.reward_sources[i].get_states())
+        return index_state
+
+    def decode_state(self, state: int) -> tuple[int, bool]:
+        remaining = int(state)
+        position = remaining % self.base_nS
+        remaining //= self.base_nS
+        coffee_found = bool(remaining % 2)
+        remaining //= 2
+        mail_found = bool(remaining % 2)
+        return {'position': position,
+                'coffee_found': coffee_found,
+                'mail_found': mail_found}
+
 
     def _limit_coordinates(self, coord: np.ndarray) -> np.ndarray:
         """Prevent the agent from falling out of the grid world."""
@@ -97,7 +134,8 @@ class OfficeWorld(Env):
 
     def step(self, a):
         # ----- 1. Environment dynamics -----
-        current_pos = np.unravel_index(self.s, self.shape)
+        full_state = self.decode_state(self.s)
+        current_pos = np.unravel_index(full_state['position'], self.shape)
 
         delta = POSITION_MAPPING[a] # does not take into account slippery surface
 
@@ -106,12 +144,14 @@ class OfficeWorld(Env):
         if self.is_wall(new_position):
             new_position = np.array(current_pos)
         #print('current_pos:', current_pos, "new_position:", new_position)
-        new_state = np.ravel_multi_index(tuple(new_position), self.shape)
+        new_position_state = int(np.ravel_multi_index(tuple(new_position), self.shape))
+        next_coffee_found = full_state['coffee_found'] or self.is_coffee(new_position)
+        next_mail_found = full_state['mail_found'] or self.is_mail(new_position)
 
         env_done = self.is_office(new_position) #False #
 
         # ----- 2. Reward machines dynamics -----
-        rewards, new_configuration, rm_done = self._evaluate_rewards(self.s, self._rm_states, a)
+        rewards, new_configuration, rm_done, true_props = self._evaluate_rewards(self.s, self._rm_states, a)
         self._rm_states = new_configuration.copy()
         #print('env_done:', env_done)
         #print('rm_done:', rm_done)
@@ -121,19 +161,19 @@ class OfficeWorld(Env):
         truncated = False
 
         # ----- 4. State action update -----
+        self._coffee_found = next_coffee_found
+        self._mail_found = next_mail_found
+        new_state = self.encode_state(new_position_state, next_coffee_found, next_mail_found)
         self.s = new_state
         self.lastaction = a
 
         if self.render_mode == "human":
             self.render()
 
-        return int(new_state), rewards, terminated, truncated, {"prob": 1.0}
+        return int(new_state), rewards, terminated, truncated, {"prob": 1.0, "props": true_props, "env_done": env_done}
 
     def reset(self, *, seed: int | None = None, options: dict | None = None):
         super().reset(seed=seed)
-        self.s = self.start_state_index #categorical_sample(self.initial_state_distrib, self.np_random)
-        self.lastaction = None
-        self.hit_decoration = False
 
         # reset RMs
         self._rm_states = []
@@ -142,6 +182,10 @@ class OfficeWorld(Env):
                 self._rm_states.append(src.reset())
             else:
                 self._rm_states.append(None)
+
+        self.s = self.start_state_index #categorical_sample(self.initial_state_distrib, self.np_random)
+        self.lastaction = None
+        self.hit_decoration = False
 
         if self.render_mode == "human":
             self.render()
@@ -153,40 +197,6 @@ class OfficeWorld(Env):
 
     def get_rm_states(self):
         return self._rm_states
-
-    def get_successor_states(self, s, a):
-        states = []
-        current_pos = np.unravel_index(s, self.shape)
-
-        delta = POSITION_MAPPING[a] # does not take into account slippery surface
-
-        new_position = np.array(current_pos) + np.array(delta)
-        #print('current_pos:', current_pos, "new_position:", new_position)
-        new_position = self._limit_coordinates(new_position).astype(int)
-        new_state = np.ravel_multi_index(tuple(new_position), self.shape)
-        states.append(new_state)
-
-        return states
-    
-    def get_successor_rewards(self, rm_configuration, s, a, info=None):
-        current_pos = np.unravel_index(s, self.shape)
-
-        delta = POSITION_MAPPING[a] # does not take into account slippery surface
-
-        new_position = np.array(current_pos) + np.array(delta)
-        #print('current_pos:', current_pos, "new_position:", new_position)
-        new_position = self._limit_coordinates(new_position).astype(int)
-        new_state = np.ravel_multi_index(tuple(new_position), self.shape)
-
-        extended_configuration = self._rm_states.copy()
-        current_rm = 0
-        for i in range(len(extended_configuration)):
-            if extended_configuration[i] is not None:
-                extended_configuration[i] = rm_configuration[current_rm]
-                current_rm += 1
-        
-        rewards, new_configuration, rm_done = self._evaluate_rewards(s, extended_configuration, a) # TODO: problem with self.s ?
-        return rewards, tuple(new_configuration)
     
     def get_reward_sources(self):
         return self.reward_sources
@@ -255,7 +265,8 @@ class OfficeWorld(Env):
         rewards = []
         next_configuration = current_configuration.copy()
         done_flags = []
-        current_pos = np.unravel_index(current_state, self.shape)
+        full_state = self.decode_state(self.s)
+        current_pos = np.unravel_index(full_state['position'], self.shape)
         delta = POSITION_MAPPING[action]
         new_position = np.array(current_pos) + np.array(delta)
         new_position = self._limit_coordinates(new_position).astype(int)
@@ -300,4 +311,4 @@ class OfficeWorld(Env):
         #print('done_flags:', done_flags)
         rm_done = all(done_flags) # TODO : any ?
 
-        return reward, next_configuration, rm_done
+        return reward, next_configuration, rm_done, props

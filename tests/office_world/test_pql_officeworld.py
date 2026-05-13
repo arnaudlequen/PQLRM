@@ -6,11 +6,10 @@ import sys
 # Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from baselines.pql_rm import PQLRM
+from baselines.pql import PQL
 
 from environments.reward_machines.reward_machine import RewardMachine,ConstantRewardFunction
-from environments.office_world.office_world import OfficeWorld, time_penalty
-
+from environments.office_world.office_world_rm import OfficeWorldRM, time_penalty
 
 from common import (
     track_and_save_policies,
@@ -77,7 +76,7 @@ def rm_get_mail_no_hit_deco():
     # Transitions
     rm.add_transition(0, 0, "!mail&!decoration", ConstantRewardFunction(0))
     rm.add_transition(0, rm.terminal_u, "decoration", ConstantRewardFunction(0)) 
-    rm.add_transition(0, 1, "mail&!decoration", ConstantRewardFunction(1)) 
+    rm.add_transition(0, 1, "mail&!decoration", ConstantRewardFunction(0)) 
     rm.add_transition(1, 1, "!office&!decoration", ConstantRewardFunction(0))
     rm.add_transition(1, rm.terminal_u, "decoration", ConstantRewardFunction(0))   
     rm.add_transition(1, 2, "office&!decoration", ConstantRewardFunction(1))  
@@ -154,6 +153,7 @@ def rm_patrol_no_hit_deco():
 def main():
     env_id = "office_world"
     env_map = "default_office"
+    nbofruns = 1
     filename = __file__.split(".")[0]
 
     # -- Init Environment --
@@ -174,37 +174,32 @@ def main():
 
         task_coffee = rm_get_coffee()
         task_coffee_no_hit = rm_get_coffee_no_hit_deco()
-        
         task_mail = rm_get_mail()
         task_mail_no_hit = rm_get_mail_no_hit_deco
         
         task_no_hit = rm_no_hit_deco()
-
         task_patrol = rm_patrol()
-        task_patrol_no_hit = rm_patrol_no_hit_deco()
-
-        env = OfficeWorld(map=env_map, reward_sources=[task_no_hit, task_coffee, task_mail], render_mode='ansi')
+        env = OfficeWorldRM(map=env_map, reward_sources=[task_no_hit, task_coffee, task_mail], render_mode='ansi')
 
             
-        agent = PQLRM(
+        agent = PQL(
                 env,
                 ref_point,
                 gamma=0.95,
                 initial_epsilon=1.0,
-                epsilon_decay_steps=100000,
+                epsilon_decay_steps=400000,
                 final_epsilon=0.1,
                 seed=1,
                 output_file=outputFile,
                 log=log,                
                 )
         
-        pf = agent.train(total_timesteps=100000, 
+        pf = agent.train(total_timesteps=400000, 
                     action_eval="pareto_cardinality", 
                     ref_point=ref_point, 
                     eval_env=env,
                     log_every=1000,
-                    max_local_steps=200,
-                    optimization = "Qsets+RI") # with "None" --> many many policies != pql
+                    max_local_steps=200)
 
         assert len(pf) > 0
         print(f"Pareto front : {pf}")
@@ -217,7 +212,7 @@ def main():
             map_shape="Default",
             include_rewards=True,
             reward_index=1,
-            max_steps=250
+            max_steps=50
         )
 
 

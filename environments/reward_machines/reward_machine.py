@@ -2,9 +2,13 @@ from __future__ import annotations
 
 from collections.abc import Iterable
 from typing import Any
+import sys
+from pathlib import Path
 
-from reward_machines.reward_functions import RewardFunction, ConstantRewardFunction, SumRewardFunction
-from reward_machines.reward_machine_utils import evaluate_dnf, simplify_formula_to_dnf, value_iteration
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from environments.reward_machines.reward_functions import RewardFunction, ConstantRewardFunction, SumRewardFunction
+from environments.reward_machines.reward_machine_utils import evaluate_dnf, simplify_formula_to_dnf, value_iteration
 
 from graphviz import Digraph
 

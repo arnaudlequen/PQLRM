@@ -8,7 +8,7 @@ from environments.reward_machines.reward_machine import RewardMachine
 from environments.reward_machines.reward_functions import ConstantRewardFunction,RewardFunction
 
 # PBST environment
-from environments.pressurizedBountifulSeaTreasure import PBSTEnv
+from environments.pbst.pressurizedBountifulSeaTreasure import PBSTEnv
 
 # ============================================================================
 #  PBST  Reward Machines

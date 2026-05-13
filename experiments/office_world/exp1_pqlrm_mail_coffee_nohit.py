@@ -12,7 +12,7 @@ from environments.reward_machines.reward_machine import RewardMachine,ConstantRe
 from environments.office_world.office_world import OfficeWorld, time_penalty
 
 
-from common import (
+from tests.office_world.common import (
     track_and_save_policies,
 )
 
@@ -42,7 +42,7 @@ def rm_get_coffee():
     rm.set_initial_state(0)
     # Transitions
     rm.add_transition(0, 0, "!coffee", ConstantRewardFunction(0))
-    rm.add_transition(0, 1, "coffee", ConstantRewardFunction(1)) 
+    rm.add_transition(0, 1, "coffee", ConstantRewardFunction(1)) # using 1 increases the number of trade-off policies found
     rm.add_transition(1, 1, "!office", ConstantRewardFunction(0))
     rm.add_transition(1, 2, "office", ConstantRewardFunction(1))  
     rm.add_transition(2, rm.terminal_u, "True", ConstantRewardFunction(0))
@@ -77,7 +77,7 @@ def rm_get_mail_no_hit_deco():
     # Transitions
     rm.add_transition(0, 0, "!mail&!decoration", ConstantRewardFunction(0))
     rm.add_transition(0, rm.terminal_u, "decoration", ConstantRewardFunction(0)) 
-    rm.add_transition(0, 1, "mail&!decoration", ConstantRewardFunction(1)) 
+    rm.add_transition(0, 1, "mail&!decoration", ConstantRewardFunction(1)) # using 1 increases the number of trade-off policies found
     rm.add_transition(1, 1, "!office&!decoration", ConstantRewardFunction(0))
     rm.add_transition(1, rm.terminal_u, "decoration", ConstantRewardFunction(0))   
     rm.add_transition(1, 2, "office&!decoration", ConstantRewardFunction(1))  
@@ -203,7 +203,7 @@ def main():
                     ref_point=ref_point, 
                     eval_env=env,
                     log_every=1000,
-                    max_local_steps=200,
+                    max_local_steps=500,
                     optimization = "Qsets+RI") # with "None" --> many many policies != pql
 
         assert len(pf) > 0
@@ -217,7 +217,7 @@ def main():
             map_shape="Default",
             include_rewards=True,
             reward_index=1,
-            max_steps=250
+            max_steps=100
         )
 
 

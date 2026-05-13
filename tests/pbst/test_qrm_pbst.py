@@ -1,4 +1,4 @@
-from environments.pressurizedBountifulSeaTreasure import PBSTEnv, DiscreteObservationWrapper
+from environments.pbst.pressurizedBountifulSeaTreasure import PBSTEnv, DiscreteObservationWrapper
 from baselines.qrm import QRMAgent, MultiTaskQRMTrainer
 from tests.pbst.test_rm_pbst import build_pbst_rm_time, build_pbst_rm_treasure, build_pbst_rm_pressure
 
