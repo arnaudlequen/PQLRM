@@ -2,15 +2,10 @@ import argparse
 import numpy as np
 import sys
 from pathlib import Path
-from collections.abc import Callable
-import json
-import time
 
 # Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
 
-from environments.reward_machines.reward_machine import RewardMachine, ConstantRewardFunction
-from baselines.common.performance_indicators import hypervolume
 from utils.plan_utils import save_plans_to_json
 
 def track_and_save_policies(
