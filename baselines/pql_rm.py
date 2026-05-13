@@ -319,7 +319,7 @@ class PQLRM(MOAgent):
                             next_configuration = tuple(s for s in next_configuration if s is not None)
                             
                             # self.counts is not modified from pql since all counts are updated for all possible configuration of rms
-                            
+                            #print(f"configuration : {configuration}, state : {state}, action : {action}, rewards : {rewards}, next_state : {next_state}, next_configuration : {next_configuration}")
                             self.non_dominated[configuration][state][action] = self.calc_non_dominated(next_configuration, next_state)
                             self.avg_reward[configuration][state, action] += (rewards - self.avg_reward[configuration][state, action]) / self.counts[state, action]
 
@@ -421,11 +421,10 @@ class PQLRM(MOAgent):
             for action in range(self.num_actions):
                 im_rew = self.avg_reward[rm_configuration][state, action]
                 non_dominated_set = self.non_dominated[rm_configuration][state][action]
-
                 for q in non_dominated_set:
                     q = np.array(q)
                     dist = np.sum(np.abs(self.gamma * q + im_rew - target))
-
+                    #print(f"ACTION : {action}, REWARD : {im_rew}, NON-DOMINATED : {q}, DISTANCE : {dist}")
                     if dist < closest_dist:
                         closest_dist = dist
                         closest_action = action

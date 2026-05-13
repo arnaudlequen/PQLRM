@@ -3,7 +3,16 @@ import numpy as np
 import pygame
 from gymnasium import Env, spaces
 from collections.abc import Callable
-from environments.reward_machines.reward_machine import RewardMachine
+
+from pathlib import Path
+import sys
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from reward_machines.reward_machine import RewardMachine
+
+
 
 # Actions
 UP = 0
@@ -12,10 +21,10 @@ DOWN = 2
 LEFT = 3
 
 POSITION_MAPPING = {
-    UP: (-1, 0),
-    RIGHT: (0, 1),
-    DOWN: (1, 0),
-    LEFT: (0, -1),
+    UP: [-1, 0],
+    RIGHT: [0, 1],
+    DOWN: [1, 0],
+    LEFT: [0, -1],
 }
 
 class DiscreteObservationWrapper(gymnasium.ObservationWrapper):
@@ -93,7 +102,7 @@ class PBSTEnv(Env):
             (10, 9): 175,
         }
 
-        self.state = np.array(self.start_state)
+        self.state = self.start_state_index
 
         # --- Reward sources (RM or callable) ---
         if reward_sources is None:
@@ -116,19 +125,31 @@ class PBSTEnv(Env):
             self.shape[0] * self.cell_size,
         )
 
+    def _limit_coordinates(self, coord: np.ndarray) -> np.ndarray:
+        """Prevent the agent from falling out of the grid world."""
+        coord[0] = min(coord[0], self.shape[0] - 1)
+        coord[0] = max(coord[0], 0)
+        coord[1] = min(coord[1], self.shape[1] - 1)
+        coord[1] = max(coord[1], 0)
+        return coord
+
     # -------------------------
     # Transition function
     # -------------------------
-    def transition_function(self, state, action):
+    def transition_function(self, state:int, action) -> int:
         """Deterministic transition"""
+        current_pos = np.unravel_index(state, self.shape)
+
         delta = POSITION_MAPPING[action]
-        new_state = np.array(state) + np.array(delta)
 
+        new_position = np.array(current_pos) + np.array(delta)
+        #print(state, current_pos, delta, new_position)
         # Clip to grid
-        new_state[0] = np.clip(new_state[0], 0, self.shape[0] - 1)
-        new_state[1] = np.clip(new_state[1], 0, self.shape[1] - 1)
+        new_position = self._limit_coordinates(new_position).astype(int)
 
-        return new_state.astype(int)
+        new_state = np.ravel_multi_index(tuple(new_position), self.shape)
+        #print(f"state : {state}, position : {current_pos}, action : {action}, new position : {new_position}, new_state : {new_state}")
+        return new_state
 
     # -------------------------
     # Reward function (vector)
@@ -156,7 +177,7 @@ class PBSTEnv(Env):
     # -------------------------
     def step(self, a):
         # ----- 1. Environment dynamics -----
-        current_state = self.state.copy()
+        current_state = self.state
         new_state = self.transition_function(current_state, a)
         env_done = self.is_treasure(new_state)
 
@@ -165,7 +186,7 @@ class PBSTEnv(Env):
         self._rm_states = new_configuration.copy()
 
         # ----- 3. Termination -----
-        terminated = env_done or rm_done
+        terminated = env_done #or rm_done
         truncated = False
 
         # ----- 4. State update -----
@@ -182,8 +203,7 @@ class PBSTEnv(Env):
     # -------------------------
     def reset(self, seed=None, options=None):
         super().reset(seed=seed)
-        self.state = np.array(self.start_state)
-        self.start_state_index = 0
+        self.state = self.start_state_index
 
         # Reset RM states
         self._rm_states = []
@@ -261,9 +281,9 @@ class PBSTEnv(Env):
             pygame.quit()
             self.window = None
 
-    def _get_true_props(self, position, is_treasure):
+    def _get_true_props(self, state, is_treasure):
         props = []
-
+        position = np.unravel_index(state, self.shape)
         # Treasure proposition
         if is_treasure:
             props.append("goal")
@@ -287,7 +307,7 @@ class PBSTEnv(Env):
 
         # Compute true propositions
         props = self._get_true_props(new_state, is_treasure)
-
+        
         for i, src in enumerate(self.reward_sources):
             # --- Reward Machine ---
             if hasattr(src, "step"):
@@ -298,7 +318,7 @@ class PBSTEnv(Env):
                     props,
                     s_info={
                         "state": new_state,
-                        "position": tuple(new_state), # is it used ?
+                        "position": np.unravel_index(new_state, self.shape), # is it used ?
                     },
                     env_done=is_treasure,
                 )
@@ -321,8 +341,8 @@ class PBSTEnv(Env):
         rm_done = any(done_flags)
         return reward, next_configuration, rm_done, props
 
-    def is_treasure(self, position) -> bool:
-        return tuple(position) in self._treasure
+    def is_treasure(self, state) -> bool:
+        return np.unravel_index(state, self.shape) in self._treasure
 
     def get_rm_states(self):
         return self._rm_states

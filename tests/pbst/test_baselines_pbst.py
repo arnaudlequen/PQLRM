@@ -1,11 +1,21 @@
 import numpy as np
 import os
 
+from pathlib import Path
+import sys
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+
 from environments.pbst.pressurizedBountifulSeaTreasure import PBSTEnv, DiscreteObservationWrapper
 from tests.pbst.test_rm_pbst import build_pbst_rm_time, build_pbst_rm_treasure, build_pbst_rm_pressure
 
 from baselines.pql_rm import PQLRM
 from baselines.pql import PQL
+
+from common import (
+    track_and_save_policies,
+)
 
 def main():
     # -- Build RMs --
@@ -19,8 +29,9 @@ def main():
     print(f"[RM_pressure] {rm_pressure}")
 
     env_id = "pressurised-bountiful-sea-treasure"
-    agents_to_test = ["PQL", "PQL"]
+    agents_to_test = ["PQLRM"] # "PQL"
     nbofruns = 1
+    filename = __file__.split(".")[0]
 
     # -- Logs --
 
@@ -58,32 +69,39 @@ def main():
 
             elif agent_id == "PQLRM":
                 env = PBSTEnv(render_mode=None,
-                                reward_sources=[rm_time, rm_treasure, rm_pressure])
+                                reward_sources=[rm_time, rm_treasure]) # rm_time,rm_pressure
                 env = DiscreteObservationWrapper(env)
                 agent = PQLRM(
                     env,
                     ref_point,
-                    gamma=0.9,
+                    gamma=0.95,
                     initial_epsilon=1.0,
-                    epsilon_decay_steps=5000,
-                    final_epsilon=0.2,
+                    epsilon_decay_steps=30000,
+                    final_epsilon=0.1,
                     seed=run,
                     output_file=outputFile,
                     log=log,
                 )
 
-            pf = agent.train(total_timesteps=2_000,
+            pf = agent.train(total_timesteps=30000,
                              action_eval="pareto_cardinality",
                              ref_point=ref_point,
                              eval_env=env,
+                             max_local_steps=100,
                              log_every=2000)
 
             print(f'Total of {len(pf)} policies')
-            for target in pf:
-                target = np.array(target)
-                policy = agent.track_policy(target, env=env, max_steps=250)
-                # assert np.all(tracked == target)
-                print(f"Policy : {policy}")
+            output_file = filename + ".json"
+            track_and_save_policies(
+                agent,
+                env,
+                pf,
+                output_file=output_file,
+                map_shape="Default",
+                include_rewards=True,
+                reward_index=1,
+                max_steps=50
+        )
 
 
 if __name__ == "__main__":

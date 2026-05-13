@@ -78,8 +78,9 @@ def build_pbst_rm_treasure(treasures: dict[tuple, float]) -> RewardMachine:
     rm.add_transition(0, 0, "!goal", ConstantRewardFunction(0.0))
 
     # Reach terminal when landing on a treasure cell → collect reward
-    rm.add_transition(0, rm.terminal_u, "goal",
+    rm.add_transition(0, 1, "goal",
                       TreasureRewardFunction(treasures))
+    rm.add_transition(1, rm.terminal_u, "True", ConstantRewardFunction(0))
     rm.finalize()
     return rm
 
@@ -102,7 +103,7 @@ def build_pbst_rm_pressure() -> RewardMachine:
         def get_reward(self, s_info: dict[str, Any] | None) -> float:
             if s_info is None:
                 return 0.0
-            state = s_info.get("state", None)
+            state = s_info.get("position", None)
             if state is None:
                 return 0.0
             depth = int(state[0])

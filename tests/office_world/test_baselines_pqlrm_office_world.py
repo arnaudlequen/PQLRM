@@ -17,7 +17,7 @@ from common import (
 )
 
 def rm_get_coffee_no_hit_deco():
-    # -- Create RewardMachine --
+    # -- Create RewardMachine --/
     rm = RewardMachine()
     # Initial state
     rm.set_initial_state(0)
@@ -217,7 +217,7 @@ def main():
             map_shape="Default",
             include_rewards=True,
             reward_index=1,
-            max_steps=250
+            max_steps=50
         )
 
 
