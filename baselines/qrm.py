@@ -339,7 +339,7 @@ class SharedEnvTrainer(MultiTaskQRMTrainer):
 
 def rm_get_coffee_wo_deco() -> RewardMachine:
     """
-    Task A — Coffee without decoration.
+    Task A — Coffee without decoration.s
 
     Pick up coffee (prop: ``coffee``), then reach the office (``office``).
     Touching the decoration (``decoration``) at any point fails the task.
