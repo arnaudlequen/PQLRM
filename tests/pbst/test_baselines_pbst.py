@@ -29,7 +29,7 @@ def main():
     print(f"[RM_pressure] {rm_pressure}")
 
     env_id = "pressurised-bountiful-sea-treasure"
-    agents_to_test = ["PQLRM"] # "PQL"
+    agents_to_test = ["PQL"] # "PQL"
     nbofruns = 1
     filename = __file__.split(".")[0]
 
@@ -58,10 +58,10 @@ def main():
                 agent = PQL(
                     env,
                     ref_point,
-                    gamma=0.9,
+                    gamma=1,
                     initial_epsilon=1.0,
-                    epsilon_decay_steps=5000,
-                    final_epsilon=0.2,
+                    epsilon_decay_steps=100000,
+                    final_epsilon=0.1,
                     seed=run,
                     output_file=outputFile,
                     log=log,
@@ -74,16 +74,16 @@ def main():
                 agent = PQLRM(
                     env,
                     ref_point,
-                    gamma=0.95,
+                    gamma=1,
                     initial_epsilon=1.0,
-                    epsilon_decay_steps=30000,
+                    epsilon_decay_steps=100000,
                     final_epsilon=0.1,
                     seed=run,
                     output_file=outputFile,
                     log=log,
                 )
 
-            pf = agent.train(total_timesteps=30000,
+            pf = agent.train(total_timesteps=50000,
                              action_eval="pareto_cardinality",
                              ref_point=ref_point,
                              eval_env=env,

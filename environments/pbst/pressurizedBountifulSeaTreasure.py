@@ -154,23 +154,26 @@ class PBSTEnv(Env):
     # -------------------------
     # Reward function (vector)
     # -------------------------
-    def reward_function(self, state, action, next_state):
+    def reward_function(self, state, action, new_state):
         """
         Returns a 3D reward vector:
         [time, treasure, pressure]
         """
+        next_position = np.unravel_index(new_state, self.shape)
+
         # Time penalty
         r_time = -1
 
         # Pressure penalty (depth = row index)
-        depth = next_state[0]
+        depth = next_position[0]
         r_pressure = -depth
 
         # Treasure reward
-        pos = tuple(next_state)
-        r_treasure = self._treasure.get(pos, 0)
+        #pos = tuple(next_state)
+        r_treasure = self._treasure.get(next_position, 0)
 
         return np.array([r_time, r_treasure, r_pressure], dtype=np.float32)
+        #return np.array([r_time, r_treasure], dtype=np.float32)
 
     # -------------------------
     # Step
@@ -349,7 +352,7 @@ class PBSTEnv(Env):
 
     def get_reward_sources(self):
         if self.reward_sources == [self.reward_function]:
-            return [self.reward_function, self.reward_function, self.reward_function]
+            return [self.reward_function, self.reward_function, self.reward_function] #self.reward_function
         else:
             return self.reward_sources
 
