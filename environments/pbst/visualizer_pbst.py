@@ -31,7 +31,7 @@ import numpy as np
 # ---------------------------------------------------------------------------
 # Grid constants (mirror pressurizedBountifulSeaTreasure.py)
 # ---------------------------------------------------------------------------
-SHAPE = (10, 11)  # (rows, cols)
+SHAPE = (11, 10)  # (rows, cols)
 
 UP    = 0
 RIGHT = 1
@@ -73,12 +73,21 @@ DEEP_THRESHOLD = SHAPE[0] // 2  # 5
 # ---------------------------------------------------------------------------
 # Rendering helpers
 # ---------------------------------------------------------------------------
+def _is_rock(row: int, col: int) -> bool:
+    for x,y in TREASURE_MAP.keys():
+        if y == col:
+            return row > x
+    return False
+
 def _cell_symbol(row: int, col: int) -> str:
     """Return the background symbol for a grid cell."""
     if (row, col) in TREASURE_MAP:
         return '\u2605'   # ★  treasure
+    if _is_rock(row, col):
+        return '\u2591'   # rock
     if row >= DEEP_THRESHOLD:
         return '\u2248'   # ≈  deep water
+
     return '~'            # shallow water
 
 
@@ -86,6 +95,8 @@ def _cell_name(row: int, col: int) -> str:
     """Human-readable cell description."""
     if (row, col) in TREASURE_MAP:
         return f'Treasure ({TREASURE_MAP[(row, col)]})'
+    if _is_rock(row, col):
+        return 'Rock'   # rock
     if row >= DEEP_THRESHOLD:
         return 'Deep water'
     return 'Shallow water'
@@ -521,8 +532,8 @@ def demo_plan() -> List[Tuple[int, int]]:
     # Starting at (0,0), move down then right toward (2,1) [treasure=80]
     plan = [
         (0,  DOWN),   # (0,0) -> (1,0)
-        (11, DOWN),   # (1,0) -> (2,0)
-        (22, RIGHT),  # (2,0) -> (2,1)  ← treasure 80
+        (10, RIGHT),   # (1,0) -> (1,1)
+        (11, DOWN),  # (1,1) -> (2,1)  ← treasure 80
     ]
     return plan
 

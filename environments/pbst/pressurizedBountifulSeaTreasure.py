@@ -7,6 +7,8 @@ from collections.abc import Callable
 from pathlib import Path
 import sys
 
+#from torch.utils.model_dump import __main__
+
 # Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
@@ -76,7 +78,7 @@ class PBSTEnv(Env):
         super().__init__()
 
         # Grid
-        self.shape = (10, 11)  # (rows, cols)
+        self.shape = (11, 10)  # (rows, cols)
         self.start_state = (0, 0)
         self.start_state_index = 0
 
@@ -164,13 +166,17 @@ class PBSTEnv(Env):
         # Time penalty
         r_time = -1
 
-        # Pressure penalty (depth = row index)
-        depth = next_position[0]
-        r_pressure = -depth
-
         # Treasure reward
         #pos = tuple(next_state)
-        r_treasure = self._treasure.get(next_position, 0)
+        r_treasure = self._treasure.get(tuple(next_position), 0)
+
+        # Pressure penalty (depth = row index)
+        depth = next_position[0]
+        print(next_position)
+        if r_treasure: # pressure penalty only when reaching a treasure
+            r_pressure = -depth
+        else:
+            r_pressure = 0
 
         return np.array([r_time, r_treasure, r_pressure], dtype=np.float32)
         #return np.array([r_time, r_treasure], dtype=np.float32)
@@ -384,3 +390,26 @@ class PBSTEnv(Env):
     def set_state(self, state, info=None):
         self.state = state
         return
+
+if __name__ == "__main__":
+    plan = [RIGHT, RIGHT, DOWN, DOWN, RIGHT, DOWN, DOWN] # reach treasure 140
+    env = PBSTEnv(render_mode=None)
+
+    state, _ = env.reset()
+    print('initial state:', state)
+    done = False
+    total_reward = 0
+    i = 0
+    while not done:
+        action = plan[i]
+        new_state, reward, done, _, _ = env.step(action)
+        print('action:', action, '-> new state:', new_state, 'reward:', reward, 'done:', done)
+        total_reward += reward
+        state = new_state
+
+        i += 1
+
+    print('final state:', state)
+    print('total reward:', total_reward)
+
+
