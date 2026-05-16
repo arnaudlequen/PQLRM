@@ -69,7 +69,7 @@ def main():
 
             elif agent_id == "PQLRM":
                 env = PBSTEnv(render_mode=None,
-                                reward_sources=[rm_time, rm_treasure]) # rm_time,rm_pressure
+                                reward_sources=[rm_time, rm_treasure, rm_pressure]) # rm_time,rm_pressure
                 env = DiscreteObservationWrapper(env)
                 agent = PQLRM(
                     env,

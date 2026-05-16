@@ -119,7 +119,8 @@ class PBSTVisualizer:
     # ------------------------------------------------------------------
     def state_to_pos(self, state: int) -> Tuple[int, int]:
         """Convert flat state index to (row, col) position."""
-        return tuple(np.unravel_index(state, self.shape))
+        print(state)
+        return tuple(np.unravel_index(state, self.shape)) #np.unravel_index()
 
     def pos_to_state(self, row: int, col: int) -> int:
         """Convert (row, col) position to flat state index."""
@@ -167,8 +168,8 @@ class PBSTVisualizer:
             # Update shape if stored in info
             if info and 'map_shape' in info:
                 s = info['map_shape']
-                if s:
-                    self.shape = tuple(s)
+                if s == "Default":
+                    self.shape = SHAPE
         elif isinstance(data, list):
             plan_list = data
 

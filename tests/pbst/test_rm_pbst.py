@@ -2,8 +2,11 @@ from __future__ import annotations
 
 import random
 from typing import Any
-
 import numpy as np
+from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from environments.reward_machines.reward_machine import RewardMachine
 from environments.reward_machines.reward_functions import ConstantRewardFunction,RewardFunction
 
@@ -86,19 +89,27 @@ def build_pbst_rm_treasure(treasures: dict[tuple, float]) -> RewardMachine:
 
 
 def build_pbst_rm_pressure() -> RewardMachine:
-    """
-    RM_pressure for PBST: emits -depth (row index) every step, where depth
-    is read from s_info['state'][0].
 
-    Propositions used: none (reward comes entirely from s_info).
+    class PressureRewardFunction(RewardFunction):  # imported RewardFunction
+        def get_reward(self, s_info):
+            if s_info is None:
+                return 0.0
+            pos = s_info.get("position", None)
+            if pos is None:
+                return 0.0
+            return -float(pos[0])
 
-    States
-    ------
-    0  (initial, non-terminal, self-loop)
-    """
-
+    rm = RewardMachine()
+    rm.set_initial_state(0)
+    rm.add_transition(0, 0, "!goal", ConstantRewardFunction(0.0))  # imported
+    rm.add_transition(0, 1, "goal", PressureRewardFunction())
+    rm.add_transition(1, 1, "True", ConstantRewardFunction(0.0))   # imported
+    rm.finalize()
+    return rm
+"""
+def build_pbst_rm_pressure() -> RewardMachine:
+    #variant: a depth penalty occurs at each timestep
     class PressureRewardFunction(RewardFunction):
-        """Returns -(row index) from s_info['state']."""
 
         def get_reward(self, s_info: dict[str, Any] | None) -> float:
             if s_info is None:
@@ -113,7 +124,8 @@ def build_pbst_rm_pressure() -> RewardMachine:
     rm.set_initial_state(0)
     rm.add_transition(0, 0, "True", PressureRewardFunction())
     rm.finalize()
-    return rm
+    return rm 
+"""
 
 
 # ============================================================================
