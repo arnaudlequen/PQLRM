@@ -172,14 +172,14 @@ class PBSTEnv(Env):
 
         # Pressure penalty (depth = row index)
         depth = next_position[0]
-        print(next_position)
+        #print(next_position)
         if r_treasure: # pressure penalty only when reaching a treasure
             r_pressure = -depth
         else:
             r_pressure = 0
 
         return np.array([r_time, r_treasure, r_pressure], dtype=np.float32)
-        #return np.array([r_time, r_treasure], dtype=np.float32)
+        #return np.array([r_time, r_pressure], dtype=np.float32)
 
     # -------------------------
     # Step
@@ -359,6 +359,7 @@ class PBSTEnv(Env):
     def get_reward_sources(self):
         if self.reward_sources == [self.reward_function]:
             return [self.reward_function, self.reward_function, self.reward_function] #self.reward_function
+            #return [self.reward_function, self.reward_function]
         else:
             return self.reward_sources
 
