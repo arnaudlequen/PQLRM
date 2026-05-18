@@ -8,7 +8,8 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from environments.pbst.pressurizedBountifulSeaTreasure import PBSTEnv, DiscreteObservationWrapper
-from tests.pbst.test_rm_pbst import build_pbst_rm_time, build_pbst_rm_treasure, build_pbst_rm_pressure
+from environments.pbst.pbst_rm import PBSTEnv_rm
+from tests.pbst.test_rm_pbst import build_pbst_rm_time, build_pbst_rm_treasure, build_pbst_rm_pressure, build_pbst_rm_pressure_v2, build_pbst_rm_pressure_v3
 
 from baselines.pql_rm import PQLRM
 from baselines.pql import PQL
@@ -22,7 +23,7 @@ def main():
     env_ref = PBSTEnv(render_mode=None)
     rm_time = build_pbst_rm_time(time_penalty=1.0)
     rm_treasure = build_pbst_rm_treasure(env_ref._treasure)
-    rm_pressure = build_pbst_rm_pressure()
+    rm_pressure = build_pbst_rm_pressure_v2()
 
     print(f"\n[RM_time]     {rm_time}")
     print(f"[RM_treasure] {rm_treasure}")
@@ -44,7 +45,7 @@ def main():
     # Bug:
     # When gamma < 1 and the episode length = 5, we generate rewards higher than -5 for time_penalty
     # Maybe because the reward is continuously propagated through the different episodes generating an infinite reward loop?
-    # Check the evolution of the q_set for shorter episodes 
+    # Check the evolution of the q_set for shorter episodes
 
     # -- Logs --
 
@@ -66,8 +67,9 @@ def main():
         for agent_id in agents_to_test:
             print(f"-----------{agent_id}-----------")
             if agent_id == "PQL":
-                env = PBSTEnv(render_mode=None)
-                env = DiscreteObservationWrapper(env)
+                env = PBSTEnv_rm(render_mode=None,
+                                 reward_sources=[rm_time, rm_treasure, rm_pressure])
+                #env = DiscreteObservationWrapper(env)
                 agent = PQL(
                     env,
                     ref_point,
