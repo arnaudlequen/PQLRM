@@ -30,9 +30,22 @@ def main():
     print(f"[RM_pressure] {rm_pressure}")
 
     env_id = "pressurised-bountiful-sea-treasure"
-    agents_to_test = ["PQL"] # "PQL"
+    agents_to_test = ["PQL"] # "PQL" or "PQLRM"
     nbofruns = 1
     filename = __file__.split(".")[0]
+
+    EPSILON_MAX = 1
+    EPSILON_STEPS = 1000
+    EPSILON_MIN = 0.1
+    GAMMA = 0.99 # with the 3 objectives and GAMMA < 1 : too many policies (due to episode length, and probably waiting moves before diving)
+    TRAINING_STEPS = 1000
+    EPISODE_LENGTH = 5
+
+    # all policies obtained with gamma = 1, 20000 steps for epsilon and training
+    # Bug:
+    # When gamma < 1 and the episode length = 5, we generate rewards higher than -5 for time_penalty
+    # Maybe because the reward is continuously propagated through the different episodes generating an infinite reward loop?
+    # Check the evolution of the q_set for shorter episodes
 
     # -- Logs --
 
@@ -60,10 +73,10 @@ def main():
                 agent = PQL(
                     env,
                     ref_point,
-                    gamma=1,
-                    initial_epsilon=1.0,
-                    epsilon_decay_steps=100_000,
-                    final_epsilon=0.1,
+                    gamma=GAMMA,
+                    initial_epsilon=EPSILON_MAX,
+                    epsilon_decay_steps=EPSILON_STEPS,
+                    final_epsilon=EPSILON_MIN,
                     seed=run,
                     output_file=outputFile,
                     log=log,
@@ -71,25 +84,26 @@ def main():
 
             elif agent_id == "PQLRM":
                 env = PBSTEnv(render_mode=None,
-                                reward_sources=[rm_time, rm_treasure, rm_pressure]) # rm_time,rm_pressure
+                                reward_sources=[rm_time, rm_treasure, rm_pressure]) # rm_time,rm_pressure,rm_treasure
                 env = DiscreteObservationWrapper(env)
                 agent = PQLRM(
                     env,
                     ref_point,
-                    gamma=1,
-                    initial_epsilon=1.0,
-                    epsilon_decay_steps=100_000,
-                    final_epsilon=0.1,
+                    gamma=GAMMA,
+                    initial_epsilon=EPSILON_MAX,
+                    epsilon_decay_steps=EPSILON_STEPS,
+                    final_epsilon=EPSILON_MIN,
                     seed=run,
                     output_file=outputFile,
                     log=log,
                 )
 
-            pf = agent.train(total_timesteps=100_000,
+            pf = agent.train(total_timesteps=TRAINING_STEPS,
                              action_eval="pareto_cardinality",
                              ref_point=ref_point,
                              eval_env=env,
-                             max_local_steps=200,
+                             max_local_steps=EPISODE_LENGTH
+,
                              log_every=2000)
 
             print(f'Total of {len(pf)} policies')

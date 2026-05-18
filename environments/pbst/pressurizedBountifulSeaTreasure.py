@@ -183,9 +183,10 @@ class PBSTEnv(Env):
         #pos = tuple(next_state)
         r_treasure = self._treasure.get(tuple(next_position), 0)
 
-        # rm pressure v1
+        # Pressure penalty (depth = row index)
         """
         depth = next_position[0]
+        print(next_position)
         if r_treasure: # pressure penalty only when reaching a treasure
             r_pressure = -depth
         else:
@@ -204,7 +205,7 @@ class PBSTEnv(Env):
             r_pressure = 0.0
 
         return np.array([r_time, r_treasure, r_pressure], dtype=np.float32)
-        #return np.array([r_time, r_treasure], dtype=np.float32)
+        #return np.array([r_time, r_pressure], dtype=np.float32)
 
     # -------------------------
     # Step
@@ -318,15 +319,16 @@ class PBSTEnv(Env):
             pygame.quit()
             self.window = None
 
-    def _get_true_props(self, state, is_treasure, action=None):
+    def _get_true_props(self, state, is_treasure):
         props = []
         position = np.unravel_index(state, self.shape)
-
+        # Treasure proposition
         if is_treasure:
             props.append("goal")
         else:
             props.append("!goal")
 
+        # Depth proposition (pressure-related)
         if position[0] >= self.shape[0] // 2:
             props.append("deep")
         else:
