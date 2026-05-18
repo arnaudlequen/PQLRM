@@ -29,7 +29,7 @@ def test_qrm_pbst():
     N_actions = env_ref.action_space.n
 
     agent_time = QRMAgent(rm_time, N_states, N_actions, alpha=0.1, gamma=0.9, epsilon=0.1)
-    agent_treasure = QRMAgent(rm_treasure, N_states, N_actions, alpha=0.1, gamma=0.99, epsilon=1.0)
+    agent_treasure = QRMAgent(rm_treasure, N_states, N_actions, alpha=0.1, gamma=0.9, epsilon=1.0)
     agent_pressure = QRMAgent(rm_pressure, N_states, N_actions, alpha=0.1, gamma=0.9, epsilon=0.1)
 
     agents = [agent_time, agent_treasure, agent_pressure]

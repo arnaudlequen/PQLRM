@@ -72,7 +72,7 @@ def build_pbst_rm_treasure(treasures: dict[tuple, float]) -> RewardMachine:
         def get_reward(self, s_info: dict[str, Any] | None) -> float:
             if s_info is None:
                 return 0.0
-            pos = tuple(s_info.get("position", (-1, -1)))
+            pos = tuple(s_info.get("position_xy", (-1, -1)))
             return float(self.treasure_map.get(pos, 0.0))
 
     rm = RewardMachine()
@@ -94,7 +94,7 @@ def build_pbst_rm_pressure() -> RewardMachine:
         def get_reward(self, s_info):
             if s_info is None:
                 return 0.0
-            pos = s_info.get("position", None)
+            pos = s_info.get("position_xy", None)
             if pos is None:
                 return 0.0
             return -float(pos[0])
@@ -106,27 +106,81 @@ def build_pbst_rm_pressure() -> RewardMachine:
     rm.add_transition(1, 1, "True", ConstantRewardFunction(0.0))   # imported
     rm.finalize()
     return rm
-"""
-def build_pbst_rm_pressure() -> RewardMachine:
-    #variant: a depth penalty occurs at each timestep
-    class PressureRewardFunction(RewardFunction):
 
-        def get_reward(self, s_info: dict[str, Any] | None) -> float:
-            if s_info is None:
-                return 0.0
-            state = s_info.get("position", None)
-            if state is None:
-                return 0.0
-            depth = int(state[0])
-            return -depth
+def build_pbst_rm_pressure_v2() -> RewardMachine:
+    """
+    RM_pressure_v2: penalty grows with consecutive DOWN actions.
+
+    Streak states:
+        0 — no consecutive downs (or just reset)
+        1 — 1 consecutive down  → reward -1
+        2 — 2 consecutive downs → reward -3 (cumulative: -4)
+        3 — 3 consecutive downs → reward -5 (cumulative: -9)
+        4 — 4+ consecutive downs → reward -7 (cumulative: -16, -23, ...)
+
+    Any non-down action resets streak to state 0 (reward 0).
+
+    Propositions used: "down" / "!down", "goal" / "!goal"
+    """
+
+    class StreakRewardFunction(RewardFunction):
+        def __init__(self, penalty: float):
+            self.penalty = penalty
+        def get_reward(self, s_info):
+            return self.penalty
 
     rm = RewardMachine()
     rm.set_initial_state(0)
-    rm.add_transition(0, 0, "True", PressureRewardFunction())
-    rm.finalize()
-    return rm 
-"""
 
+    # ── Non-down action from any streak state: reset to 0, no reward ──
+    for u in range(4):
+        rm.add_transition(u, 0, "!down&!goal", ConstantRewardFunction(0.0))
+
+    # ── Down actions: advance streak, emit penalty ──
+    # streak 0 → 1: first down, penalty -1
+    rm.add_transition(0, 1, "down&!goal", StreakRewardFunction(-1.0))
+    # streak 1 → 2: second consecutive down, penalty -3
+    rm.add_transition(1, 2, "down&!goal", StreakRewardFunction(-3.0))
+    # streak 2 → 3: third consecutive down, penalty -5
+    rm.add_transition(2, 3, "down&!goal", StreakRewardFunction(-5.0))
+    # streak 3 → 3: fourth+ consecutive down, penalty -7 (self-loop)
+    rm.add_transition(3, 3, "down&!goal", StreakRewardFunction(-7.0))
+
+    # ── Goal reached from any streak state: terminal, no extra reward ──
+    for u in range(4):
+        rm.add_transition(u, rm.terminal_u, "goal", ConstantRewardFunction(0.0))
+
+    rm.finalize()
+    return rm
+
+def build_pbst_rm_pressure_v3() -> RewardMachine:
+    class StreakRewardFunction(RewardFunction):
+        def __init__(self, penalty: float):
+            self.penalty = penalty
+        def get_reward(self, s_info):
+            return self.penalty
+
+    rm = RewardMachine()
+    rm.set_initial_state(0)
+
+    # ── Non-down: decrease streak by 1, floor at 0 ──
+    rm.add_transition(0, 0, "!down&!goal", ConstantRewardFunction(0.0))
+    rm.add_transition(1, 0, "!down&!goal", ConstantRewardFunction(0.0))
+    rm.add_transition(2, 1, "!down&!goal", ConstantRewardFunction(0.0))
+    rm.add_transition(3, 2, "!down&!goal", ConstantRewardFunction(0.0))
+
+    # ── Down: advance streak, emit growing penalty ──
+    rm.add_transition(0, 1, "down&!goal", StreakRewardFunction(-1.0))
+    rm.add_transition(1, 2, "down&!goal", StreakRewardFunction(-3.0))
+    rm.add_transition(2, 3, "down&!goal", StreakRewardFunction(-5.0))
+    rm.add_transition(3, 3, "down&!goal", StreakRewardFunction(-7.0))
+
+    # ── Goal from any state: terminal ──
+    for u in range(4):
+        rm.add_transition(u, rm.terminal_u, "goal", ConstantRewardFunction(0.0))
+
+    rm.finalize()
+    return rm
 
 # ============================================================================
 #  Test

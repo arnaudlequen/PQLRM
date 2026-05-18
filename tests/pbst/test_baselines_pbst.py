@@ -8,7 +8,8 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from environments.pbst.pressurizedBountifulSeaTreasure import PBSTEnv, DiscreteObservationWrapper
-from tests.pbst.test_rm_pbst import build_pbst_rm_time, build_pbst_rm_treasure, build_pbst_rm_pressure
+from environments.pbst.pbst_rm import PBSTEnv_rm
+from tests.pbst.test_rm_pbst import build_pbst_rm_time, build_pbst_rm_treasure, build_pbst_rm_pressure, build_pbst_rm_pressure_v2, build_pbst_rm_pressure_v3
 
 from baselines.pql_rm import PQLRM
 from baselines.pql import PQL
@@ -22,7 +23,7 @@ def main():
     env_ref = PBSTEnv(render_mode=None)
     rm_time = build_pbst_rm_time(time_penalty=1.0)
     rm_treasure = build_pbst_rm_treasure(env_ref._treasure)
-    rm_pressure = build_pbst_rm_pressure()
+    rm_pressure = build_pbst_rm_pressure_v2()
 
     print(f"\n[RM_time]     {rm_time}")
     print(f"[RM_treasure] {rm_treasure}")
@@ -53,14 +54,15 @@ def main():
         for agent_id in agents_to_test:
             print(f"-----------{agent_id}-----------")
             if agent_id == "PQL":
-                env = PBSTEnv(render_mode=None)
-                env = DiscreteObservationWrapper(env)
+                env = PBSTEnv_rm(render_mode=None,
+                                 reward_sources=[rm_time, rm_treasure, rm_pressure])
+                #env = DiscreteObservationWrapper(env)
                 agent = PQL(
                     env,
                     ref_point,
                     gamma=1,
                     initial_epsilon=1.0,
-                    epsilon_decay_steps=100000,
+                    epsilon_decay_steps=100_000,
                     final_epsilon=0.1,
                     seed=run,
                     output_file=outputFile,
@@ -76,18 +78,18 @@ def main():
                     ref_point,
                     gamma=1,
                     initial_epsilon=1.0,
-                    epsilon_decay_steps=100000,
+                    epsilon_decay_steps=100_000,
                     final_epsilon=0.1,
                     seed=run,
                     output_file=outputFile,
                     log=log,
                 )
 
-            pf = agent.train(total_timesteps=50000,
+            pf = agent.train(total_timesteps=100_000,
                              action_eval="pareto_cardinality",
                              ref_point=ref_point,
                              eval_env=env,
-                             max_local_steps=100,
+                             max_local_steps=200,
                              log_every=2000)
 
             print(f'Total of {len(pf)} policies')

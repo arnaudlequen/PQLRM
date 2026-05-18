@@ -272,8 +272,12 @@ class PQL(MOAgent):
                 self.counts[state, action] += 1
                 
                 self.non_dominated[state][action] = self.calc_non_dominated(next_state)
-                
+                if not np.all([reward[i] == self.avg_reward[state, action][i] for i in range(len(reward))]):
+                    print(f"{reward}, {self.avg_reward[state, action]}")
                 self.avg_reward[state, action] += (reward - self.avg_reward[state, action]) / self.counts[state, action]
+                #self.avg_reward[state, action] = reward
+
+                #TODO : comparer reward imm avec avg
                 
                 state = next_state
                 if terminated and not next_state in self.terminal_states:
