@@ -1,0 +1,317 @@
+{
+  "info": {
+    "map_shape": "Default",
+    "env": "office_world"
+  },
+  "plans": [
+    {
+      "target": [
+        0.0,
+        0.0
+      ],
+      "steps": [
+        {
+          "state": 137,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 122,
+          "action": 0,
+          "rm_state": 0,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [0.0, 0.0]"
+    }
+  ]
+}

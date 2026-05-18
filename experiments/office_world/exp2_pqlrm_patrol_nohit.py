@@ -15,7 +15,7 @@ from tests.office_world.common import (
     track_and_save_policies,
 )
 
-from experiments.office_world.rm_ow import rm_get_mail, rm_get_coffee, rm_no_hit_deco
+from experiments.office_world.rm_ow import rm_patrol, rm_no_hit_deco
 
 
 def main():
@@ -39,11 +39,10 @@ def main():
     else:
         outputFile = None
 
-        task_coffee = rm_get_coffee()
-        task_mail = rm_get_mail()
+        task_patrol = rm_patrol()
         task_no_hit = rm_no_hit_deco()
 
-        env = OfficeWorld(map=env_map, reward_sources=[task_no_hit, task_coffee, task_mail], render_mode='ansi')
+        env = OfficeWorld(map=env_map, reward_sources=[task_no_hit, task_patrol], render_mode='ansi')
 
             
         agent = PQLRM(
