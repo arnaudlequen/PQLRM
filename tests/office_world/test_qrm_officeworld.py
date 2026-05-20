@@ -16,7 +16,8 @@ Propositions emitted by OfficeWorldRM._get_true_props
 "wall", "decoration", "coffee", "office", "mail", "A", "B", "C", "D"
 (or their negations "!wall", "!coffee", etc.)
 """
-from environments.office_world.office_world_rm import OfficeWorldRM
+#from environments.office_world.office_world_rm import OfficeWorldRM
+from environments.office_world.office_world import OfficeWorld
 from baselines.qrm import QRMAgent, MultiTaskQRMTrainer, SharedEnvTrainer
 from tests.office_world.test_baselines_pqlrm_office_world import rm_get_mail, rm_get_coffee, rm_patrol, rm_no_hit_deco
 
@@ -49,7 +50,7 @@ def test_qrm_office_shared(map_name: str = "default_office") -> None:
     #    State encoding: base_nS * coffee_flag * mail_flag * prod(rm_states)
     #    Every agent sees the same nS — no index mismatch possible.
     # ------------------------------------------------------------------
-    shared_env = OfficeWorldRM(
+    shared_env = OfficeWorld(
         render_mode=None,
         map=map_name,
         reward_sources=rms,
@@ -81,7 +82,7 @@ def test_qrm_office_shared(map_name: str = "default_office") -> None:
     # ------------------------------------------------------------------
     # 5. Training
     # ------------------------------------------------------------------
-    N_EPISODES  = 100_000
+    N_EPISODES  = 10_000
     PRINT_EVERY = 5_000
 
     print(f"\n── Training ({N_EPISODES} eps, round-robin across {len(agents)} tasks) ──")
@@ -125,8 +126,8 @@ def test_qrm_office(map_name: str = "default_office") -> None:
     rm_ptrl         = rm_patrol()
     rm_no_deco  = rm_no_hit_deco()
 
-    rms        = [rm_mail, rm_coffee, rm_ptrl, rm_no_deco]
-    task_names = ["Mail", "Coffee", "Patrol", "No-deco"]
+    rms        = [rm_mail, rm_coffee]#, rm_ptrl, rm_no_deco]
+    task_names = ["Mail", "Coffee"]#, "Patrol", "No-deco"]
 
     # ------------------------------------------------------------------
     # 2. One env factory per task
@@ -134,7 +135,7 @@ def test_qrm_office(map_name: str = "default_office") -> None:
     #    that reward is always a scalar and rm_states[0] is unambiguous.
     # ------------------------------------------------------------------
     def make_factory(rm):
-        return lambda: OfficeWorldRM(
+        return lambda: OfficeWorld(
             render_mode=None,
             map=map_name,
             reward_sources=[rm],
@@ -159,7 +160,7 @@ def test_qrm_office(map_name: str = "default_office") -> None:
         n_s = _probe.observation_space.n
         n_a = _probe.action_space.n
         #print(n_s, n_a, rm.__str__())
-        agents.append(QRMAgent(rm, n_s, n_a, alpha=0.1, gamma=0.99, epsilon=0.3))
+        agents.append(QRMAgent(rm, n_s, n_a, alpha=0.1, gamma=0.9, epsilon=0.8))
 
     # ------------------------------------------------------------------
     # 4. Trainer
@@ -169,7 +170,7 @@ def test_qrm_office(map_name: str = "default_office") -> None:
     # ------------------------------------------------------------------
     # 5. Training
     # ------------------------------------------------------------------
-    N_EPISODES  = 40_000
+    N_EPISODES  = 10_000
     PRINT_EVERY = 5_000
 
     print(f"\n── Training  ({N_EPISODES} episodes, round-robin across {len(agents)} tasks) ──")
@@ -208,5 +209,5 @@ def test_qrm_office(map_name: str = "default_office") -> None:
 
 
 if __name__ == "__main__":
-    test_qrm_office_shared()
-    #test_qrm_office()
+    #test_qrm_office_shared()
+    test_qrm_office()

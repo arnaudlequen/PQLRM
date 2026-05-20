@@ -130,7 +130,7 @@ class OfficeWorld(Env):
 
         # ----- 2. Reward machines dynamics -----
         #print(f"configuration : {self._rm_states} ; state : {current_pos} ; action : {a} ; next_state : {new_position}")
-        rewards, new_configuration, rm_done = self._evaluate_rewards(self.s, self._rm_states, a, show=False)
+        rewards, new_configuration, rm_done, true_props = self._evaluate_rewards(self.s, self._rm_states, a, show=False)
         self._rm_states = new_configuration.copy()
         #print('env_done:', env_done)
         #print('rm_done:', rm_done)
@@ -146,7 +146,7 @@ class OfficeWorld(Env):
         if self.render_mode == "human":
             self.render()
 
-        return int(new_state), rewards, terminated, truncated, {"prob": 1.0}
+        return int(new_state), rewards, terminated, truncated, {"prob": 1.0, "props": true_props, "env_done": env_done}
 
     def reset(self, *, seed: int | None = None, options: dict | None = None):
         super().reset(seed=seed)
@@ -316,6 +316,7 @@ class OfficeWorld(Env):
                 r = src(self, current_state, new_state, new_position) # TODO: replace by a RewardFunction src.get_reward(s_info)
                 rewards.append(r)
                 done_flags.append(False)
+                true_props = props
 
         # Aggregate rewards and dones
         reward = rewards[0] if len(rewards) == 1 else np.asarray(rewards, dtype=float)
@@ -323,4 +324,4 @@ class OfficeWorld(Env):
         #print('done_flags:', done_flags)
         rm_done = all(done_flags) # TODO : any ?
 
-        return reward, next_configuration, rm_done
+        return reward, next_configuration, rm_done, true_props

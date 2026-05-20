@@ -106,8 +106,8 @@ class QRMAgent:
 
         for u1 in self.rm.U:
             u2, r, rm_done = self.rm.step(u1, props, env_done=env_done, s_info=s_info)
-            # TD target: bootstrap from u2 unless terminal
-            if u2 != self.rm.terminal_u and not env_done:
+            done = env_done or rm_done or (u2 == self.rm.terminal_u)
+            if not done:
                 td_target = r + self.gamma * float(np.max(self.Q[u2][s2]))
             else:
                 td_target = r
