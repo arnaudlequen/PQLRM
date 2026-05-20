@@ -282,7 +282,7 @@ class OfficeWorldRM(Env):
         rewards = []
         next_configuration = current_configuration.copy()
         done_flags = []
-        full_state = self.decode_state(self.s)
+        full_state = self.decode_state(current_state)
         current_pos = np.unravel_index(full_state['position'], self.shape)
         delta = POSITION_MAPPING[action]
         new_position = np.array(current_pos) + np.array(delta)

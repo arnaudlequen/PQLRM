@@ -32,11 +32,11 @@ def main():
     filename = __file__.split(".")[0]
 
     EPSILON_MAX = 1
-    EPSILON_STEPS = 50_000
+    EPSILON_STEPS = 100_000
     EPSILON_MIN = 0.1
     GAMMA = 0.999
-    TRAINING_STEPS = 50_000
-    EPISODE_LENGTH = 200
+    TRAINING_STEPS = 100_000
+    EPISODE_LENGTH = 300
 
     # all policies obtained with gamma = 1, 20000 steps for epsilon and training
     # Bug:

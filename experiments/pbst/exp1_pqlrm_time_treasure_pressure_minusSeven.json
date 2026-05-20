@@ -1,0 +1,766 @@
+{
+  "info": {
+    "map_shape": "Default",
+    "env": "pbst"
+  },
+  "plans": [
+    {
+      "target": [
+        -1.0,
+        5.0,
+        50.0
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 5.0
+        }
+      ],
+      "name": "Target [-1.0, 5.0, 50.0]"
+    },
+    {
+      "target": [
+        -13.12541872310217,
+        145.66848981782866,
+        36.55468663525065
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 2,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 3,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 13,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 14,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 35,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 36,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 46,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 47,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 57,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 67,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 166.0
+        }
+      ],
+      "name": "Target [-13.12541872310217, 145.66848981782866, 36.55468663525065]"
+    },
+    {
+      "target": [
+        -15.705680661607312,
+        147.3021943994135,
+        31.802603163353194
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 2,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 3,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 13,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 14,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 35,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 36,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 46,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 47,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 57,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 67,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 68,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 78,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 88,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 173.0
+        }
+      ],
+      "name": "Target [-15.705680661607312, 147.3021943994135, 31.802603163353194]"
+    },
+    {
+      "target": [
+        -12.247897700103202,
+        144.48073408972908,
+        33.362534444195845
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 2,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 3,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 13,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 14,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 35,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 36,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 46,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 56,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 66,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 163.0
+        }
+      ],
+      "name": "Target [-12.247897700103202, 144.48073408972908, 33.362534444195845]"
+    },
+    {
+      "target": [
+        -8.64827525163591,
+        138.41170416418802,
+        43.28388032358902
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 2,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 3,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 13,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 14,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 35,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 150.0
+        }
+      ],
+      "name": "Target [-8.64827525163591, 138.41170416418802, 43.28388032358902]"
+    },
+    {
+      "target": [
+        -7.72553055720799,
+        135.14947544651358,
+        43.7210912359485
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 2,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 12,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 13,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 23,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 24,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 34,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 145.0
+        }
+      ],
+      "name": "Target [-7.72553055720799, 135.14947544651358, 43.7210912359485]"
+    },
+    {
+      "target": [
+        -14.854222890512437,
+        142.76968687045388,
+        37.518584118741586
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 2,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 3,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 4,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 14,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 15,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 26,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 36,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 37,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 47,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 48,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 58,
+          "action": 3,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 57,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 67,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 166.0
+        }
+      ],
+      "name": "Target [-14.854222890512437, 142.76968687045388, 37.518584118741586]"
+    },
+    {
+      "target": [
+        -13.994164535871148,
+        141.60556748134348,
+        37.89755971590059
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 2,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 3,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 13,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 14,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 35,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 36,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 46,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 47,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 57,
+          "action": 3,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 56,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 66,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 163.0
+        }
+      ],
+      "name": "Target [-13.994164535871148, 141.60556748134348, 37.89755971590059]"
+    },
+    {
+      "target": [
+        -6.793465209301,
+        131.80722091614,
+        44.16271842015
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 11,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 12,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 22,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 23,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 33,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 140.0
+        }
+      ],
+      "name": "Target [-6.793465209301, 131.80722091614, 44.16271842015]"
+    },
+    {
+      "target": [
+        -2.9701,
+        78.408,
+        48.015
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 11,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 80.0
+        }
+      ],
+      "name": "Target [-2.9701, 78.408, 48.015]"
+    },
+    {
+      "target": [
+        -4.90099501,
+        115.2715212,
+        46.0695015
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 11,
+          "action": 1,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 12,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 0.0
+        },
+        {
+          "state": 22,
+          "action": 2,
+          "rm_state": 0,
+          "reward": 120.0
+        }
+      ],
+      "name": "Target [-4.90099501, 115.2715212, 46.0695015]"
+    }
+  ]
+}

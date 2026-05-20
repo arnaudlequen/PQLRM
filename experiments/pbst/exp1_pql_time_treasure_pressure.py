@@ -23,6 +23,7 @@ def main():
     rm_time = build_pbst_rm_time(time_penalty=1.0)
     rm_treasure = build_pbst_rm_treasure(env_ref._treasure)
     rm_pressure = build_pbst_rm_pressure_v2()
+    #rm_pressure = build_pbst_rm_pressure()
 
     print(f"\n[RM_time]     {rm_time}")
     print(f"[RM_treasure] {rm_treasure}")
@@ -36,13 +37,7 @@ def main():
     EPSILON_MIN = 0.1
     GAMMA = 0.999 # treasure rewards are too close
     TRAINING_STEPS = 200_000
-    EPISODE_LENGTH = 200
-
-    # all policies obtained with gamma = 1, 20000 steps for epsilon and training
-    # Bug:
-    # When gamma < 1 and the episode length = 5, we generate rewards higher than -5 for time_penalty
-    # Maybe because the reward is continuously propagated through the different episodes generating an infinite reward loop?
-    # Check the evolution of the q_set for shorter episodes
+    EPISODE_LENGTH = 300
 
     # -- Logs --
 

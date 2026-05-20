@@ -96,7 +96,7 @@ def build_pbst_rm_pressure() -> RewardMachine:
     rm.set_initial_state(0)
     rm.add_transition(0, 0, "!goal", ConstantRewardFunction(0.0))  # imported
     rm.add_transition(0, 1, "goal", PressureRewardFunction())
-    rm.add_transition(1, 1, "True", ConstantRewardFunction(0.0))   # imported
+    rm.add_transition(1, rm.terminal_u, "True", ConstantRewardFunction(0.0))   # imported
     rm.finalize()
     return rm
 

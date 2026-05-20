@@ -156,6 +156,7 @@ class PBSTEnv_rm(Env):
         coord[1] = max(coord[1], 0)
         return coord
 
+    """
     def encode_state(self, position_state):
         index_state = position_state
         c = self.base_nS
@@ -170,7 +171,17 @@ class PBSTEnv_rm(Env):
                 index_state += c * u_safe
                 c *= n_rm_states
         return index_state
+    """
     
+    def encode_state(self, position_state):
+        index_state = position_state
+        c = self.base_nS
+        for i in range(len(self.reward_sources)):
+            if self._rm_states[i] != None:
+                index_state += c * self._rm_states[i]
+                c *= len(self.reward_sources[i].get_states())
+        return index_state
+
     def decode_state(self, state: int) -> tuple[int, bool]:
         remaining = int(state)
 
@@ -207,9 +218,9 @@ class PBSTEnv_rm(Env):
                 new_position = np.array(state_position)  # move is cancelled
 
         new_state_position = np.ravel_multi_index(tuple(new_position), self.shape)
-        new_state = self.encode_state(new_state_position)
+        
         # print(f"state : {state}, position : {current_pos}, action : {action}, new position : {new_position}, new_state : {new_state}")
-        return new_state
+        return new_state_position
 
     # -------------------------
     # Reward function (vector)
@@ -259,12 +270,12 @@ class PBSTEnv_rm(Env):
         full_state = self.decode_state(self.s)
 
         new_state = self.transition_function(full_state['position_xy'], a)
-        full_new_state = self.decode_state(new_state)
-        env_done = self.is_treasure(full_new_state['position_xy'])
+        
+        new_state_position = self.decode_state(new_state)['position_xy']
+        env_done = self.is_treasure(new_state_position)
 
         # ----- 2. Reward machines dynamics -----
-        rewards, new_configuration, rm_done, true_props = self._evaluate_rewards(self.s, self._rm_states,
-                                                                                 new_state, a)
+        rewards, new_configuration, rm_done, true_props = self._evaluate_rewards(self.s, self._rm_states, a)
         self._rm_states = new_configuration.copy()
 
         # ----- 3. Termination -----
@@ -272,6 +283,7 @@ class PBSTEnv_rm(Env):
         truncated = False
 
         # ----- 4. State update -----
+        new_state = self.encode_state(new_state)
         self.s = new_state
 
         if self.render_mode == "human":
@@ -385,14 +397,18 @@ class PBSTEnv_rm(Env):
 
         return props
 
-    def _evaluate_rewards(self, current_state, current_configuration, new_state, action):
+    def _evaluate_rewards(self, current_state, current_configuration, action):
         rewards = []
         next_configuration = current_configuration.copy()
         done_flags = []
         is_rm = False
-        new_state_position = self.decode_state(new_state)['position_xy']
-        is_treasure = self.is_treasure(new_state_position)
+        full_state = self.decode_state(current_state)
 
+        new_state = self.transition_function(full_state['position_xy'], action) # in the grid, not with rms
+        new_state_position = self.decode_state(new_state)['position_xy']
+
+        is_treasure = self.is_treasure(new_state_position)
+    
         # Compute true propositions
         props = self._get_true_props(new_state, is_treasure, action)
 
@@ -442,10 +458,12 @@ class PBSTEnv_rm(Env):
         else:
             return self.reward_sources
 
+    """
     def get_successor_states(self, s, a):
         new_state = self.transition_function(s, a)
         return [tuple(new_state)]
-
+    """
+    """
     def get_successor_rewards(self, rm_configuration, s, a, info=None):
         new_state = self.transition_function(s, a)
 
@@ -466,7 +484,8 @@ class PBSTEnv_rm(Env):
         )
 
         return rewards, tuple(new_configuration)
-
+    """
+        
     def set_state(self, state, info=None):
         self.s = state
         return

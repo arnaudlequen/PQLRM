@@ -46,12 +46,12 @@ def test_qrm_pbst():
     # ------------------------------------------------------------------
     # 4. Build the multi-task trainer
     # ------------------------------------------------------------------
-    trainer = MultiTaskQRMTrainer(agents, env_factories, max_steps_per_episode=200)
+    trainer = MultiTaskQRMTrainer(agents, env_factories, max_steps_per_episode=300)
 
     # ------------------------------------------------------------------
     # 5. Training
     # ------------------------------------------------------------------
-    N_EPISODES = 20_000
+    N_EPISODES = 10_000
     PRINT_EVERY = 100
 
     print(f"\n── Training  ({N_EPISODES} episodes, round-robin across {len(agents)} tasks) ──")

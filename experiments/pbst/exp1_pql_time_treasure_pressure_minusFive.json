@@ -14,8 +14,8 @@
         {
           "state": 0,
           "action": 2,
-          "rm_state": 0,
-          "reward": 5.0
+          "rm_state": -1,
+          "reward": 0.0
         }
       ],
       "name": "Target [-1.0, 5.0, 50.0]"
@@ -30,86 +30,86 @@
         {
           "state": 0,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 1,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 2,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 3,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 13,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 14,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 24,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 25,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 35,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 36,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 46,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 47,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 57,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 67,
           "action": 2,
-          "rm_state": 0,
-          "reward": 166.0
+          "rm_state": -1,
+          "reward": 0.0
         }
       ],
       "name": "Target [-13.909363000998999, 163.85490064247665, 41.42456368870772]"
@@ -124,122 +124,122 @@
         {
           "state": 0,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 1,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 2,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 3,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 13,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 14,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 24,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 25,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 35,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 36,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 46,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 47,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 57,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 58,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 68,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 69,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 79,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 79,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 89,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 99,
           "action": 2,
-          "rm_state": 0,
-          "reward": 175.0
+          "rm_state": -1,
+          "reward": 0.0
         }
       ],
       "name": "Target [-19.811135170465313, 171.70475610126985, 38.19160289312068]"
@@ -254,104 +254,104 @@
         {
           "state": 0,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 1,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 2,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 3,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 13,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 14,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 24,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 25,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 35,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 36,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 46,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 47,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 57,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 67,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 68,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 78,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 88,
           "action": 2,
-          "rm_state": 0,
-          "reward": 173.0
+          "rm_state": -1,
+          "reward": 0.0
         }
       ],
       "name": "Target [-16.86467762617564, 170.2526634341057, 37.33524576771897]"
@@ -366,92 +366,92 @@
         {
           "state": 0,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 1,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 2,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 3,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 13,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 14,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 24,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 25,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 35,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 36,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 46,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 47,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 57,
           "action": 3,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 56,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 66,
           "action": 2,
-          "rm_state": 0,
-          "reward": 163.0
+          "rm_state": -1,
+          "reward": 0.0
         }
       ],
       "name": "Target [-14.895453637998, 160.73277383083717, 43.352329429740955]"
@@ -466,98 +466,98 @@
         {
           "state": 0,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 1,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 2,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 3,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 4,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 14,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 15,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 25,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 26,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 36,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 37,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 47,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 48,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 58,
           "action": 3,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 57,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 67,
           "action": 2,
-          "rm_state": 0,
-          "reward": 166.0
+          "rm_state": -1,
+          "reward": 0.0
         }
       ],
       "name": "Target [-15.880558184360002, 163.52735469609232, 43.30897710031121]"
@@ -572,56 +572,56 @@
         {
           "state": 0,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 1,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 2,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 3,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 13,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 14,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 24,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 25,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 35,
           "action": 2,
-          "rm_state": 0,
-          "reward": 150.0
+          "rm_state": -1,
+          "reward": 0.0
         }
       ],
       "name": "Target [-8.964083874125915, 148.8041916104916, 46.61636324945724]"
@@ -636,50 +636,50 @@
         {
           "state": 0,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 1,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 2,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 12,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 13,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 23,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 24,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 34,
           "action": 2,
-          "rm_state": 0,
-          "reward": 145.0
+          "rm_state": -1,
+          "reward": 0.0
         }
       ],
       "name": "Target [-7.972055930055971, 143.98803993007195, 46.66302627573297]"
@@ -694,32 +694,32 @@
         {
           "state": 0,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 1,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 11,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 12,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 22,
           "action": 2,
-          "rm_state": 0,
-          "reward": 120.0
+          "rm_state": -1,
+          "reward": 0.0
         }
       ],
       "name": "Target [-4.9900099950009995, 119.52071952012001, 47.80429680105001]"
@@ -734,116 +734,116 @@
         {
           "state": 0,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 1,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 2,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 3,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 13,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 14,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 24,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 25,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 35,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 36,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 46,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 47,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 57,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 58,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 68,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 78,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 79,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 89,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 99,
           "action": 2,
-          "rm_state": 0,
-          "reward": 175.0
+          "rm_state": -1,
+          "reward": 0.0
         }
       ],
       "name": "Target [-18.829965135600915, 171.87663273400386, 36.263609612429306]"
@@ -858,219 +858,131 @@
         {
           "state": 0,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 1,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 2,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 3,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 13,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 14,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 24,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 25,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 35,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 36,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 46,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 47,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 57,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 58,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 68,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 69,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 79,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 79,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 89,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 89,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 99,
           "action": 2,
-          "rm_state": 0,
-          "reward": 175.0
+          "rm_state": -1,
+          "reward": 0.0
         }
       ],
       "name": "Target [-20.79132403529485, 171.5330513451686, 40.10783091766741]"
-    },
-    {
-      "target": [
-        -12.922285286285284,
-        161.05472222055607,
-        37.51181033726766
-      ],
-      "steps": [
-        {
-          "state": 0,
-          "action": 1,
-          "rm_state": 0,
-          "reward": 0.0
-        },
-        {
-          "state": 1,
-          "action": 1,
-          "rm_state": 0,
-          "reward": 0.0
-        },
-        {
-          "state": 2,
-          "action": 1,
-          "rm_state": 0,
-          "reward": 0.0
-        },
-        {
-          "state": 3,
-          "action": 2,
-          "rm_state": 0,
-          "reward": 0.0
-        },
-        {
-          "state": 13,
-          "action": 1,
-          "rm_state": 0,
-          "reward": 0.0
-        },
-        {
-          "state": 14,
-          "action": 2,
-          "rm_state": 0,
-          "reward": 0.0
-        },
-        {
-          "state": 24,
-          "action": 1,
-          "rm_state": 0,
-          "reward": 0.0
-        },
-        {
-          "state": 25,
-          "action": 2,
-          "rm_state": 0,
-          "reward": 0.0
-        },
-        {
-          "state": 35,
-          "action": 1,
-          "rm_state": 0,
-          "reward": 0.0
-        },
-        {
-          "state": 36,
-          "action": 2,
-          "rm_state": 0,
-          "reward": 0.0
-        },
-        {
-          "state": 46,
-          "action": 2,
-          "rm_state": 0,
-          "reward": 0.0
-        },
-        {
-          "state": 56,
-          "action": 2,
-          "rm_state": 0,
-          "reward": 0.0
-        },
-        {
-          "state": 66,
-          "action": 2,
-          "rm_state": 0,
-          "reward": 163.0
-        }
-      ],
-      "name": "Target [-12.922285286285284, 161.05472222055607, 37.51181033726766]"
     },
     {
       "target": [
@@ -1082,23 +994,111 @@
         {
           "state": 0,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 1,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 11,
           "action": 2,
-          "rm_state": 0,
-          "reward": 80.0
+          "rm_state": -1,
+          "reward": 0.0
         }
       ],
       "name": "Target [-2.997001, 79.84008, 48.901050000000005]"
+    },
+    {
+      "target": [
+        -12.922285286285284,
+        161.05472222055607,
+        -3.9730778751199307
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 2,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 3,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 4,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 5,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 6,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 16,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 26,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 36,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 46,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 56,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 66,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-12.922285286285284, 161.05472222055607, -3.9730778751199307]"
     },
     {
       "target": [
@@ -1110,116 +1110,116 @@
         {
           "state": 0,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 1,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 2,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 3,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 13,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 14,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 24,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 25,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 35,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 36,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 46,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 47,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 57,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 58,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 68,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 69,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 79,
           "action": 3,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 78,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 88,
           "action": 2,
-          "rm_state": 0,
-          "reward": 173.0
+          "rm_state": -1,
+          "reward": 0.0
         }
       ],
       "name": "Target [-18.829965135600915, 169.91232835990093, 41.1871670636276]"
@@ -1234,44 +1234,44 @@
         {
           "state": 0,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 1,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 11,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 12,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 22,
           "action": 1,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 23,
           "action": 2,
-          "rm_state": 0,
+          "rm_state": -1,
           "reward": 0.0
         },
         {
           "state": 33,
           "action": 2,
-          "rm_state": 0,
-          "reward": 140.0
+          "rm_state": -1,
+          "reward": 0.0
         }
       ],
       "name": "Target [-6.979034965020992, 139.16209720209915, 46.70973601174471]"
