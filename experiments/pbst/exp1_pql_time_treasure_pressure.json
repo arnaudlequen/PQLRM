@@ -1,0 +1,6706 @@
+{
+  "info": {
+    "map_shape": "Default",
+    "env": "pbst"
+  },
+  "plans": [
+    {
+      "target": [
+        -21.770532711259555,
+        159.61101418224698,
+        41.647593737902746
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 14.765138574243537
+        },
+        {
+          "state": 1,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 11,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 12,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 19.961547623027005
+        },
+        {
+          "state": 13,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 10.082600642676429
+        },
+        {
+          "state": 14,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 9.022116461943181
+        },
+        {
+          "state": 13,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 4.484106622532746
+        },
+        {
+          "state": 23,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 7.2051304280598405
+        },
+        {
+          "state": 22,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 98.36763571829209
+        },
+        {
+          "state": 23,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 8.966437266168274
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 24.24108612295288
+        },
+        {
+          "state": 25,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 26.642452473982825
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 26,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 36,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 46,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 56,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 15.548315634146318
+        },
+        {
+          "state": 66,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-21.770532711259555, 159.61101418224698, 41.647593737902746]"
+    },
+    {
+      "target": [
+        -6.979034965020992,
+        139.16209720209915,
+        45.41502421752133
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 11,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 12,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 22,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 23,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 33,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-6.979034965020992, 139.16209720209915, 45.41502421752133]"
+    },
+    {
+      "target": [
+        -27.625255622904444,
+        170.33591618217392,
+        37.11580073502328
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.367411890672681
+        }
+      ],
+      "name": "Target [-27.625255622904444, 170.33591618217392, 37.11580073502328]"
+    },
+    {
+      "target": [
+        -16.86467762617564,
+        170.2526634341057,
+        37.12239381541196
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 8.661922988416752
+        },
+        {
+          "state": 11,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 12,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 22,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 23,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 11.080306801566378
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 26,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 36,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 6.605047792297121
+        },
+        {
+          "state": 46,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 36.07038378374428
+        },
+        {
+          "state": 47,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 13.48243759176308
+        },
+        {
+          "state": 57,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 6.379753912446006
+        },
+        {
+          "state": 67,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 68,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 78,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 10.13885714285714
+        },
+        {
+          "state": 88,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-16.86467762617564, 170.2526634341057, 37.12239381541196]"
+    },
+    {
+      "target": [
+        -35.37708147005253,
+        160.2876921681394,
+        42.388094372270665
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 24.534317750467842
+        }
+      ],
+      "name": "Target [-35.37708147005253, 160.2876921681394, 42.388094372270665]"
+    },
+    {
+      "target": [
+        -4.9900099950009995,
+        119.52071952012001,
+        47.80429680105001
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 11,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 12,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 22,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-4.9900099950009995, 119.52071952012001, 47.80429680105001]"
+    },
+    {
+      "target": [
+        -34.41149296301555,
+        167.2140257431414,
+        39.39484410695337
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 13.638249334695786
+        }
+      ],
+      "name": "Target [-34.41149296301555, 167.2140257431414, 39.39484410695337]"
+    },
+    {
+      "target": [
+        -2.997001,
+        79.84008,
+        48.901050000000005
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 11,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-2.997001, 79.84008, 48.901050000000005]"
+    },
+    {
+      "target": [
+        -22.748762178548297,
+        171.1901567755296,
+        36.291030768476844
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 5.1231872572281105
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.3960081290005775
+        },
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 7.583613675844305
+        },
+        {
+          "state": 1,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 4.993618072069381
+        },
+        {
+          "state": 2,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 3,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 4,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 5,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 15,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 41.38805674992959
+        },
+        {
+          "state": 26,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 9.522166539625308
+        },
+        {
+          "state": 27,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 6.203197395553179
+        },
+        {
+          "state": 28,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 16.411981664324312
+        },
+        {
+          "state": 38,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0006943886844226199
+        },
+        {
+          "state": 39,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0004392579039134148
+        },
+        {
+          "state": 39,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0004388137872481934
+        },
+        {
+          "state": 49,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 59,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 16.641135194974634
+        },
+        {
+          "state": 69,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 15.314654387105161
+        },
+        {
+          "state": 79,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 2.855827750097739
+        },
+        {
+          "state": 89,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 4.087385474860326
+        },
+        {
+          "state": 89,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 4.86321475739644
+        },
+        {
+          "state": 89,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 4.86321475739644
+        },
+        {
+          "state": 89,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 4.14201622718052
+        },
+        {
+          "state": 99,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-22.748762178548297, 171.1901567755296, 36.291030768476844]"
+    },
+    {
+      "target": [
+        -1.0,
+        5.0,
+        50.0
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-1.0, 5.0, 50.0]"
+    },
+    {
+      "target": [
+        -32.477415316232694,
+        167.5489561063981,
+        39.11651269045742
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 11.088360018844448
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 9.892852627849958
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 8.678613351626463
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        }
+      ],
+      "name": "Target [-32.477415316232694, 167.5489561063981, 39.11651269045742]"
+    },
+    {
+      "target": [
+        -31.508924240473164,
+        167.71667277917726,
+        39.05840855539264
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 9.892852627849958
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 8.678613351626463
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        }
+      ],
+      "name": "Target [-31.508924240473164, 167.71667277917726, 39.05840855539264]"
+    },
+    {
+      "target": [
+        -21.770532711259555,
+        169.40310094189397,
+        38.23131863586012
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 2.371321157398114
+        },
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 3.5644103871595405
+        },
+        {
+          "state": 1,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 6.852853845962365
+        },
+        {
+          "state": 2,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 3,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 4,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 5,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 15,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 37.33996359960116
+        },
+        {
+          "state": 26,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 3.8173915905642772
+        },
+        {
+          "state": 25,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 36.615053142205376
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 37.569140631080955
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 26,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 36,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 6.605047792297121
+        },
+        {
+          "state": 46,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 36.07038378374428
+        },
+        {
+          "state": 47,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 13.48243759176308
+        },
+        {
+          "state": 57,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 6.379753912446006
+        },
+        {
+          "state": 67,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 68,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 78,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 10.13885714285714
+        },
+        {
+          "state": 88,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-21.770532711259555, 169.40310094189397, 38.23131863586012]"
+    },
+    {
+      "target": [
+        -11.934219505791075,
+        143.41295112278306,
+        46.47466593122721
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 45.65747937329944
+        }
+      ],
+      "name": "Target [-11.934219505791075, 143.41295112278306, 46.47466593122721]"
+    },
+    {
+      "target": [
+        -27.625255622904444,
+        161.57578334994778,
+        42.029369782591125
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.12626808216353
+        }
+      ],
+      "name": "Target [-27.625255622904444, 161.57578334994778, 42.029369782591125]"
+    },
+    {
+      "target": [
+        -23.72601341636975,
+        162.22370547836098,
+        41.91071601867598
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 11,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 12,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 22,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 23,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 22,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 105.8771926254033
+        },
+        {
+          "state": 23,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 24,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 30.500889039638466
+        },
+        {
+          "state": 23,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 2.4549321891535705
+        },
+        {
+          "state": 24,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0006606738324990147
+        },
+        {
+          "state": 23,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 4.7080675518553186
+        },
+        {
+          "state": 24,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 27.48836378763123
+        },
+        {
+          "state": 34,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 26.383615170909344
+        },
+        {
+          "state": 35,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 17.146741312276063
+        },
+        {
+          "state": 34,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 24.813228917542087
+        },
+        {
+          "state": 33,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 57.04262242403793
+        },
+        {
+          "state": 34,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 23.9939741020723
+        },
+        {
+          "state": 35,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 24.778243454997728
+        },
+        {
+          "state": 36,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 19.492202891076452
+        },
+        {
+          "state": 46,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 23.02352225305166
+        },
+        {
+          "state": 56,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 66,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 67,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-23.72601341636975, 162.22370547836098, 41.91071601867598]"
+    },
+    {
+      "target": [
+        -18.829965135600915,
+        169.91232835990093,
+        37.596346644360736
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 7.509771230386999
+        },
+        {
+          "state": 11,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 12,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 22,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 23,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 12.288566814865133
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 37.569140631080955
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 26,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 36,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 6.605047792297121
+        },
+        {
+          "state": 46,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 36.07038378374428
+        },
+        {
+          "state": 47,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 13.48243759176308
+        },
+        {
+          "state": 57,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 6.379753912446006
+        },
+        {
+          "state": 67,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 68,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 78,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 10.13885714285714
+        },
+        {
+          "state": 88,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-18.829965135600915, 169.91232835990093, 37.596346644360736]"
+    },
+    {
+      "target": [
+        -12.922285286285284,
+        148.20986707413138,
+        46.42521318946072
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 39.817204624942065
+        }
+      ],
+      "name": "Target [-12.922285286285284, 148.20986707413138, 46.42521318946072]"
+    },
+    {
+      "target": [
+        -22.748762178548297,
+        169.23369784095206,
+        38.34449546367146
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 1.186015446572661
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 2.371321157398114
+        },
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 3.5644103871595405
+        },
+        {
+          "state": 1,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 6.852853845962365
+        },
+        {
+          "state": 2,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 3,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 4,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 5,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 15,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 37.33996359960116
+        },
+        {
+          "state": 26,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 3.8173915905642772
+        },
+        {
+          "state": 25,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 36.615053142205376
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 37.569140631080955
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 26,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 36,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 6.605047792297121
+        },
+        {
+          "state": 46,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 36.07038378374428
+        },
+        {
+          "state": 47,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 13.48243759176308
+        },
+        {
+          "state": 57,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 6.379753912446006
+        },
+        {
+          "state": 67,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 68,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 78,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 10.13885714285714
+        },
+        {
+          "state": 88,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-22.748762178548297, 169.23369784095206, 38.34449546367146]"
+    },
+    {
+      "target": [
+        -18.829965135600915,
+        171.87663273400386,
+        35.41220596943549
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 6.444724876285523
+        },
+        {
+          "state": 11,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 12,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 22,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 23,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 16.322771720884646
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 43.517035927678975
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 26,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 13.215442410192328
+        },
+        {
+          "state": 36,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 2.4339958268051323
+        },
+        {
+          "state": 46,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 40.95535731504526
+        },
+        {
+          "state": 47,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 14.599430424269451
+        },
+        {
+          "state": 57,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 2.5585257073472123
+        },
+        {
+          "state": 67,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 68,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 69,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 79,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 3.4168914688619134
+        },
+        {
+          "state": 89,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 4.14201622718052
+        },
+        {
+          "state": 99,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-18.829965135600915, 171.87663273400386, 35.41220596943549]"
+    },
+    {
+      "target": [
+        -13.909363000998999,
+        163.85490064247665,
+        40.93366753091393
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 21.839451649385385
+        },
+        {
+          "state": 11,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 12,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 22,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 23,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 2.584148942539951
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 26,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 36,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 20.399213671730628
+        },
+        {
+          "state": 37,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 21.998482183564978
+        },
+        {
+          "state": 47,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 14.700495692043145
+        },
+        {
+          "state": 57,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 20.204849079482514
+        },
+        {
+          "state": 67,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-13.909363000998999, 163.85490064247665, 40.93366753091393]"
+    },
+    {
+      "target": [
+        -17.847812948549464,
+        170.0824107706716,
+        37.29114322253376
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 7.919073914969758
+        },
+        {
+          "state": 1,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 8.661922988416752
+        },
+        {
+          "state": 11,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 12,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 22,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 23,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 11.080306801566378
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 26,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 36,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 6.605047792297121
+        },
+        {
+          "state": 46,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 36.07038378374428
+        },
+        {
+          "state": 47,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 13.48243759176308
+        },
+        {
+          "state": 57,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 6.379753912446006
+        },
+        {
+          "state": 67,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 68,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 78,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 10.13885714285714
+        },
+        {
+          "state": 88,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-17.847812948549464, 170.0824107706716, 37.29114322253376]"
+    },
+    {
+      "target": [
+        -18.829965135600915,
+        163.0372630505408,
+        41.4803427253628
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 14.111552683177361
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.704153032868984
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 15.991273959273709
+        },
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 16.790273270373966
+        },
+        {
+          "state": 1,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 21.839451649385385
+        },
+        {
+          "state": 11,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 12,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 22,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 23,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 2.584148942539951
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 26,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 36,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 20.399213671730628
+        },
+        {
+          "state": 37,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 21.998482183564978
+        },
+        {
+          "state": 47,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 14.700495692043145
+        },
+        {
+          "state": 57,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 20.204849079482514
+        },
+        {
+          "state": 67,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-18.829965135600915, 163.0372630505408, 41.4803427253628]"
+    },
+    {
+      "target": [
+        -8.964083874125915,
+        148.8041916104916,
+        46.07230920584671
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 46.9992412727997
+        },
+        {
+          "state": 11,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 12,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 13,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 24.63019380177644
+        },
+        {
+          "state": 14,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 35.74745393260768
+        },
+        {
+          "state": 15,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 15.41227620724071
+        },
+        {
+          "state": 35,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-8.964083874125915, 148.8041916104916, 46.07230920584671]"
+    },
+    {
+      "target": [
+        -17.847812948549464,
+        160.2510575469334,
+        41.529499491481495
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 17.93288847574746
+        },
+        {
+          "state": 1,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 2,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 3,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 4.986007546397138
+        },
+        {
+          "state": 2,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 7.317840403136046
+        },
+        {
+          "state": 3,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 13,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 1.056963881754676
+        },
+        {
+          "state": 14,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 22.873977580707663
+        },
+        {
+          "state": 15,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 23.91213118494647
+        },
+        {
+          "state": 16,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 21.522838485103797
+        },
+        {
+          "state": 17,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 10.932707381308052
+        },
+        {
+          "state": 27,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 24.53883408097475
+        },
+        {
+          "state": 37,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 47,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 28.002212694139402
+        },
+        {
+          "state": 46,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 17.836556746615077
+        },
+        {
+          "state": 56,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 15.584900999999979
+        },
+        {
+          "state": 66,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-17.847812948549464, 160.2510575469334, 41.529499491481495]"
+    },
+    {
+      "target": [
+        -24.70228740295338,
+        170.8479476521353,
+        36.9894252154265
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 2.0419884322350264
+        },
+        {
+          "state": 11,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 12,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 1.8143338587127786
+        },
+        {
+          "state": 13,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 22.919423604944136
+        },
+        {
+          "state": 14,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 17.511057767100574
+        },
+        {
+          "state": 13,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 21.431906255200992
+        },
+        {
+          "state": 23,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 45.49983361002111
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 43.67501261012509
+        },
+        {
+          "state": 26,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 7.369991834146823
+        },
+        {
+          "state": 27,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 37,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 9.963505701900395
+        },
+        {
+          "state": 47,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 17.4654518555109
+        },
+        {
+          "state": 57,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 6.6596665293481045
+        },
+        {
+          "state": 58,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 15.438344579850476
+        },
+        {
+          "state": 59,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 5.543793668467615
+        },
+        {
+          "state": 58,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 7.573038006882294
+        },
+        {
+          "state": 57,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 58,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 10.824281162393191
+        },
+        {
+          "state": 59,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 3.8257076168512114
+        },
+        {
+          "state": 69,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 79,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 3.657252532670716
+        },
+        {
+          "state": 89,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 4.144391752577306
+        },
+        {
+          "state": 99,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-24.70228740295338, 170.8479476521353, 36.9894252154265]"
+    },
+    {
+      "target": [
+        -31.508924240473164,
+        160.93044902510653,
+        42.12114653368947
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 19.751673180770442
+        }
+      ],
+      "name": "Target [-31.508924240473164, 160.93044902510653, 42.12114653368947]"
+    },
+    {
+      "target": [
+        -15.880558184360002,
+        160.57204105700634,
+        41.15990616259399
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 19.21084435685758
+        },
+        {
+          "state": 1,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 24.019044994082783
+        },
+        {
+          "state": 11,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 12,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 24.541220708638747
+        },
+        {
+          "state": 13,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 1.590076438516597
+        },
+        {
+          "state": 14,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 14.182814045318029
+        },
+        {
+          "state": 13,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 3.374651287236194
+        },
+        {
+          "state": 23,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 26.642452473982825
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 30.334008861273276
+        },
+        {
+          "state": 26,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 36,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 46,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 56,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 15.548315634146318
+        },
+        {
+          "state": 66,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-15.880558184360002, 160.57204105700634, 41.15990616259399]"
+    },
+    {
+      "target": [
+        -20.79132403529485,
+        171.5330513451686,
+        36.1333974891717
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 7.583613675844305
+        },
+        {
+          "state": 1,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 4.993618072069381
+        },
+        {
+          "state": 2,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 3,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 4,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 5,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 15,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 41.38805674992959
+        },
+        {
+          "state": 26,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 9.522166539625308
+        },
+        {
+          "state": 27,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 6.203197395553179
+        },
+        {
+          "state": 28,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 16.411981664324312
+        },
+        {
+          "state": 38,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0006943886844226199
+        },
+        {
+          "state": 39,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0004392579039134148
+        },
+        {
+          "state": 39,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0004388137872481934
+        },
+        {
+          "state": 49,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 59,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 16.641135194974634
+        },
+        {
+          "state": 69,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 15.314654387105161
+        },
+        {
+          "state": 79,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 2.855827750097739
+        },
+        {
+          "state": 89,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 4.087385474860326
+        },
+        {
+          "state": 89,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 4.86321475739644
+        },
+        {
+          "state": 89,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 4.86321475739644
+        },
+        {
+          "state": 89,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 4.14201622718052
+        },
+        {
+          "state": 99,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-20.79132403529485, 171.5330513451686, 36.1333974891717]"
+    },
+    {
+      "target": [
+        -19.811135170465313,
+        171.70475610126985,
+        35.708814999249014
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 4.993618072069381
+        },
+        {
+          "state": 2,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 3,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 4,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 5,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 15,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 41.38805674992959
+        },
+        {
+          "state": 26,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 9.522166539625308
+        },
+        {
+          "state": 27,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 6.203197395553179
+        },
+        {
+          "state": 28,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 16.411981664324312
+        },
+        {
+          "state": 38,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0006943886844226199
+        },
+        {
+          "state": 39,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0004392579039134148
+        },
+        {
+          "state": 39,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0004388137872481934
+        },
+        {
+          "state": 49,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 59,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 16.641135194974634
+        },
+        {
+          "state": 69,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 15.314654387105161
+        },
+        {
+          "state": 79,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 2.855827750097739
+        },
+        {
+          "state": 89,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 4.087385474860326
+        },
+        {
+          "state": 89,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 4.86321475739644
+        },
+        {
+          "state": 89,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 4.86321475739644
+        },
+        {
+          "state": 89,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 4.14201622718052
+        },
+        {
+          "state": 99,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-19.811135170465313, 171.70475610126985, 35.708814999249014]"
+    },
+    {
+      "target": [
+        -14.895453637998,
+        160.73277383083717,
+        40.97504510762615
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 24.019044994082783
+        },
+        {
+          "state": 11,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 12,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 24.541220708638747
+        },
+        {
+          "state": 13,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 1.590076438516597
+        },
+        {
+          "state": 14,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 14.182814045318029
+        },
+        {
+          "state": 13,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 3.374651287236194
+        },
+        {
+          "state": 23,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 26.642452473982825
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 30.334008861273276
+        },
+        {
+          "state": 26,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 36,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 46,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 56,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 15.548315634146318
+        },
+        {
+          "state": 66,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-14.895453637998, 160.73277383083717, 40.97504510762615]"
+    },
+    {
+      "target": [
+        -23.72601341636975,
+        171.01896661875406,
+        36.38015000498302
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 3.8843878266944216
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 5.1231872572281105
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.3960081290005775
+        },
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 7.583613675844305
+        },
+        {
+          "state": 1,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 4.993618072069381
+        },
+        {
+          "state": 2,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 3,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 4,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 5,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 15,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 41.38805674992959
+        },
+        {
+          "state": 26,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 9.522166539625308
+        },
+        {
+          "state": 27,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 6.203197395553179
+        },
+        {
+          "state": 28,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 16.411981664324312
+        },
+        {
+          "state": 38,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0006943886844226199
+        },
+        {
+          "state": 39,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0004392579039134148
+        },
+        {
+          "state": 39,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0004388137872481934
+        },
+        {
+          "state": 49,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 59,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 16.641135194974634
+        },
+        {
+          "state": 69,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 15.314654387105161
+        },
+        {
+          "state": 79,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 2.855827750097739
+        },
+        {
+          "state": 89,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 4.087385474860326
+        },
+        {
+          "state": 89,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 4.86321475739644
+        },
+        {
+          "state": 89,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 4.86321475739644
+        },
+        {
+          "state": 89,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 4.14201622718052
+        },
+        {
+          "state": 99,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-23.72601341636975, 171.01896661875406, 36.38015000498302]"
+    },
+    {
+      "target": [
+        -12.922285286285284,
+        161.05472222055607,
+        40.13378039258814
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 2,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 3,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 13,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 23,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 5.781672148185772
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 20.493611950097502
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 30.33150022237119
+        },
+        {
+          "state": 26,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 36,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 46,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 56,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 15.548315634146318
+        },
+        {
+          "state": 66,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-12.922285286285284, 161.05472222055607, 40.13378039258814]"
+    },
+    {
+      "target": [
+        -16.86467762617564,
+        163.36382734139622,
+        41.43262725613491
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.704153032868984
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 15.991273959273709
+        },
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 16.790273270373966
+        },
+        {
+          "state": 1,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 21.839451649385385
+        },
+        {
+          "state": 11,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 12,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 22,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 23,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 2.584148942539951
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 26,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 36,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 20.399213671730628
+        },
+        {
+          "state": 37,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 21.998482183564978
+        },
+        {
+          "state": 47,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 14.700495692043145
+        },
+        {
+          "state": 57,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 20.204849079482514
+        },
+        {
+          "state": 67,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-16.86467762617564, 163.36382734139622, 41.43262725613491]"
+    },
+    {
+      "target": [
+        -20.79132403529485,
+        169.57267361550947,
+        38.18820384490867
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 3.5644103871595405
+        },
+        {
+          "state": 1,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 6.852853845962365
+        },
+        {
+          "state": 2,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 3,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 4,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 5,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 15,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 37.33996359960116
+        },
+        {
+          "state": 26,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 3.8173915905642772
+        },
+        {
+          "state": 25,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 36.615053142205376
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 37.569140631080955
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 26,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 36,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 6.605047792297121
+        },
+        {
+          "state": 46,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 36.07038378374428
+        },
+        {
+          "state": 47,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 13.48243759176308
+        },
+        {
+          "state": 57,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 6.379753912446006
+        },
+        {
+          "state": 67,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 68,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 78,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 10.13885714285714
+        },
+        {
+          "state": 88,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-20.79132403529485, 169.57267361550947, 38.18820384490867]"
+    },
+    {
+      "target": [
+        -7.972055930055971,
+        143.98803993007195,
+        45.946232983734404
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 52.68703246637058
+        },
+        {
+          "state": 11,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 12,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 22,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 23,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 32.89419869383288
+        },
+        {
+          "state": 24,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 34,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-7.972055930055971, 143.98803993007195, 45.946232983734404]"
+    },
+    {
+      "target": [
+        -19.811135170465313,
+        162.87422578749025,
+        41.64161317690533
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 13.45403284306591
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 14.111552683177361
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 15.704153032868984
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 15.991273959273709
+        },
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 16.790273270373966
+        },
+        {
+          "state": 1,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 21.839451649385385
+        },
+        {
+          "state": 11,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 12,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 22,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 23,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 2.584148942539951
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 26,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 36,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 20.399213671730628
+        },
+        {
+          "state": 37,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 21.998482183564978
+        },
+        {
+          "state": 47,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 14.700495692043145
+        },
+        {
+          "state": 57,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 20.204849079482514
+        },
+        {
+          "state": 67,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-19.811135170465313, 162.87422578749025, 41.64161317690533]"
+    },
+    {
+      "target": [
+        -24.70228740295338,
+        168.895399678968,
+        38.89339459875445
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 0,
+          "rm_state": -1,
+          "reward": 1.7343163976710763
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 1.186015446572661
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 2.371321157398114
+        },
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 3.5644103871595405
+        },
+        {
+          "state": 1,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 6.852853845962365
+        },
+        {
+          "state": 2,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 3,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 4,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 5,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 15,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 37.33996359960116
+        },
+        {
+          "state": 26,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 3.8173915905642772
+        },
+        {
+          "state": 25,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 36.615053142205376
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 37.569140631080955
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 26,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 36,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 6.605047792297121
+        },
+        {
+          "state": 46,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 36.07038378374428
+        },
+        {
+          "state": 47,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 13.48243759176308
+        },
+        {
+          "state": 57,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 6.379753912446006
+        },
+        {
+          "state": 67,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 68,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 78,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 10.13885714285714
+        },
+        {
+          "state": 88,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-24.70228740295338, 168.895399678968, 38.89339459875445]"
+    },
+    {
+      "target": [
+        -19.811135170465313,
+        169.742416031541,
+        37.75134388382502
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 1,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 6.852853845962365
+        },
+        {
+          "state": 2,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 3,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 4,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 5,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 15,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 37.33996359960116
+        },
+        {
+          "state": 26,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 3.8173915905642772
+        },
+        {
+          "state": 25,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 36.615053142205376
+        },
+        {
+          "state": 24,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 37.569140631080955
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 26,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 36,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 6.605047792297121
+        },
+        {
+          "state": 46,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 36.07038378374428
+        },
+        {
+          "state": 47,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 13.48243759176308
+        },
+        {
+          "state": 57,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 6.379753912446006
+        },
+        {
+          "state": 67,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 68,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 78,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 10.13885714285714
+        },
+        {
+          "state": 88,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-19.811135170465313, 169.742416031541, 37.75134388382502]"
+    },
+    {
+      "target": [
+        -28.59763036728154,
+        168.2208307772375,
+        38.99130675233069
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.406812913822133
+        }
+      ],
+      "name": "Target [-28.59763036728154, 168.2208307772375, 38.99130675233069]"
+    },
+    {
+      "target": [
+        -21.770532711259555,
+        171.36151829382342,
+        36.169073703158716
+      ],
+      "steps": [
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 0,
+          "action": 3,
+          "rm_state": -1,
+          "reward": 6.3960081290005775
+        },
+        {
+          "state": 0,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 7.583613675844305
+        },
+        {
+          "state": 1,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 4.993618072069381
+        },
+        {
+          "state": 2,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 3,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 4,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 5,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 15,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 25,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 41.38805674992959
+        },
+        {
+          "state": 26,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 9.522166539625308
+        },
+        {
+          "state": 27,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 6.203197395553179
+        },
+        {
+          "state": 28,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 16.411981664324312
+        },
+        {
+          "state": 38,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0006943886844226199
+        },
+        {
+          "state": 39,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 0.0004392579039134148
+        },
+        {
+          "state": 39,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0004388137872481934
+        },
+        {
+          "state": 49,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        },
+        {
+          "state": 59,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 16.641135194974634
+        },
+        {
+          "state": 69,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 15.314654387105161
+        },
+        {
+          "state": 79,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 2.855827750097739
+        },
+        {
+          "state": 89,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 4.087385474860326
+        },
+        {
+          "state": 89,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 4.86321475739644
+        },
+        {
+          "state": 89,
+          "action": 1,
+          "rm_state": -1,
+          "reward": 4.86321475739644
+        },
+        {
+          "state": 89,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 4.14201622718052
+        },
+        {
+          "state": 99,
+          "action": 2,
+          "rm_state": -1,
+          "reward": 0.0
+        }
+      ],
+      "name": "Target [-21.770532711259555, 171.36151829382342, 36.169073703158716]"
+    }
+  ]
+}

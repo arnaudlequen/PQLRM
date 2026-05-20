@@ -1,6 +1,6 @@
 ## Easy - short policies + fast feedback  (reference expe to show that pql and pqlrm achieve same results)
 Name : exp1_time_coffee_mail
-Objective : show that pql, pqlrm (and qrm ?) achieve the same results. Highlight convergence time/steps
+Objective : show that pql, pqlrm achieve the same results. Highlight convergence time/steps
 
 Reward sources :
 - time_penalty : -1 at each step

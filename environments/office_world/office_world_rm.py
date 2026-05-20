@@ -103,6 +103,7 @@ class OfficeWorldRM(Env):
 
         # pygame utils -> TODO
 
+    """
     def encode_state(self, position_state, coffee_found, mail_found):
         index_state = position_state + self.base_nS * int(coffee_found) + self.base_nS * 2 * int(mail_found)
         c = self.base_nS * 2 * 2
@@ -118,6 +119,7 @@ class OfficeWorldRM(Env):
                 c *= n_rm_states
         return index_state
     """
+    
     def encode_state(self, position_state: int, coffee_found: bool, mail_found: bool) -> int:
         index_state = position_state + self.base_nS * int(coffee_found) + self.base_nS * 2 * int(mail_found)
         c = self.base_nS * 2 * 2
@@ -126,7 +128,7 @@ class OfficeWorldRM(Env):
                 index_state += c * self._rm_states[i]
                 c *= len(self.reward_sources[i].get_states())
         return index_state
-    """
+    
     def decode_state(self, state: int) -> tuple[int, bool]:
         remaining = int(state)
         position = remaining % self.base_nS

@@ -319,7 +319,7 @@ class PBSTEnv(Env):
             pygame.quit()
             self.window = None
 
-    def _get_true_props(self, state, is_treasure):
+    def _get_true_props(self, state, is_treasure, action):
         props = []
         position = np.unravel_index(state, self.shape)
         # Treasure proposition
