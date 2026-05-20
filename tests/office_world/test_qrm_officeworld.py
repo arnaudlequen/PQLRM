@@ -162,12 +162,13 @@ def test_qrm_office(map_name: str = "default_office") -> None:
     # 3. One QRMAgent per task
     # ------------------------------------------------------------------
     agents = []
+    SEED = 50
     for i, rm in enumerate(rms):
         _probe = env_factories[i]()
         n_s = _probe.observation_space.n
         n_a = _probe.action_space.n
         #print(n_s, n_a, rm.__str__())
-        agents.append(QRMAgent(rm, n_s, n_a, alpha=0.1, gamma=0.9, epsilon=0.8))
+        agents.append(QRMAgent(rm, n_s, n_a, alpha=0.1, gamma=0.9, epsilon=0.8, seed=SEED))
 
     # ------------------------------------------------------------------
     # 4. Trainer

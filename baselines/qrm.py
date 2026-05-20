@@ -58,13 +58,17 @@ class QRMAgent:
         alpha: float = 0.1,
         gamma: float = 0.9,
         epsilon: float = 0.5,
+        seed: int = 0,
     ) -> None:
+
         self.rm = rm
         self.n_states = n_states
         self.n_actions = n_actions
         self.alpha = alpha
         self.gamma = gamma
         self.epsilon = epsilon
+        self.seed = seed
+        self.random = random.Random(self.seed)
 
         # Q[u] is a (n_states × n_actions) table for RM state u
         self.Q: dict[int, np.ndarray] = {u: np.zeros((n_states, n_actions)) for u in rm.U}
@@ -76,8 +80,8 @@ class QRMAgent:
 
     def select_action(self, s: int, u: int) -> int:
         """ε-greedy action selection conditioned on the current RM state."""
-        if random.random() < self.epsilon:
-            return random.randrange(self.n_actions)
+        if self.random.random() < self.epsilon:
+            return self.random.randrange(self.n_actions)
         return int(np.argmax(self.Q[u][s]))
 
     # ------------------------------------------------------------------
@@ -146,10 +150,12 @@ class MultiTaskQRMTrainer:
         env_factories: list,          # NEW: one () -> Env per task
         max_steps_per_episode: int = 50,
     ) -> None:
+
         if not agents:
             raise ValueError("Need at least one agent.")
         if len(agents) != len(env_factories):
             raise ValueError("One env_factory per agent required.")
+
         self.agents = agents
         self.env_factories = env_factories
         self.max_steps_per_episode = max_steps_per_episode
