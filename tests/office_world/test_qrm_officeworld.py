@@ -43,7 +43,7 @@ def test_qrm_office_shared(map_name: str = "default_office") -> None:
     rm_no_deco  = rm_no_hit_deco()
 
     rms        = [rm_mail, rm_coffee, rm_ptrl, rm_no_deco]
-    task_names = ["Mail", "Coffee", "Patrol", "No-deco"]
+    task_names = ["Mail", "Coffee", "Patrol", "No-deco"] #
 
     # ------------------------------------------------------------------
     # 2. Single shared env with all 4 RMs
