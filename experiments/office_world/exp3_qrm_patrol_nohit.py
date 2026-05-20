@@ -33,13 +33,11 @@ def test_qrm_office(map_name: str = "default_office") -> None:
     # ------------------------------------------------------------------
     # 1. Build reward machines
     # ------------------------------------------------------------------
-    rm_mail         = rm_get_mail()
-    rm_coffee       = rm_get_coffee()
     rm_ptrl         = rm_patrol()
     rm_no_deco  = rm_no_hit_deco()
 
-    rms        = [rm_no_deco, rm_mail, rm_coffee]#, rm_ptrl, rm_no_deco]
-    task_names = ["Office_noDeco", "Mail", "Coffee"]#, "Patrol", "No-deco"]
+    rms        = [rm_no_deco, rm_ptrl]#, rm_ptrl, rm_no_deco]
+    task_names = ["Office_noDeco", "Patrol"]#, "Patrol", "No-deco"]
 
     # ------------------------------------------------------------------
     # 2. One env factory per task

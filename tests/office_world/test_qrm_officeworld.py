@@ -16,6 +16,13 @@ Propositions emitted by OfficeWorldRM._get_true_props
 "wall", "decoration", "coffee", "office", "mail", "A", "B", "C", "D"
 (or their negations "!wall", "!coffee", etc.)
 """
+
+from pathlib import Path
+import sys
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+
 #from environments.office_world.office_world_rm import OfficeWorldRM
 from environments.office_world.office_world import OfficeWorld
 from baselines.qrm import QRMAgent, MultiTaskQRMTrainer, SharedEnvTrainer

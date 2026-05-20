@@ -197,14 +197,22 @@ class MultiTaskQRMTrainer:
         return task_id, episode_reward
 
     def train(self, n_episodes: int, print_every: int = 0) -> None:
+        toPrint = False
+        cptPrint = 0
         for ep in range(n_episodes):
             task_id, ep_reward = self.run_episode(None)
             if print_every > 0 and (ep + 1) % print_every == 0:
+                toPrint = True
+            if toPrint:
+                cptPrint += 1
                 print(
                     f"  ep={ep+1:>4}  task={task_id}  "
                     f"reward={ep_reward:.2f}  "
                     f"total_steps={self.total_steps}"
                 )
+            if cptPrint == len(self.env_factories):
+                toPrint = False
+                cptPrint = 0
 
     def eval_agent(
             self,
