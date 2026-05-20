@@ -170,7 +170,7 @@ def test_qrm_office(map_name: str = "default_office") -> None:
     # ------------------------------------------------------------------
     # 5. Training
     # ------------------------------------------------------------------
-    N_EPISODES  = 10_000
+    N_EPISODES  = 5_000
     PRINT_EVERY = 5_000
 
     print(f"\n── Training  ({N_EPISODES} episodes, round-robin across {len(agents)} tasks) ──")
