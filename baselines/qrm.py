@@ -206,50 +206,32 @@ class MultiTaskQRMTrainer:
                     f"total_steps={self.total_steps}"
                 )
 
-    def eval_agent(
-            self,
-            task_id: int,
-            env_factory,  # ← NEW: callable () -> Env, not a pre-built env
-            n_eval_episodes: int = 10,
-    ) -> float:
-        """
-        Evaluate a single agent greedily (ε=0) over several episodes.
-
-        Parameters
-        ----------
-        task_id     : index of the task / agent to evaluate
-        env_factory : zero-argument callable that returns a *fresh* single-RM
-                      environment wrapping only this task's reward machine.
-                      Example:
-                          lambda: PBSTEnv(reward_sources=[rm_treasure])
-                      Using a single-RM env guarantees:
-                        • reward is a scalar (not a 3-vector)
-                        • env.get_rm_states()[0] is always the right RM state
-        """
+    def eval_agent(self, task_id, env_factory=None, n_eval_episodes=10, gamma=0.9):
         agent = self.agents[task_id]
         saved_eps = agent.epsilon
         agent.epsilon = 0.0
 
-        total = 0.0
-        max = -1000
+        total_return, best_return = 0.0, -np.inf
         for _ in range(n_eval_episodes):
-            env = env_factory()  # fresh env, RM reset to u0
+            env = env_factory()
             s, _ = env.reset()
-            ep_r = 0.0
+            ep_return = 0.0
+            t = 0
             for _ in range(self.max_steps_per_episode):
-                u = env.get_rm_states()[0]  # always index 0 in a single-RM env
+                u = env.get_rm_states()[0]
                 a = agent.select_action(s, u)
-                s, r, terminated, truncated, info = env.step(a)
-                ep_r += float(np.asarray(r).flat[0])  # scalar, safe for any shape
+                s, reward, terminated, truncated, _ = env.step(a)
+                reward = float(np.asarray(reward).flat[0])
+                ep_return += (gamma ** t) * reward
+                t += 1
                 if terminated or truncated:
                     break
-            total += ep_r
-            if ep_r > max:
-                max = ep_r
-            env.close()
+            total_return += ep_return
+            best_return = max(best_return, ep_return)
 
         agent.epsilon = saved_eps
-        return (total / n_eval_episodes), max
+        return total_return / n_eval_episodes, best_return
+
 
 
 # ------------------------------------------------------------------
@@ -309,29 +291,32 @@ class SharedEnvTrainer(MultiTaskQRMTrainer):
         self.reward_history[task_id].append((self.episode_count, episode_reward))
         return task_id, episode_reward
 
-    def eval_agent(self, task_id, env_factory=None, n_eval_episodes=10):
+    def eval_agent(self, task_id, env_factory=None, n_eval_episodes=10, gamma=0.9):
         agent = self.agents[task_id]
         saved_eps = agent.epsilon
         agent.epsilon = 0.0
 
-        total, best = 0.0, -np.inf
+        total_return, best_return = 0.0, -np.inf
         for _ in range(n_eval_episodes):
             env = self._make_env()
             s, _ = env.reset()
-            ep_r = 0.0
+            ep_return = 0.0
+            t = 0
             for _ in range(self.max_steps_per_episode):
                 u = env.get_rm_states()[task_id]
                 a = agent.select_action(s, u)
                 s, reward, terminated, truncated, _ = env.step(a)
                 r_vec = np.asarray(reward).flatten()
-                ep_r += float(r_vec[task_id]) if len(r_vec) > 1 else float(r_vec[0])
+                r = float(r_vec[task_id]) if len(r_vec) > 1 else float(r_vec[0])
+                ep_return += (gamma ** t) * r
+                t += 1
                 if terminated or truncated:
                     break
-            total += ep_r
-            best = max(best, ep_r)
+            total_return += ep_return
+            best_return = max(best_return, ep_return)
 
         agent.epsilon = saved_eps
-        return total / n_eval_episodes, best
+        return total_return / n_eval_episodes, best_return
 
 # ---------------------------------------------------------------------------
 # Example Reward Machines (Office / Grid World)

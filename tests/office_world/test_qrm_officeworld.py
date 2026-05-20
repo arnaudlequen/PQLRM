@@ -179,7 +179,7 @@ def test_qrm_office(map_name: str = "default_office") -> None:
     # ------------------------------------------------------------------
     # 6. Per-task reward curves (last 20 episodes each)
     # ------------------------------------------------------------------
-    print("\n── Per-task reward (last 20 training episodes each) ─────────")
+    print("\n── Per-task cumulative reward (last 20 training episodes each) ─────────")
     for i, name in enumerate(task_names):
         history = trainer.reward_history[i]
         last = [r for _, r in history[-20:]]
@@ -195,7 +195,7 @@ def test_qrm_office(map_name: str = "default_office") -> None:
     # ------------------------------------------------------------------
     print("\n── Greedy evaluation (50 episodes each, ε=0) ────────────────")
     for i, name in enumerate(task_names):
-        mean_r, max_r = trainer.eval_agent(i, env_factories[i], n_eval_episodes=50)
+        mean_r, max_r = trainer.eval_agent(i, env_factories[i], n_eval_episodes=50, gamma=0.9)
         print(f"  [{name:12s}]  mean_return={mean_r:+.3f}  max_return={max_r:+.3f}")
 
     # ------------------------------------------------------------------
