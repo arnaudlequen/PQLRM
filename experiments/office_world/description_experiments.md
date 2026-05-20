@@ -10,12 +10,11 @@ Reward sources :
 It is possible to remove the reward of 1 obtained when the intermediary objective is reached (coffee or mail reached), but it produces less (interesting) policies and leads to a slower convergence rate
 
 setup : episodes of size 500, gamma = 0.95
-epsilon : 1.0 --> 0.1 in the number of training steps
+epsilon (pql + pqlrm) : 1.0 --> 0.1 in the number of training steps
 
 - pqlrm : 100_000 steps -> 8 policies (3 are incomplete / intermediate policies -> due to the negative reward of time penalty?) / 5 optimal policies : exploration too fast
 - pqlrm : 200_000 steps -> 6 optimal policies 
 - pql : 500_000 steps -> 6 optimal policies 
-- qrm : ?
 
 ## Medium - longer policies than easy setup with less feedback
 Name : exp2_mail_coffee_nohit
@@ -35,10 +34,11 @@ Case of QRM: need to keep the three tasks separate or integrate no hit inside th
 Same setup as above
 setups : episodes of size 500, gamma = 0.95
 epsilon : 1.0 --> 0.1 in the number of training steps
+epsilon (qrm) : 0.5 (seems to be a good tradeoff, it was 0.1 in the code provided by the authors).
 
 - pqlrm : 100_000 steps -> return the 4 optimal policies
 - pql : 500_000 steps -> return 3 policies (not optimal : does not solve the no hit task, increase the number of steps ?)
-- qrm : ???
+- qrm : 2_000 episodes (about 335_829 steps) -> all tasks learned
 
 ## Hard - longest policies with almost no feedback 
 Name : exp3_patrol_nohit
@@ -49,8 +49,9 @@ Objective : show that pqlrm finds optimal policies, while pql does not find any 
 Same setup as above
 setups : episodes of size 500, gamma = 0.95
 epsilon : 1.0 --> 0.1 in the number of training steps
+epsilon (qrm) : 0.5
 
 - pqlrm : 100_000 steps -> return the optimal policy
 - pql : 500_000 -> no policies learned
-- qrm : ?
+- qrm : 2_000 episodes (about 775_915) steps -> tasks learned
 
