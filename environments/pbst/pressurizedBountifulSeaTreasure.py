@@ -68,7 +68,15 @@ class DiscreteObservationWrapper(gymnasium.ObservationWrapper):
         return self._flatten_state(s), r, term, trunc, info
 
     def __getattr__(self, name):
-        """Redirect method calls."""
+        """Redirect attribute lookups to the wrapped env.
+
+        Guard against infinite recursion when `self.env` itself is missing
+        (e.g. during pickling / copy.deepcopy, which strips attributes
+        before re-populating them). Without the guard, looking up
+        `self.env` would re-enter __getattr__ forever.
+        """
+        if name == "env" or name.startswith("__"):
+            raise AttributeError(name)
         return getattr(self.env, name)
 
 class PBSTEnv(Env):
