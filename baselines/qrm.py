@@ -202,11 +202,35 @@ class MultiTaskQRMTrainer:
         self.reward_history[task_id].append((self.episode_count, episode_reward))
         return task_id, episode_reward
 
-    def train(self, n_episodes: int, print_every: int = 0) -> None:
+    def train(
+        self,
+        n_episodes: int,
+        print_every: int = 0,
+        convergence_callback=None,
+        log_every: int = 1000,
+    ) -> None:
+        """Train round-robin across tasks.
+
+        If `convergence_callback` is provided, it is invoked whenever
+        `total_steps` crosses a multiple of `log_every`, with kwargs
+        (agents=self.agents, step=self.total_steps, episode=self.episode_count).
+        """
         toPrint = False
         cptPrint = 0
+        next_log_at = log_every
         for ep in range(n_episodes):
             task_id, ep_reward = self.run_episode(None)
+            # Fire the callback once per `log_every` threshold crossed in
+            # this episode. Pass the threshold itself (not raw total_steps)
+            # as the logged step so that x values stay on a clean
+            # multiple-of-log_every grid across seeds.
+            while convergence_callback is not None and self.total_steps >= next_log_at:
+                convergence_callback(
+                    agents=self.agents,
+                    step=next_log_at,
+                    episode=self.episode_count,
+                )
+                next_log_at += log_every
             if print_every > 0 and (ep + 1) % print_every == 0:
                 toPrint = True
             if toPrint:

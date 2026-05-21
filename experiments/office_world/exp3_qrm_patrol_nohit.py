@@ -1,122 +1,90 @@
 """
-test_qrm_office.py — QRM multi-task test for the OfficeWorld environment
-=========================================================================
-Mirrors the structure of test_qrm_pbst.py.
+Exp 3, QRM: rm_patrol + rm_no_hit_decoration (one QRMAgent per task).
 
-Tasks
------
-Task 0 — Time       : -1 per step (constant penalty, single-state RM)
-Task 1 — Coffee     : pick up coffee (prop "coffee"), then reach office
-                      (prop "office") without hitting decoration ("decoration")
-Task 2 — Mail       : pick up mail (prop "mail"), then reach office
-Task 3 — CoffeeAndMail : coffee AND mail before office, no decoration
-
-Propositions emitted by OfficeWorldRM._get_true_props
-------------------------------------------------------
-"wall", "decoration", "coffee", "office", "mail", "A", "B", "C", "D"
-(or their negations "!wall", "!coffee", etc.)
+Trains MultiTaskQRMTrainer in round-robin and writes one convergence trace
+per seed into dataviz/data/exp3/qrm_patrol_nohit.csv (q-value sum at start
+state, analogous to the avg_return of resources/CFXRL Q-learning baselines).
 """
 
+import argparse
 from pathlib import Path
 import sys
 
-# Add parent directory to path for imports
-sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(REPO_ROOT))
 
-#from environments.office_world.office_world_rm import OfficeWorldRM
 from environments.office_world.office_world import OfficeWorld
-from baselines.qrm import QRMAgent, MultiTaskQRMTrainer, SharedEnvTrainer
-from experiments.office_world.rm_ow import rm_get_mail, rm_get_coffee, rm_patrol, rm_no_hit_deco
+from baselines.qrm import QRMAgent, MultiTaskQRMTrainer
+from experiments.office_world.rm_ow import rm_patrol, rm_no_hit_deco
+from experiments.office_world.convergence_logging import (
+    init_qsum_csv, make_qsum_logger, csv_path_for,
+)
 
-def test_qrm_office(map_name: str = "default_office") -> None:
 
-    # ------------------------------------------------------------------
-    # 1. Build reward machines
-    # ------------------------------------------------------------------
-    rm_ptrl         = rm_patrol()
-    rm_no_deco  = rm_no_hit_deco()
+EXP_ID = 3
+ALGO = "qrm"
+DESCRIPTOR = "patrol_nohit"
 
-    rms        = [rm_no_deco, rm_ptrl]#, rm_ptrl, rm_no_deco]
-    task_names = ["Office_noDeco", "Patrol"]#, "Patrol", "No-deco"]
 
-    # ------------------------------------------------------------------
-    # 2. One env factory per task
-    #    Each factory creates a fresh OfficeWorldRM with a single RM so
-    #    that reward is always a scalar and rm_states[0] is unambiguous.
-    # ------------------------------------------------------------------
+def make_env_factories(map_name: str):
+    rms = [rm_no_hit_deco(), rm_patrol()]
+    task_names = ["NoDeco", "Patrol"]
+
     def make_factory(rm):
-        return lambda: OfficeWorld(
-            render_mode=None,
-            map=map_name,
-            reward_sources=[rm],
+        return lambda: OfficeWorld(render_mode=None, map=map_name, reward_sources=[rm])
+
+    return [make_factory(rm) for rm in rms], rms, task_names
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--seed-nbr", type=int, default=3)
+    parser.add_argument("--seed-start", type=int, default=1)
+    parser.add_argument("--n-episodes", type=int, default=2_000)
+    parser.add_argument("--max-local-steps", type=int, default=500)
+    parser.add_argument("--log-every-steps", type=int, default=2_500)
+    parser.add_argument("--print-every", type=int, default=100)
+    parser.add_argument("--map", type=str, default="default_office")
+    parser.add_argument("--alpha", type=float, default=0.1)
+    parser.add_argument("--gamma", type=float, default=0.95)
+    parser.add_argument("--epsilon", type=float, default=0.5)
+    args = parser.parse_args()
+
+    csv_path = csv_path_for(EXP_ID, ALGO, DESCRIPTOR, REPO_ROOT)
+    init_qsum_csv(csv_path)
+    print(f"Writing convergence trace -> {csv_path}")
+
+    for seed in range(args.seed_start, args.seed_start + args.seed_nbr):
+        env_factories, rms, task_names = make_env_factories(args.map)
+
+        probe = env_factories[0]()
+        n_s = probe.observation_space.n
+        n_a = probe.action_space.n
+        if hasattr(probe, "close"):
+            probe.close()
+
+        agents = [
+            QRMAgent(rm, n_s, n_a,
+                     alpha=args.alpha, gamma=args.gamma, epsilon=args.epsilon,
+                     seed=seed)
+            for rm in rms
+        ]
+
+        trainer = MultiTaskQRMTrainer(
+            agents, env_factories, max_steps_per_episode=args.max_local_steps,
         )
 
-    env_factories = [make_factory(rm) for rm in rms]
+        logger = make_qsum_logger(seed=seed, csv_path=csv_path, env_factories=env_factories)
 
-    # Probe one env to get state/action space sizes
-    _probe = env_factories[0]()
-    N_states  = _probe.observation_space.n
-    N_actions = _probe.action_space.n
-    _probe.close() if hasattr(_probe, "close") else None
-
-    print(f"OfficeWorld ({map_name})")
-
-    # ------------------------------------------------------------------
-    # 3. One QRMAgent per task
-    # ------------------------------------------------------------------
-    agents = []
-    for i, rm in enumerate(rms):
-        _probe = env_factories[i]()
-        n_s = _probe.observation_space.n
-        n_a = _probe.action_space.n
-        #print(n_s, n_a, rm.__str__())
-        agents.append(QRMAgent(rm, n_s, n_a, alpha=0.1, gamma=0.95, epsilon=0.5))
-
-    # ------------------------------------------------------------------
-    # 4. Trainer
-    # ------------------------------------------------------------------
-    trainer = MultiTaskQRMTrainer(agents, env_factories, max_steps_per_episode=500)
-
-    # ------------------------------------------------------------------
-    # 5. Training
-    # ------------------------------------------------------------------
-    N_EPISODES  = 2_000
-    PRINT_EVERY = 100
-
-    print(f"\n── Training  ({N_EPISODES} episodes, round-robin across {len(agents)} tasks) ──")
-    trainer.train(N_EPISODES, print_every=PRINT_EVERY)
-
-    # ------------------------------------------------------------------
-    # 6. Per-task reward curves (last 20 episodes each)
-    # ------------------------------------------------------------------
-    print("\n── Per-task reward (last 20 training episodes each) ─────────")
-    for i, name in enumerate(task_names):
-        history = trainer.reward_history[i]
-        last = [r for _, r in history[-20:]]
-        if last:
-            avg = sum(last) / len(last)
-            print(f"  [{name:12s}]  episodes_played={len(history):>5}  "
-                  f"avg_last20={avg:+.3f}  max={max(last):+.3f}")
-        else:
-            print(f"  [{name:12s}]  no data")
-
-    # ------------------------------------------------------------------
-    # 7. Greedy evaluation
-    # ------------------------------------------------------------------
-    print("\n── Greedy evaluation (50 episodes each, ε=0) ────────────────")
-    for i, name in enumerate(task_names):
-        mean_r, max_r = trainer.eval_agent(i, env_factories[i], n_eval_episodes=50)
-        print(f"  [{name:12s}]  mean_return={mean_r:+.3f}  max_return={max_r:+.3f}")
-
-    # ------------------------------------------------------------------
-    # 8. Policies
-    # ------------------------------------------------------------------
-    print("\n── Policies (u0, first 30 states) ───────────────────────────")
-    for i, (name, agent) in enumerate(zip(task_names, agents)):
-        policy = agent.get_policy()
-        u0 = agent.rm.u0
-        print(f"  [{name:12s}]  {list(policy[u0][:30])}…")
+        print(f"\n[seed={seed}] Training QRM ({args.n_episodes} episodes) on tasks: {task_names}")
+        trainer.train(
+            n_episodes=args.n_episodes,
+            print_every=args.print_every,
+            convergence_callback=logger,
+            log_every=args.log_every_steps,
+        )
+        print(f"[seed={seed}] total_steps={trainer.total_steps}")
 
 
 if __name__ == "__main__":
-    test_qrm_office()
+    main()

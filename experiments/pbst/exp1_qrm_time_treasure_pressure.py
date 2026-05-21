@@ -1,96 +1,95 @@
+"""
+PBST exp1, QRM: time + treasure + pressure (v2), one QRMAgent per task.
+
+Writes one convergence trace per seed into
+dataviz/data/pbst_exp1/qrm_time_treasure_pressure.csv (q-value sum at start state).
+"""
+
+import argparse
 from pathlib import Path
 import sys
 
-sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(REPO_ROOT))
 
 from environments.pbst.pressurizedBountifulSeaTreasure import PBSTEnv, DiscreteObservationWrapper
 from baselines.qrm import QRMAgent, MultiTaskQRMTrainer
-from experiments.pbst.rm_pbst import build_pbst_rm_time, build_pbst_rm_treasure, build_pbst_rm_pressure, build_pbst_rm_pressure_v2
+from experiments.pbst.rm_pbst import (
+    build_pbst_rm_time, build_pbst_rm_treasure, build_pbst_rm_pressure_v2,
+)
+from experiments.office_world.convergence_logging import (
+    init_qsum_csv, make_qsum_logger, csv_path_for,
+)
 
 
+EXP_ID = 1
+ALGO = "qrm"
+DESCRIPTOR = "time_treasure_pressure"
+ENV_TAG = "pbst"
 
-def test_qrm_pbst():
 
-    # ------------------------------------------------------------------
-    # 1. Build reward machines
-    # ------------------------------------------------------------------
+def make_env_factories():
     env_ref = PBSTEnv(render_mode=None)
     rm_time = build_pbst_rm_time(time_penalty=1.0)
     rm_treasure = build_pbst_rm_treasure(env_ref._treasure)
-    rm_pressure1 = build_pbst_rm_pressure()
-    rm_pressure2 = build_pbst_rm_pressure_v2()
-    env_ref = DiscreteObservationWrapper(env_ref)
-
-    # ------------------------------------------------------------------
-    # 2. Build one environment per task
-    # ------------------------------------------------------------------
-    env_factories = [
-        lambda: DiscreteObservationWrapper(PBSTEnv(reward_sources=[rm_time])),
-        lambda: DiscreteObservationWrapper(PBSTEnv(reward_sources=[rm_treasure])),
-        lambda: DiscreteObservationWrapper(PBSTEnv(reward_sources=[rm_pressure2])),
-    ]
-
-    # ------------------------------------------------------------------
-    # 3. Build one QRMAgent per task
-    # ------------------------------------------------------------------
-    N_states  = env_ref.observation_space.n
-    N_actions = env_ref.action_space.n
-
-    agent_time = QRMAgent(rm_time, N_states, N_actions, alpha=0.1, gamma=0.999, epsilon=0.5)
-    agent_treasure = QRMAgent(rm_treasure, N_states, N_actions, alpha=0.1, gamma=0.999, epsilon=0.5)
-    agent_pressure = QRMAgent(rm_pressure2, N_states, N_actions, alpha=0.1, gamma=0.999, epsilon=0.5)
-
-    agents = [agent_time, agent_treasure, agent_pressure]
+    rm_pressure = build_pbst_rm_pressure_v2()
+    rms = [rm_time, rm_treasure, rm_pressure]
     task_names = ["Time", "Treasure", "Pressure"]
 
-    # ------------------------------------------------------------------
-    # 4. Build the multi-task trainer
-    # ------------------------------------------------------------------
-    trainer = MultiTaskQRMTrainer(agents, env_factories, max_steps_per_episode=300)
+    def make_factory(rm):
+        return lambda: DiscreteObservationWrapper(PBSTEnv(reward_sources=[rm]))
 
-    # ------------------------------------------------------------------
-    # 5. Training
-    # ------------------------------------------------------------------
-    N_EPISODES = 10_000
-    PRINT_EVERY = 100
+    return [make_factory(rm) for rm in rms], rms, task_names
 
-    print(f"\n── Training  ({N_EPISODES} episodes, round-robin across {len(agents)} tasks) ──")
-    trainer.train(N_EPISODES, print_every=PRINT_EVERY)
 
-    # ------------------------------------------------------------------
-    # 6. Per-task reward curves (last-k average)
-    # ------------------------------------------------------------------
-    print("\n── Per-task reward (last 20 training episodes each) ─────────")
-    for i, name in enumerate(task_names):
-        history = trainer.reward_history[i]
-        last = [r for _, r in history[-20:]]
-        if last:
-            avg = sum(last) / len(last)
-            print(f"  [{name:7s}]  episodes_played={len(history):>3}  "
-                  f"avg_last20={avg}  "
-                  f"max={max(last)}")
-        else:
-            print(f"  [{name:7s}]  no data")
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--seed-nbr", type=int, default=3)
+    parser.add_argument("--seed-start", type=int, default=1)
+    parser.add_argument("--n-episodes", type=int, default=10_000)
+    parser.add_argument("--max-local-steps", type=int, default=300)
+    parser.add_argument("--log-every-steps", type=int, default=2_000)
+    parser.add_argument("--print-every", type=int, default=100)
+    parser.add_argument("--alpha", type=float, default=0.1)
+    parser.add_argument("--gamma", type=float, default=0.999)
+    parser.add_argument("--epsilon", type=float, default=0.5)
+    args = parser.parse_args()
 
-    # ------------------------------------------------------------------
-    # 7. Greedy evaluation
-    # ------------------------------------------------------------------
-    print("\n── Greedy evaluation (100 episodes each, ε=0) ────────────────")
+    csv_path = csv_path_for(EXP_ID, ALGO, DESCRIPTOR, REPO_ROOT, env=ENV_TAG)
+    init_qsum_csv(csv_path)
+    print(f"Writing convergence trace -> {csv_path}")
 
-    for i, name in enumerate(task_names):
-        mean_r, max_r = trainer.eval_agent(i, env_factories[i], n_eval_episodes=100)
-        print(f"  [{name:7s}]  mean_return={mean_r}, max_return={max_r}")
+    for seed in range(args.seed_start, args.seed_start + args.seed_nbr):
+        env_factories, rms, task_names = make_env_factories()
 
-    # ------------------------------------------------------------------
-    # 8. Display policies
-    # ------------------------------------------------------------------
-    print("\n── Policies ────────────────")
+        probe = env_factories[0]()
+        n_s = probe.observation_space.n
+        n_a = probe.action_space.n
+        if hasattr(probe, "close"):
+            probe.close()
 
-    # Print policies
-    for i, (name, agent) in enumerate(zip(task_names, trainer.agents)):
-        policy = agent.get_policy()
-        print(f"\n  [{name}] policy (u0 → greedy action per state):")
-        print(f"    {policy[agent.rm.u0]}")
+        agents = [
+            QRMAgent(rm, n_s, n_a,
+                     alpha=args.alpha, gamma=args.gamma, epsilon=args.epsilon,
+                     seed=seed)
+            for rm in rms
+        ]
+
+        trainer = MultiTaskQRMTrainer(
+            agents, env_factories, max_steps_per_episode=args.max_local_steps,
+        )
+
+        logger = make_qsum_logger(seed=seed, csv_path=csv_path, env_factories=env_factories)
+
+        print(f"\n[seed={seed}] Training QRM ({args.n_episodes} episodes) on tasks: {task_names}")
+        trainer.train(
+            n_episodes=args.n_episodes,
+            print_every=args.print_every,
+            convergence_callback=logger,
+            log_every=args.log_every_steps,
+        )
+        print(f"[seed={seed}] total_steps={trainer.total_steps}")
+
 
 if __name__ == "__main__":
-    test_qrm_pbst()
+    main()

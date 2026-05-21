@@ -204,7 +204,7 @@ class OfficeWorld(Env):
                 extended_configuration[i] = rm_configuration[current_rm]
                 current_rm += 1
         
-        rewards, new_configuration, rm_done = self._evaluate_rewards(s, extended_configuration, a) # TODO: problem with self.s ?
+        rewards, new_configuration, rm_done, _true_props = self._evaluate_rewards(s, extended_configuration, a) # TODO: problem with self.s ?
         return rewards, tuple(new_configuration)
     
     def get_reward_sources(self):

@@ -216,6 +216,7 @@ class PQL(MOAgent):
         num_eval_weights_for_eval: int = 50,
         log_every: Optional[int] = 100,
         action_eval: Optional[str] = "hypervolume",
+        convergence_callback: Optional[Callable] = None,
     ):
         """Learn the Pareto front.
 
@@ -239,6 +240,12 @@ class PQL(MOAgent):
             raise Exception("No other method implemented yet")
         if ref_point is None:
             ref_point = self.ref_point
+
+        import copy as _copy
+        callback_env = eval_env if eval_env is not None else self.env
+        if convergence_callback is not None and callback_env is self.env:
+            callback_env = _copy.deepcopy(self.env)
+        episode_idx = 0
         if self.log:
             self.additional_information = {
                     "total_timesteps": total_timesteps,
@@ -255,7 +262,7 @@ class PQL(MOAgent):
             }
 
         while self.global_step < total_timesteps:
-            
+            episode_idx += 1
             state, _ = self.env.reset()
             #state = int(np.ravel_multi_index(state, self.env_shape))
             terminated = False
@@ -284,7 +291,16 @@ class PQL(MOAgent):
                     self.terminal_states.append(next_state)
                     for a in range(self.num_actions):
                         self.non_dominated[next_state][a] = {tuple(np.zeros(self.num_objectives))}
-                
+
+                if convergence_callback is not None and self.global_step % log_every == 0:
+                    convergence_callback(
+                        agent=self,
+                        env=callback_env,
+                        initial_configuration=None,
+                        step=self.global_step,
+                        episode=episode_idx,
+                    )
+
             self.epsilon = linearly_decaying_value(
                 self.initial_epsilon,
                 self.epsilon_decay_steps,

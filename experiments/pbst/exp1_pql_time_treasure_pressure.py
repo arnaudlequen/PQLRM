@@ -1,99 +1,102 @@
-import numpy as np
-import os
+"""
+PBST exp1, PQL: time + treasure + pressure (v2).
 
+Writes one convergence trace per seed into
+dataviz/data/pbst_exp1/pql_time_treasure_pressure.csv (hypervolume + cardinality).
+"""
+
+import argparse
 from pathlib import Path
 import sys
 
-# Add parent directory to path for imports
-sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+import numpy as np
 
-from environments.pbst.pressurizedBountifulSeaTreasure import PBSTEnv, DiscreteObservationWrapper
-from environments.pbst.pbst_rm import PBSTEnv_rm
-from experiments.pbst.rm_pbst import build_pbst_rm_time, build_pbst_rm_treasure, build_pbst_rm_pressure, build_pbst_rm_pressure_v2, build_pbst_rm_pressure_v3
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(REPO_ROOT))
 
 from baselines.pql import PQL
-
-from tests.pbst.common import (
-    track_and_save_policies,
+from environments.pbst.pressurizedBountifulSeaTreasure import PBSTEnv
+from environments.pbst.pbst_rm import PBSTEnv_rm
+from experiments.pbst.rm_pbst import (
+    build_pbst_rm_time, build_pbst_rm_treasure, build_pbst_rm_pressure_v2,
+)
+from tests.pbst.common import track_and_save_policies
+from experiments.office_world.convergence_logging import (
+    init_hv_csv, make_hv_logger, csv_path_for,
 )
 
+
+EXP_ID = 1
+ALGO = "pql"
+DESCRIPTOR = "time_treasure_pressure"
+ENV_TAG = "pbst"
+
+
 def main():
-    # -- Build RMs --
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--seed-nbr", type=int, default=3)
+    parser.add_argument("--seed-start", type=int, default=1)
+    parser.add_argument("--total-steps", type=int, default=200_000)
+    parser.add_argument("--log-every", type=int, default=2_000)
+    parser.add_argument("--max-local-steps", type=int, default=300)
+    parser.add_argument("--save-policies", action="store_true")
+    args = parser.parse_args()
+
     env_ref = PBSTEnv(render_mode=None)
     rm_time = build_pbst_rm_time(time_penalty=1.0)
     rm_treasure = build_pbst_rm_treasure(env_ref._treasure)
     rm_pressure = build_pbst_rm_pressure_v2()
-    #rm_pressure = build_pbst_rm_pressure()
 
-    print(f"\n[RM_time]     {rm_time}")
+    print(f"[RM_time]     {rm_time}")
     print(f"[RM_treasure] {rm_treasure}")
     print(f"[RM_pressure] {rm_pressure}")
 
-    env_id = "pressurised-bountiful-sea-treasure"
-    filename = __file__.split(".")[0]
-
-    EPSILON_MAX = 1
-    EPSILON_STEPS = 200_000
-    EPSILON_MIN = 0.1
-    GAMMA = 0.999 # treasure rewards are too close
-    TRAINING_STEPS = 200_000
-    EPISODE_LENGTH = 300
-
-    # -- Logs --
-
     ref_point = np.array([-25, -1, -11])
+    csv_path = csv_path_for(EXP_ID, ALGO, DESCRIPTOR, REPO_ROOT, env=ENV_TAG)
+    init_hv_csv(csv_path)
+    print(f"Writing convergence trace -> {csv_path}")
 
-    log = True
-    if log:
-        outputPath = os.path.join("Results", env_id)
-        if not os.path.exists(outputPath):
-            os.makedirs(outputPath)
-        outputFile = os.path.join(outputPath, "result.txt")
-        with open(outputFile, 'w') as of:
-            line = "agent;run;step;hv;card\n"
-            of.write(line)
+    last_agent = last_env = last_pf = None
+    for seed in range(args.seed_start, args.seed_start + args.seed_nbr):
+        env = PBSTEnv_rm(render_mode=None, reward_sources=[rm_time, rm_treasure, rm_pressure])
 
-    # -- Training for each agent type (nbofruns times) --
+        agent = PQL(
+            env, ref_point,
+            gamma=0.999,
+            initial_epsilon=1.0,
+            epsilon_decay_steps=args.total_steps,
+            final_epsilon=0.1,
+            seed=seed,
+            output_file=None,
+            log=False,
+        )
 
+        logger = make_hv_logger(seed=seed, csv_path=csv_path, max_steps=args.max_local_steps)
 
-    env = PBSTEnv_rm(render_mode=None,
-                        reward_sources=[rm_time, rm_treasure, rm_pressure])
-    #env = DiscreteObservationWrapper(env)
-    agent = PQL(
-        env,
-        ref_point,
-        gamma=GAMMA,
-        initial_epsilon=EPSILON_MAX,
-        epsilon_decay_steps=EPSILON_STEPS,
-        final_epsilon=EPSILON_MIN,
-        seed=1,
-        output_file=outputFile,
-        log=log,
-    )
+        print(f"\n[seed={seed}] Training PQL for {args.total_steps} steps ...")
+        pf = agent.train(
+            total_timesteps=args.total_steps,
+            action_eval="pareto_cardinality",
+            ref_point=ref_point,
+            eval_env=env,
+            log_every=args.log_every,
+            max_local_steps=args.max_local_steps,
+            convergence_callback=logger,
+        )
+        print(f"[seed={seed}] |PF| = {len(pf)}")
+        last_agent, last_env, last_pf = agent, env, pf
 
-
-    pf = agent.train(total_timesteps=TRAINING_STEPS,
-                        action_eval="pareto_cardinality",
-                        ref_point=ref_point,
-                        eval_env=env,
-                        max_local_steps=EPISODE_LENGTH
-,
-                        log_every=2000)
-
-    print(f'Total of {len(pf)} policies')
-    output_file = filename + ".json"
-    track_and_save_policies(
-        agent,
-        env,
-        pf,
-        output_file=output_file,
-        map_shape="Default",
-        include_rewards=True,
-        reward_index=1,
-        max_steps=50
-    )
+    if args.save_policies and last_pf is not None:
+        out_json = Path(__file__).with_suffix(".json")
+        track_and_save_policies(
+            last_agent, last_env, last_pf,
+            output_file=str(out_json),
+            map_shape="Default",
+            include_rewards=True,
+            reward_index=1,
+            max_steps=50,
+        )
 
 
 if __name__ == "__main__":
     main()
-
