@@ -42,7 +42,7 @@ def main():
     # Order matches reward_sources=[no_hit, patrol].
     # no_hit reward range ~[-10, +1] (penalty -10 on decoration + 0.9 shaping);
     # patrol reward in [0, 40] (10 per A/B/C/D, only with !decoration).
-    ref_point = np.array([-15, -1])
+    ref_point = np.array([0, 0])
     csv_path = csv_path_for(EXP_ID, ALGO, DESCRIPTOR, REPO_ROOT)
     init_hv_csv(csv_path)
     print(f"Writing convergence trace -> {csv_path}")

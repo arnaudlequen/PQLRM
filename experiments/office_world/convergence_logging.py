@@ -70,16 +70,20 @@ def make_hv_logger(
                 rm_configuration=initial_configuration,
                 state=env.start_state_index,
             ))
-        cardinality = len(pcs)
-        hv = float(hypervolume(agent.ref_point, pcs)) if pcs else 0.0
 
         plan_lengths: list[int] = []
+        true_pcs = []
         for vec in pcs:
             try:
                 tracked = agent.track_policy(np.array(vec), env=env, max_steps=max_steps)
-                plan_lengths.append(len(tracked))
+                if len(tracked) < max_steps:
+                    plan_lengths.append(len(tracked))
+                    true_pcs.append(vec)
             except Exception:
                 plan_lengths.append(-1)
+
+        hv = float(hypervolume(agent.ref_point, true_pcs)) if pcs else 0.0
+        cardinality = len(true_pcs)
 
         with open(csv_path, "a") as f:
             f.write(
