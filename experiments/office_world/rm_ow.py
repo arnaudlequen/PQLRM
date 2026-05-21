@@ -8,6 +8,32 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from environments.reward_machines.reward_machine import RewardMachine,ConstantRewardFunction
 
+def _build_constant_rm(reward_value: float) -> RewardMachine:
+    """
+    Build a single-state RM that emits `reward_value` on every step and
+    never terminates.
+
+    Structure:
+        u0 --[True]--> u0   reward = reward_value   (self-loop forever)
+    """
+    rm = RewardMachine()
+    rm.set_initial_state(0)
+    rm.add_transition(0, 0, "True", ConstantRewardFunction(reward_value))
+    rm.finalize()
+    return rm
+
+def build_ow_rm_time(time_penalty: float = 1.0) -> RewardMachine:
+    """
+    RM_time for PBST: emits -time_penalty on every step, never terminates.
+
+    Propositions used: none (constant reward regardless of props).
+
+    States
+    ------
+    0  (initial, non-terminal, self-loop)
+    """
+    return _build_constant_rm(-time_penalty)
+
 def rm_get_coffee_no_hit_deco():
     # -- Create RewardMachine --
     rm = RewardMachine()

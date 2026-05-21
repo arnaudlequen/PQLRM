@@ -39,7 +39,7 @@ def main():
     args = parser.parse_args()
 
     env_map = "default_office"
-    ref_point = np.array([0, 0, 0])
+    ref_point = np.array([-1, 0, 0])
     csv_path = csv_path_for(EXP_ID, ALGO, DESCRIPTOR, REPO_ROOT)
     init_hv_csv(csv_path)
     print(f"Writing convergence trace -> {csv_path}")
