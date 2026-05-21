@@ -50,7 +50,7 @@ def main():
     print(f"[RM_treasure] {rm_treasure}")
     print(f"[RM_pressure] {rm_pressure}")
 
-    ref_point = np.array([-25, -1, -11])
+    ref_point = np.array([-25, 0, 0])
     csv_path = csv_path_for(EXP_ID, ALGO, DESCRIPTOR, REPO_ROOT, env=ENV_TAG)
     init_hv_csv(csv_path)
     print(f"Writing convergence trace -> {csv_path}")
